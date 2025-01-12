@@ -3718,7 +3718,7 @@ local function main(v:Instance)
 
                     local txt = "local args = "..args.."\n\n"
                     if getfenv().firesignal then
-                        txt = txt.."firesignal("..tostr(v)..", \"OnClientEvent\", unpack(args))"
+                        txt = txt.."firesignal("..tostr(v)..".OnClientEvent, unpack(args))"
                     else
                         txt = txt.."-- "..tostr(v)
                     end
