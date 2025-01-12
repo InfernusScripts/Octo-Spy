@@ -1,11 +1,11 @@
--- that thing is shitcoded, i won't reccoment reading that
+-- a bit less shitcode but still
 
-local Instance1 = Instance.new("ScreenGui", game.StarterGui) --OctoSpy
+local Instance1 = Instance.new("ScreenGui", game:GetService("TestService")) --OctoSpy
 Instance1.Enabled = true
 Instance1.SafeAreaCompatibility = Enum.SafeAreaCompatibility.FullscreenExtension
 Instance1.IgnoreGuiInset = true
 Instance1.ClipToDeviceSafeArea = true
-Instance1.DisplayOrder = 5
+Instance1.DisplayOrder = 999999999
 Instance1.Name = "OctoSpy"
 Instance1.ScreenInsets = Enum.ScreenInsets.DeviceSafeInsets
 
@@ -95,7 +95,7 @@ Instance6.Size = UDim2.new(0.30000001192092896, 0, 0.699999988079071, 0)
 Instance6.TextColor3 = Color3.new(1, 0.333333, 0.498039)
 Instance6.ClipsDescendants = false
 Instance6.BorderColor3 = Color3.new(0, 0, 0)
-Instance6.Text = "Octo~Spy | v1.0.0"
+Instance6.Text = "Octo~Spy | v1.0.1"
 Instance6.SelectionOrder = 0
 Instance6.BackgroundColor3 = Color3.new(1, 1, 1)
 Instance6.Rotation = 0
@@ -979,7 +979,7 @@ Instance39.MultiLine = true
 Instance39.AnchorPoint = Vector2.new(0, 0)
 Instance39.TextSize = 14
 Instance39.TextDirection = Enum.TextDirection.Auto
-Instance39.CursorPosition = -1
+Instance39.CursorPosition = 1
 Instance39.PlaceholderText = ""
 Instance39.ShowNativeInput = true
 Instance39.Selectable = true
@@ -3422,6 +3422,10 @@ local ArgToString; ArgToString = function(arg)
         return TableToString(arg)
     elseif type == "CFrame" or type == "Vector2" or type == "Vector3" or type == "Color3" or type == "UDim" or type == "UDim2" then
         return type..".new("..tostring(arg):gsub("{", ""):gsub("}", "")..")"
+    elseif type == "Color3" then
+        return "Color3.fromRGB("..tostring(arg)..")"
+    elseif type == "BrickColor" then
+        return "BrickColor.new(\""..arg.Name.."\")"
     elseif type == "Font" then
         return "Font.new(\""..arg.Family.."\", "..tostring(arg.Weight)..", "..tostring(arg.Style)..", "..tostring(arg.Bold).." --[[i'm not sure if \"Bold\" argument exist]])"
     elseif type == "ColorSequence" or type == "NumberSequence" then
@@ -3515,6 +3519,9 @@ if not pcall(function()
     end) then
     UI.Parent = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui", 9e9)
 end
+pcall(function()
+    UI.OnTopOfCoreBlur = true
+end)
 
 local function colorButton(btn, hover, hoverCol, downCol)
     if not hover then
@@ -3591,6 +3598,23 @@ if getfenv().hookfunction then
         hf = true
     end
 end
+local fs = 0
+if getfenv().firesignal then
+    local rem = Instance.new("RemoteEvent")
+    local f = false
+    rem.OnClientEvent:Connect(function(a)
+        f = a
+    end)
+    pcall(getfenv().firesignal, rem.OnClientEvent, true)
+    if f == true then
+        fs = 2
+    else
+        pcall(getfenv().firesignal, rem, "OnClientEvent", true)
+        if f == true then
+            fs = 1
+        end
+    end
+end
 
 cons[#cons+1] = topbar.MouseEnter:Connect(function()
     titleTween1:Play()
@@ -3618,10 +3642,10 @@ cons[#cons+1] = topbar.Close.MouseButton1Click:Connect(function()
     task.wait(1)
     UI:Destroy()
 end)
-cons[#cons+1] = topbar.Toggle.MouseButton1Click:Connect(function()
+local function updState1()
     local x = topbar.Toggle.State.ImageRectOffset.X == 32 and 48 or topbar.Toggle.State.ImageRectOffset.X == 48 and 112 or topbar.Toggle.State.ImageRectOffset.X == 112 and 32
 
-    if x == 32 and (not getfenv().hookmetamethod or not getfenv().getnamecallmethod) or not hf then
+    if x == 32 and (not getfenv().hookmetamethod or not getfenv().getnamecallmethod or not hf) then
         x = 48
     end
 
@@ -3631,9 +3655,9 @@ cons[#cons+1] = topbar.Toggle.MouseButton1Click:Connect(function()
     logs.From:TweenPosition(UDim2.new(x == 48 and 0 or -1, 0, 0, -3), Enum.EasingDirection.InOut, Enum.EasingStyle.Sine, 0.4, true)
     logs.To:TweenPosition(UDim2.new(x == 32 and 0 or -1, 0, 0, -3), Enum.EasingDirection.InOut, Enum.EasingStyle.Sine, 0.4, true)
     spyActive = x ~= 112
-    -- too lazy to make a boolean
-end)
-cons[#cons+1] = topbar.Toggle2.MouseButton1Click:Connect(function()
+    -- too lazy to make a variable
+end
+local function updState2()
     local x = topbar.Toggle2.State.ImageRectOffset.X == 112 and 208 or 112
     local y = 0
 
@@ -3641,7 +3665,12 @@ cons[#cons+1] = topbar.Toggle2.MouseButton1Click:Connect(function()
 
     logBindables = x == 208
     -- same here
-end)
+end
+cons[#cons+1] = topbar.Toggle.MouseButton1Click:Connect(updState1)
+cons[#cons+1] = topbar.Toggle2.MouseButton1Click:Connect(updState2)
+
+updState1()
+updState2()
 
 local offsetSize = logs.Size.X.Offset
 view.Scale["Draggable"] = true -- same
@@ -3655,39 +3684,43 @@ cons[#cons+1] = view.Scale.Changed:Connect(function()
 end)
 
 local sizeDiv = 6
+
+local function func(v, old, ...)
+    local args = tostr{...}
+    local n:string = v.Name
+    if #n >= math.floor(offsetSize/sizeDiv) then
+        n = n:sub(0, math.floor(offsetSize/sizeDiv)).."..."
+    end
+
+    local log = log:Clone()
+    log.Visible = true
+    log.Display.Type.BackgroundColor3 = v.ClassName == "RemoteFunction" and Color3.new(0.77, 0.44, 1) or Color3.new(0.33, 0.11, 0.66)
+    log.Display.RName.Text = n
+    log.Display.FromServer.Visible = true
+    log.Display.RName.TextColor3 = not block[v.Name] and not block[v] and Color3.new(1,1,1) or Color3.new(1, 0.5, 0.5)
+    local msg
+    if v.ClassName == "RemoteFunction" then
+        msg = "local args = "..args.."\n\ngetcallbackvalue("..tostr(v)..", \"OnClientInvoke\", unpack(args))"
+    else
+        msg = "local args = "..args.."\n\n"..tostr(v)..":Invoke(unpack(args)) -- OnInvoke"
+    end
+
+    local t = {log, "From", msg, nil, v}
+    table.insert(insertionQueue, t)
+
+    if not block[v.Name] and not block[v] then
+        local res = {old(...)}
+        t[4] = res
+
+        return unpack(res)
+    end
+end
 local function rf(v)
     local cbval = getfenv().getcallbackvalue(v, v.ClassName == "RemoteFunction" and "OnClientInvoke" or "OnInvoke")
     if cbval then
         local old; old = getfenv().hookfunction(cbval, function(...)
             if (v.ClassName == "BindableFunction" and logBindables or v.ClassName ~= "BindableFunction") and spyActive and not ignore[v.Name] and not ignore[v] then
-                local args = tostr{...}
-                local n:string = v.Name
-                if #n >= math.floor(offsetSize/sizeDiv) then
-                    n = n:sub(0, math.floor(offsetSize/sizeDiv)).."..."
-                end
-
-                local log = log:Clone()
-                log.Visible = true
-                log.Display.Type.BackgroundColor3 = v.ClassName == "RemoteFunction" and Color3.new(0.77, 0.44, 1) or Color3.new(0.33, 0.11, 0.66)
-                log.Display.RName.Text = n
-                log.Display.FromServer.Visible = true
-                log.Display.RName.TextColor3 = not block[v.Name] and not block[v] and Color3.new(1,1,1) or Color3.new(1, 0.5, 0.5)
-                local msg
-                if v.ClassName == "RemoteFunction" then
-                    msg = "local args = "..args.."\n\n-- "..tostr(v).." -- OnClientInvoke"
-                else
-                    msg = "local args = "..args.."\n\n"..tostr(v)..":Invoke(unpack(args)) -- OnInvoke"
-                end
-
-                local t = {log, "From", msg, nil, v}
-                table.insert(insertionQueue, t)
-
-                if not block[v.Name] and not block[v] then
-                    local res = {old(...)}
-                    t[4] = res
-
-                    return unpack(res)
-                end
+                return func(v, old, ...)
             end
 
             if block[v.Name] or block[v] then return end
@@ -3699,50 +3732,56 @@ local function rf(v)
     end
 end
 
+local function remoteEvent(v, ...)
+    if spyActive and not ignore[v.Name] and not ignore[v] then
+        local args = tostr{...}
+        local n = v.Name
+        if #n >= math.floor(offsetSize/sizeDiv) then
+            n = n:sub(0, math.floor(offsetSize/sizeDiv)).."..."
+        end
+
+        local log = log:Clone()
+        log.Visible = true
+        log.Display.Type.BackgroundColor3 = v:IsA("UnreliableRemoteEvent") and Color3.new(1, 0.66, 0) or Color3.new(1, 0.88, 0)
+        log.Display.RName.Text = n
+        log.Display.RName.TextColor3 = not block[v.Name] and not block[v] and Color3.new(1,1,1) or Color3.new(1, 0.5, 0.5)
+
+        local txt = "local args = "..args.."\n\n"
+        if fs ~= 0 then
+            txt = txt.."firesignal("..tostr(v) .. (fs == 2 and ", \"OnClientEvent\"" or ".OnClientEvent") .. ", unpack(args))"
+        else
+            txt = txt.."-- "..tostr(v)
+        end
+        table.insert(insertionQueue, {log, "From", txt.." -- OnClientEvent", nil, v})
+    end
+end
+local function bindableEvent(v, ...)
+    if spyActive and logBindables and not ignore[v.Name] and not ignore[v] then
+        local args = tostr{...}
+        local n = v.Name
+        if #n >= math.floor(offsetSize/sizeDiv) then
+            n = n:sub(0, math.floor(offsetSize/sizeDiv)).."..."
+        end
+
+        local log = log:Clone()
+        log.Visible = true
+        log.Display.Type.BackgroundColor3 = Color3.new(1, 0.7, 0.3)
+        log.Display.RName.Text = n
+        log.Display.FromServer.Visible = true
+        log.Display.RName.TextColor3 = not block[v.Name] and not block[v] and Color3.new(1,1,1) or Color3.new(1, 0.5, 0.5)
+
+        table.insert(insertionQueue, {log, "From", "local args = "..args.."\n\n"..tostr(v)..":Fire(unpack(args)) -- Event", nil, v})
+    end
+end
 local function main(v:Instance)
     if typeof(v) == "Instance" then
         if v.ClassName == "RemoteEvent" or v:IsA("UnreliableRemoteEvent") then
             cons[#cons+1] = v.OnClientEvent:Connect(function(...)
-                if spyActive and not ignore[v.Name] and not ignore[v] then
-                    local args = tostr{...}
-                    local n = v.Name
-                    if #n >= math.floor(offsetSize/sizeDiv) then
-                        n = n:sub(0, math.floor(offsetSize/sizeDiv)).."..."
-                    end
-
-                    local log = log:Clone()
-                    log.Visible = true
-                    log.Display.Type.BackgroundColor3 = v:IsA("UnreliableRemoteEvent") and Color3.new(1, 0.66, 0) or Color3.new(1, 0.88, 0)
-                    log.Display.RName.Text = n
-                    log.Display.RName.TextColor3 = not block[v.Name] and not block[v] and Color3.new(1,1,1) or Color3.new(1, 0.5, 0.5)
-
-                    local txt = "local args = "..args.."\n\n"
-                    if getfenv().firesignal then
-                        txt = txt.."firesignal("..tostr(v)..", \"OnClientEvent\", unpack(args))"
-                    else
-                        txt = txt.."-- "..tostr(v)
-                    end
-                    table.insert(insertionQueue, {log, "From", txt.." -- OnClientEvent", nil, v})
-                end
+                remoteEvent(v, ...)
             end)
         elseif v.ClassName == "BindableEvent" then
             cons[#cons+1] = v.Event:Connect(function(...)
-                if spyActive and logBindables and not ignore[v.Name] and not ignore[v] then
-                    local args = tostr{...}
-                    local n = v.Name
-                    if #n >= math.floor(offsetSize/sizeDiv) then
-                        n = n:sub(0, math.floor(offsetSize/sizeDiv)).."..."
-                    end
-
-                    local log = log:Clone()
-                    log.Visible = true
-                    log.Display.Type.BackgroundColor3 = Color3.new(1, 0.7, 0.3)
-                    log.Display.RName.Text = n
-                    log.Display.FromServer.Visible = true
-                    log.Display.RName.TextColor3 = not block[v.Name] and not block[v] and Color3.new(1,1,1) or Color3.new(1, 0.5, 0.5)
-
-                    table.insert(insertionQueue, {log, "From", "local args = "..args.."\n\n"..tostr(v)..":Fire(unpack(args)) -- Event", nil, v})
-                end
+                bindableEvent(v, ...)
             end)
         elseif v.ClassName == "RemoteFunction" or v.ClassName == "BindableFunction" then
             if getfenv().getcallbackvalue and hf then
@@ -3761,11 +3800,17 @@ obj:Destroy()
 local obj = Instance.new("RemoteFunction")
 local invokeServer = obj.InvokeServer
 obj:Destroy()
+local obj = Instance.new("BindableEvent")
+local fire = obj.Fire
+obj:Destroy()
+local obj = Instance.new("BindableFunction")
+local invoke = obj.Invoke
+obj:Destroy()
 
 if hf then
     local old; old = getfenv().hookfunction(fireServer, function(self, ...)
-        if typeof(self) ~= "Instance" then
-            error("Expected ':' not '.' calling member function FireServer", 0)
+        if typeof(self) ~= "Instance" or self.ClassName ~= "RemoteEvent" then
+            return old(self, ...)
         end
         if not spyActive then
             return not block[self] and not block[self.Name] and old(self, ...)
@@ -3794,8 +3839,8 @@ if hf then
         getfenv().hookfunction(fireServer, old)
     end
     local old; old = getfenv().hookfunction(fireServer2, function(self, ...)
-        if typeof(self) ~= "Instance" then
-            error("Expected ':' not '.' calling member function FireServer", 0)
+        if typeof(self) ~= "Instance" or self.ClassName ~= "UnreliableRemoteEvent" then
+            return old(self, ...)
         end
         if not spyActive then
             return not block[self] and not block[self.Name] and old(self, ...)
@@ -3824,8 +3869,8 @@ if hf then
         getfenv().hookfunction(fireServer2, old)
     end
     local old; old = getfenv().hookfunction(invokeServer, function(self, ...)
-        if typeof(self) ~= "Instance" then
-            error("Expected ':' not '.' calling member function FireServer", 0)
+        if typeof(self) ~= "Instance" or self.ClassName ~= "RemoteFunction" then
+            return old(self, ...)
         end
         if not spyActive then
             return not block[self] and not block[self.Name] and old(self, ...)
@@ -3860,6 +3905,28 @@ if hf then
     hooks[#hooks+1] = function()
         getfenv().hookfunction(invokeServer, old)
     end
+    if getfenv().hookmetamethod and getfenv().getnamecallmethod then
+        local old; old = getfenv().hookfunction(fire, function(self, ...)
+            if typeof(self) ~= "Instance" or self.ClassName ~= "BindableEvent" then
+                return old(self, ...)
+            end
+            bindableEvent(self, ...)
+            if block[self.Name] or block[self] then return end
+            return old(self, ...)
+        end)
+        hooks[#hooks+1] = function()
+            getfenv().hookfunction(fire, old)
+        end
+        local old; old = getfenv().hookfunction(invoke, function(self, ...)
+            if typeof(self) ~= "Instance" or self.ClassName ~= "BindableFunction" then
+                return old(self, ...)
+            end
+            return func(self, old, ...)
+        end)
+        hooks[#hooks+1] = function()
+            getfenv().hookfunction(invoke, old)
+        end
+    end
 end
 
 if getfenv().hookmetamethod and getfenv().getnamecallmethod and hf then
@@ -3880,6 +3947,10 @@ if getfenv().hookmetamethod and getfenv().getnamecallmethod and hf then
             return fireServer2(self, ...)
         elseif (method == "invokeServer" or method == "InvokeServer") and self.ClassName == "RemoteFunction" then
             return invokeServer(self, ...)
+        elseif (method == "fire" or method == "Fire") and self.ClassName == "BindableEvent" then
+            return fire(self, ...)
+        elseif (method == "invoke" or method == "Invoke") and self.ClassName == "BindableFunction" then
+            return invoke(self, ...)
         end
 
         return old(self, ...)
@@ -3889,6 +3960,7 @@ if getfenv().hookmetamethod and getfenv().getnamecallmethod and hf then
     end
 end
 
+if not getfenv().hookmetamethod or not getfenv().hookfunction or not getfenv().getnamecallmethod then
 local GetDsc
 local function onIterate(c,v) -- doing a separate function to use less memory
     v.Name = v.Name
@@ -3898,7 +3970,7 @@ end
 function GetDsc(obj, ct)
     local c = ct or {}
     for i,v in obj:GetChildren() do
-        pcall(onIterate,c,v) -- pcall, cuz yk, roblox broke getdescendants
+        pcall(onIterate,c,v)
     end
     return c
 end
@@ -3910,6 +3982,7 @@ end
 
 for i,v in GetDescendants() do
     main(v)
+end
 end
 local id = 0
 
@@ -4016,6 +4089,9 @@ cons[#cons+1] = addButton("Block remote").MouseButton1Click:Connect(function()
         return notification("Please, select a remote first!")
     end
 
+    if (selected[3]:IsA("BindableEvent") or selected[3]:IsA("BindableFunction")) and (not getfenv().hookfunction or not getfenv().hookmetamethod or not getfenv().getnamecallmethod) then
+        return notification("Unable to hook the bindable: missing hookfunction / hookmetamethod / getnamecallmethod")
+    end
     block[selected[5]] = true
 end)
 cons[#cons+1] = addButton("Unblock remote").MouseButton1Click:Connect(function()
