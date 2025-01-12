@@ -3748,7 +3748,7 @@ local function remoteEvent(v, ...)
 
         local txt = "local args = "..args.."\n\n"
         if fs ~= 0 then
-            txt = txt.."firesignal("..tostr(v) .. (fs == 2 and ", \"OnClientEvent\"" or ".OnClientEvent") .. ", unpack(args))"
+            txt = txt.."firesignal("..tostr(v) .. (fs == 1 and ", \"OnClientEvent\"" or ".OnClientEvent") .. ", unpack(args))"
         else
             txt = txt.."-- "..tostr(v)
         end
