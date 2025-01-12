@@ -1,6 +1,4 @@
--- a bit less shitcode but still
-
-local Instance1 = Instance.new("ScreenGui", game:GetService("TestService")) --OctoSpy
+local Instance1 = Instance.new("ScreenGui", game.StarterGui) --OctoSpy
 Instance1.Enabled = true
 Instance1.SafeAreaCompatibility = Enum.SafeAreaCompatibility.FullscreenExtension
 Instance1.IgnoreGuiInset = true
@@ -3700,7 +3698,7 @@ local function func(v, old, ...)
     log.Display.RName.TextColor3 = not block[v.Name] and not block[v] and Color3.new(1,1,1) or Color3.new(1, 0.5, 0.5)
     local msg
     if v.ClassName == "RemoteFunction" then
-        msg = "local args = "..args.."\n\ngetcallbackvalue("..tostr(v)..", \"OnClientInvoke\", unpack(args))"
+        msg = "local args = "..args.."\n\ngetcallbackvalue("..tostr(v)..", \"OnClientInvoke\", unpack(args)) -- OnClientInvoke"
     else
         msg = "local args = "..args.."\n\n"..tostr(v)..":Invoke(unpack(args)) -- OnInvoke"
     end
