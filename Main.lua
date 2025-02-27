@@ -4827,9 +4827,9 @@ local function enumerate(list)
     enums += 1
 end
 
---task.spawn(enumerate, game:GetDescendants())
-task.spawn(enumerate, getfenv().getinstances and getfenv().getinstances() or game:GetDescendants())
-task.spawn(enumerate, getfenv().getnilinstances and getfenv().getnilinstances() or {})
+task.spawn(enumerate, game:GetDescendants())
+--task.spawn(enumerate, getfenv().getinstances and getfenv().getinstances() or game:GetDescendants())
+--task.spawn(enumerate, getfenv().getnilinstances and getfenv().getnilinstances() or {})
 
 cons[#cons+1] = game.DescendantAdded:Connect(main)
 
