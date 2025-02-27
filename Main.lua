@@ -1,1343 +1,2207 @@
-local Instance1 = Instance.new("ScreenGui", game.StarterGui) --OctoSpy
-Instance1.Enabled = true
-Instance1.SafeAreaCompatibility = Enum.SafeAreaCompatibility.FullscreenExtension
-Instance1.IgnoreGuiInset = true
-Instance1.ClipToDeviceSafeArea = true
-Instance1.DisplayOrder = 999999999
-Instance1.Name = "OctoSpy"
-Instance1.ScreenInsets = Enum.ScreenInsets.DeviceSafeInsets
+-- [[ GENERATED WITH InfernoHub/Scriptify STUDIO PLUGIN ]] --
+-- Scriptify Version: 1.0
 
-local Instance2 = Instance.new("LocalScript", Instance1) --Main
-Instance2.Enabled = true
-Instance2.Name = "Main"
+--
 
-local Instance3 = Instance.new("ModuleScript", Instance2) --CodeBox
-Instance3.Name = "CodeBox"
+-- Create objects
+local parent = nil;
+local objects = {
+    ["Instance0"] = Instance.new("ScreenGui"); -- OctoSpy
+    ["Instance1"] = Instance.new("LocalScript"); -- Main
+    ["Instance2"] = Instance.new("ModuleScript"); -- CodeBox
+    ["Instance3"] = Instance.new("TextButton"); -- Window
+    ["Instance4"] = Instance.new("TextLabel"); -- Title
+    ["Instance5"] = Instance.new("TextButton"); -- Close
+    ["Instance6"] = Instance.new("TextButton"); -- Toggle
+    ["Instance7"] = Instance.new("ImageLabel"); -- State
+    ["Instance8"] = Instance.new("Frame"); -- WindowView
+    ["Instance9"] = Instance.new("Frame"); -- Shadow
+    ["Instance10"] = Instance.new("Folder"); -- Stroke
+    ["Instance11"] = Instance.new("Frame"); -- Left
+    ["Instance12"] = Instance.new("Frame"); -- Right
+    ["Instance13"] = Instance.new("Frame"); -- Bottom
+    ["Instance14"] = Instance.new("Frame"); -- Logs
+    ["Instance15"] = Instance.new("ScrollingFrame"); -- To
+    ["Instance16"] = Instance.new("UIListLayout"); -- UIListLayout
+    ["Instance17"] = Instance.new("ScrollingFrame"); -- From
+    ["Instance18"] = Instance.new("UIListLayout"); -- UIListLayout
+    ["Instance19"] = Instance.new("TextButton"); -- Log
+    ["Instance20"] = Instance.new("Frame"); -- Display
+    ["Instance21"] = Instance.new("Frame"); -- Type
+    ["Instance22"] = Instance.new("UIStroke"); -- UIStroke
+    ["Instance23"] = Instance.new("TextLabel"); -- RName
+    ["Instance24"] = Instance.new("Frame"); -- Selection
+    ["Instance25"] = Instance.new("Frame"); -- FromServer
+    ["Instance26"] = Instance.new("TextButton"); -- Scale
+    ["Instance27"] = Instance.new("Frame"); -- ContentView
+    ["Instance28"] = Instance.new("ScrollingFrame"); -- ScrollingFrame
+    ["Instance29"] = Instance.new("UIGridLayout"); -- UIGridLayout
+    ["Instance30"] = Instance.new("Frame"); -- ButtonRow
+    ["Instance31"] = Instance.new("Frame"); -- Display
+    ["Instance32"] = Instance.new("UIStroke"); -- UIStroke
+    ["Instance33"] = Instance.new("Frame"); -- Type_BUTTON
+    ["Instance34"] = Instance.new("TextLabel"); -- RName
+    ["Instance35"] = Instance.new("TextButton"); -- Button
+    ["Instance36"] = Instance.new("Frame"); -- Shadow
+    ["Instance37"] = Instance.new("TextBox"); -- CodeBox
+    ["Instance38"] = Instance.new("UIStroke"); -- UIStroke
+    ["Instance39"] = Instance.new("TextButton"); -- Toggle2
+    ["Instance40"] = Instance.new("ImageLabel"); -- Picture
+    ["Instance41"] = Instance.new("ImageLabel"); -- State
+    ["Instance42"] = Instance.new("TextButton"); -- Help
+    ["Instance43"] = Instance.new("ImageLabel"); -- Picture
+    ["Instance44"] = Instance.new("Frame"); -- Notifications
+    ["Instance45"] = Instance.new("Frame"); -- NotificationBase
+    ["Instance46"] = Instance.new("Frame"); -- Display
+    ["Instance47"] = Instance.new("UIStroke"); -- UIStroke
+    ["Instance48"] = Instance.new("Frame"); -- Bar
+    ["Instance49"] = Instance.new("Frame"); -- Frame
+    ["Instance50"] = Instance.new("TextLabel"); -- Title
+    ["Instance51"] = Instance.new("UIPadding"); -- UIPadding
+    ["Instance52"] = Instance.new("TextLabel"); -- Content
+    ["Instance53"] = Instance.new("UIListLayout"); -- UIListLayout
+    ["Instance54"] = Instance.new("Frame"); -- PCNotification
+    ["Instance55"] = Instance.new("UIStroke"); -- UIStroke
+    ["Instance56"] = Instance.new("TextLabel"); -- Title
+    ["Instance57"] = Instance.new("Frame"); -- Load
+    ["Instance58"] = Instance.new("Frame"); -- Display
+    ["Instance59"] = Instance.new("UIStroke"); -- UIStroke
+    ["Instance60"] = Instance.new("Frame"); -- Type_BUTTON
+    ["Instance61"] = Instance.new("TextLabel"); -- RName
+    ["Instance62"] = Instance.new("TextButton"); -- Button
+    ["Instance63"] = Instance.new("Frame"); -- Exit
+    ["Instance64"] = Instance.new("Frame"); -- Display
+    ["Instance65"] = Instance.new("UIStroke"); -- UIStroke
+    ["Instance66"] = Instance.new("Frame"); -- Type_BUTTON
+    ["Instance67"] = Instance.new("TextLabel"); -- RName
+    ["Instance68"] = Instance.new("TextButton"); -- Button
+    ["Instance69"] = Instance.new("TextLabel"); -- Text
+    ["Instance70"] = Instance.new("Frame"); -- LoadSoft
+    ["Instance71"] = Instance.new("Frame"); -- Display
+    ["Instance72"] = Instance.new("UIStroke"); -- UIStroke
+    ["Instance73"] = Instance.new("Frame"); -- Type_BUTTON
+    ["Instance74"] = Instance.new("TextLabel"); -- RName
+    ["Instance75"] = Instance.new("TextLabel"); -- Description
+    ["Instance76"] = Instance.new("TextButton"); -- Button
+};
 
-local Instance4 = Instance.new("ModuleScript", Instance2) --ArgToString
-Instance4.Name = "ArgToString"
+do -- Set properties
+    objects["Instance0"]["Enabled"] = true;
+    objects["Instance0"]["ScreenInsets"] = Enum.ScreenInsets.DeviceSafeInsets;
+    objects["Instance0"]["SafeAreaCompatibility"] = Enum.SafeAreaCompatibility.FullscreenExtension;
+    objects["Instance0"]["ClipToDeviceSafeArea"] = true;
+    objects["Instance0"]["Parent"] = parent;
+    objects["Instance0"]["IgnoreGuiInset"] = true;
+    objects["Instance0"]["Name"] = "OctoSpy";
+    objects["Instance0"]["DisplayOrder"] = 999999999;
 
-local Instance5 = Instance.new("TextButton", Instance1) --Window
-Instance5.LayoutOrder = 0
-Instance5.TextWrapped = false
-Instance5.LineHeight = 1
-Instance5.Active = true
-Instance5.TextStrokeTransparency = 1
-Instance5.TextTruncate = Enum.TextTruncate.None
-Instance5.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance5.ZIndex = -9
-Instance5.TextWrap = false
-Instance5.Draggable = false
-Instance5.RichText = false
-Instance5.Modal = false
-Instance5.SelectionOrder = 0
-Instance5.Selectable = true
-Instance5.AutoButtonColor = false
-Instance5.TextXAlignment = Enum.TextXAlignment.Center
-Instance5.Name = "Window"
-Instance5.TextYAlignment = Enum.TextYAlignment.Center
-Instance5.TextScaled = false
-Instance5.TextDirection = Enum.TextDirection.Auto
-Instance5.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false)
-Instance5.Visible = true
-Instance5.BorderMode = Enum.BorderMode.Outline
-Instance5.TextTransparency = 0
-Instance5.FontSize = Enum.FontSize.Size14
-Instance5.TextStrokeColor3 = Color3.new(0, 0, 0)
-Instance5.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.254902)
-Instance5.AnchorPoint = Vector2.new(0.5, 0.5)
-Instance5.TextSize = 14
-Instance5.TextColor3 = Color3.new(0, 0, 0)
-Instance5.Selected = false
-Instance5.AutomaticSize = Enum.AutomaticSize.None
-Instance5.Size = UDim2.new(0, 500, 0, 23)
-Instance5.ClipsDescendants = false
-Instance5.BorderColor3 = Color3.new(0, 0, 0)
-Instance5.Text = ""
-Instance5.BorderSizePixel = 0
-Instance5.Rotation = 0
-Instance5.BackgroundTransparency = 0
-Instance5.MaxVisibleGraphemes = -1
-Instance5.Position = UDim2.new(0.5, 0, 0.5, -113)
-Instance5.Style = Enum.ButtonStyle.Custom
+    objects["Instance1"]["Parent"] = objects["Instance0"];
+    objects["Instance1"]["Name"] = "Main";
+    objects["Instance1"]["Enabled"] = true;
 
-local Instance6 = Instance.new("TextLabel", Instance5) --Title
-Instance6.LayoutOrder = 0
-Instance6.TextWrapped = true
-Instance6.LineHeight = 1
-Instance6.Active = false
-Instance6.TextStrokeTransparency = 0
-Instance6.TextTruncate = Enum.TextTruncate.None
-Instance6.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance6.ZIndex = -8
-Instance6.BorderSizePixel = 0
-Instance6.Draggable = false
-Instance6.RichText = false
-Instance6.TextWrap = true
-Instance6.TextTransparency = 0
-Instance6.TextYAlignment = Enum.TextYAlignment.Center
-Instance6.TextScaled = true
-Instance6.TextXAlignment = Enum.TextXAlignment.Left
-Instance6.FontFace = Font.new("rbxasset://fonts/families/PatrickHand.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false)
-Instance6.Name = "Title"
-Instance6.BorderMode = Enum.BorderMode.Outline
-Instance6.Selectable = false
-Instance6.TextDirection = Enum.TextDirection.Auto
-Instance6.Visible = true
-Instance6.FontSize = Enum.FontSize.Size14
-Instance6.AnchorPoint = Vector2.new(0, 0.5)
-Instance6.TextStrokeColor3 = Color3.new(0.215686, 0.215686, 0.254902)
-Instance6.TextSize = 14
-Instance6.AutomaticSize = Enum.AutomaticSize.None
-Instance6.Size = UDim2.new(0.30000001192092896, 0, 0.699999988079071, 0)
-Instance6.TextColor3 = Color3.new(1, 0.333333, 0.498039)
-Instance6.ClipsDescendants = false
-Instance6.BorderColor3 = Color3.new(0, 0, 0)
-Instance6.Text = "Octo~Spy | v1.0.1"
-Instance6.SelectionOrder = 0
-Instance6.BackgroundColor3 = Color3.new(1, 1, 1)
-Instance6.Rotation = 0
-Instance6.BackgroundTransparency = 1
-Instance6.Position = UDim2.new(0.019999999552965164, 0, 0.5, 0)
-Instance6.MaxVisibleGraphemes = -1
+    objects["Instance2"]["Parent"] = objects["Instance1"];
+    objects["Instance2"]["Name"] = "CodeBox";
 
-local Instance7 = Instance.new("TextButton", Instance5) --Close
-Instance7.LayoutOrder = 0
-Instance7.TextWrapped = false
-Instance7.LineHeight = 1
-Instance7.Active = true
-Instance7.TextStrokeTransparency = 1
-Instance7.TextTruncate = Enum.TextTruncate.None
-Instance7.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance7.ZIndex = -8
-Instance7.TextWrap = false
-Instance7.Draggable = false
-Instance7.RichText = false
-Instance7.Modal = false
-Instance7.SelectionOrder = 0
-Instance7.Selectable = true
-Instance7.AutoButtonColor = true
-Instance7.TextXAlignment = Enum.TextXAlignment.Center
-Instance7.Name = "Close"
-Instance7.TextYAlignment = Enum.TextYAlignment.Center
-Instance7.TextScaled = false
-Instance7.TextDirection = Enum.TextDirection.Auto
-Instance7.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false)
-Instance7.Visible = true
-Instance7.BorderMode = Enum.BorderMode.Outline
-Instance7.TextTransparency = 0
-Instance7.FontSize = Enum.FontSize.Size14
-Instance7.TextStrokeColor3 = Color3.new(0, 0, 0)
-Instance7.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.254902)
-Instance7.AnchorPoint = Vector2.new(0, 0)
-Instance7.TextSize = 14
-Instance7.TextColor3 = Color3.new(1, 1, 1)
-Instance7.Selected = false
-Instance7.AutomaticSize = Enum.AutomaticSize.None
-Instance7.Size = UDim2.new(0, 23, 0, 23)
-Instance7.ClipsDescendants = false
-Instance7.BorderColor3 = Color3.new(0, 0, 0)
-Instance7.Text = "X"
-Instance7.BorderSizePixel = 0
-Instance7.Rotation = 0
-Instance7.BackgroundTransparency = 0
-Instance7.MaxVisibleGraphemes = -1
-Instance7.Position = UDim2.new(1, -23, 0, 0)
-Instance7.Style = Enum.ButtonStyle.Custom
+    objects["Instance3"]["Visible"] = false;
+    objects["Instance3"]["FontSize"] = Enum.FontSize.Size14;
+    objects["Instance3"]["TextDirection"] = Enum.TextDirection.Auto;
+    objects["Instance3"]["Active"] = true;
+    objects["Instance3"]["TextStrokeTransparency"] = 1;
+    objects["Instance3"]["TextTruncate"] = Enum.TextTruncate.None;
+    objects["Instance3"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance3"]["ZIndex"] = -9;
+    objects["Instance3"]["BorderSizePixel"] = 0;
+    objects["Instance3"]["Draggable"] = false;
+    objects["Instance3"]["RichText"] = false;
+    objects["Instance3"]["Modal"] = false;
+    objects["Instance3"]["AutoButtonColor"] = false;
+    objects["Instance3"]["Transparency"] = 0;
+    objects["Instance3"]["SelectionOrder"] = 0;
+    objects["Instance3"]["TextYAlignment"] = Enum.TextYAlignment.Center;
+    objects["Instance3"]["TextScaled"] = false;
+    objects["Instance3"]["TextWrap"] = false;
+    objects["Instance3"]["FontFace"] = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false);
+    objects["Instance3"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance3"]["Parent"] = objects["Instance0"];
+    objects["Instance3"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+    objects["Instance3"]["Style"] = Enum.ButtonStyle.Custom;
+    objects["Instance3"]["Position"] = UDim2.new(0.5, 0, 0.5, -113);
+    objects["Instance3"]["BackgroundColor3"] = Color3.new(0.176471, 0.176471, 0.254902);
+    objects["Instance3"]["Selected"] = false;
+    objects["Instance3"]["TextSize"] = 14;
+    objects["Instance3"]["Size"] = UDim2.new(0, 500, 0, 23);
+    objects["Instance3"]["BackgroundTransparency"] = 0;
+    objects["Instance3"]["TextWrapped"] = false;
+    objects["Instance3"]["ClipsDescendants"] = false;
+    objects["Instance3"]["TextColor3"] = Color3.new(0, 0, 0);
+    objects["Instance3"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance3"]["Text"] = "";
+    objects["Instance3"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance3"]["LayoutOrder"] = 0;
+    objects["Instance3"]["Rotation"] = 0;
+    objects["Instance3"]["LineHeight"] = 1;
+    objects["Instance3"]["Name"] = "Window";
+    objects["Instance3"]["TextXAlignment"] = Enum.TextXAlignment.Center;
+    objects["Instance3"]["Selectable"] = true;
+    objects["Instance3"]["MaxVisibleGraphemes"] = -1;
+    objects["Instance3"]["TextStrokeColor3"] = Color3.new(0, 0, 0);
+    objects["Instance3"]["TextTransparency"] = 0;
 
-local Instance8 = Instance.new("TextButton", Instance5) --Toggle
-Instance8.LayoutOrder = 0
-Instance8.TextWrapped = false
-Instance8.LineHeight = 1
-Instance8.Active = true
-Instance8.TextStrokeTransparency = 1
-Instance8.TextTruncate = Enum.TextTruncate.None
-Instance8.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance8.ZIndex = -8
-Instance8.TextWrap = false
-Instance8.Draggable = false
-Instance8.RichText = false
-Instance8.Modal = false
-Instance8.SelectionOrder = 0
-Instance8.Selectable = true
-Instance8.AutoButtonColor = true
-Instance8.TextXAlignment = Enum.TextXAlignment.Center
-Instance8.Name = "Toggle"
-Instance8.TextYAlignment = Enum.TextYAlignment.Center
-Instance8.TextScaled = false
-Instance8.TextDirection = Enum.TextDirection.Auto
-Instance8.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false)
-Instance8.Visible = true
-Instance8.BorderMode = Enum.BorderMode.Outline
-Instance8.TextTransparency = 0
-Instance8.FontSize = Enum.FontSize.Size14
-Instance8.TextStrokeColor3 = Color3.new(0, 0, 0)
-Instance8.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.254902)
-Instance8.AnchorPoint = Vector2.new(0, 0)
-Instance8.TextSize = 14
-Instance8.TextColor3 = Color3.new(1, 1, 1)
-Instance8.Selected = false
-Instance8.AutomaticSize = Enum.AutomaticSize.None
-Instance8.Size = UDim2.new(0, 23, 0, 23)
-Instance8.ClipsDescendants = false
-Instance8.BorderColor3 = Color3.new(0, 0, 0)
-Instance8.Text = ""
-Instance8.BorderSizePixel = 0
-Instance8.Rotation = 0
-Instance8.BackgroundTransparency = 0
-Instance8.MaxVisibleGraphemes = -1
-Instance8.Position = UDim2.new(1, -46, 0, 0)
-Instance8.Style = Enum.ButtonStyle.Custom
+    objects["Instance4"]["Visible"] = true;
+    objects["Instance4"]["FontSize"] = Enum.FontSize.Size14;
+    objects["Instance4"]["TextDirection"] = Enum.TextDirection.Auto;
+    objects["Instance4"]["Active"] = false;
+    objects["Instance4"]["TextStrokeTransparency"] = 0;
+    objects["Instance4"]["TextTruncate"] = Enum.TextTruncate.None;
+    objects["Instance4"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance4"]["ZIndex"] = -8;
+    objects["Instance4"]["BorderSizePixel"] = 0;
+    objects["Instance4"]["Draggable"] = false;
+    objects["Instance4"]["RichText"] = false;
+    objects["Instance4"]["Transparency"] = 1;
+    objects["Instance4"]["SelectionOrder"] = 0;
+    objects["Instance4"]["TextYAlignment"] = Enum.TextYAlignment.Center;
+    objects["Instance4"]["TextScaled"] = true;
+    objects["Instance4"]["TextWrap"] = true;
+    objects["Instance4"]["FontFace"] = Font.new("rbxasset://fonts/families/PatrickHand.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false);
+    objects["Instance4"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance4"]["Parent"] = objects["Instance3"];
+    objects["Instance4"]["AnchorPoint"] = Vector2.new(0, 0.5);
+    objects["Instance4"]["TextSize"] = 14;
+    objects["Instance4"]["Position"] = UDim2.new(0.019999999552965164, 0, 0.5, 0);
+    objects["Instance4"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance4"]["Size"] = UDim2.new(0.30000001192092896, 0, 0.699999988079071, 0);
+    objects["Instance4"]["BackgroundTransparency"] = 1;
+    objects["Instance4"]["LineHeight"] = 1;
+    objects["Instance4"]["BackgroundColor3"] = Color3.new(1, 1, 1);
+    objects["Instance4"]["TextColor3"] = Color3.new(1, 0.333333, 0.498039);
+    objects["Instance4"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance4"]["Text"] = "Octo~Spy | v1.0.2";
+    objects["Instance4"]["LayoutOrder"] = 0;
+    objects["Instance4"]["TextWrapped"] = true;
+    objects["Instance4"]["Rotation"] = 0;
+    objects["Instance4"]["TextTransparency"] = 0;
+    objects["Instance4"]["Name"] = "Title";
+    objects["Instance4"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+    objects["Instance4"]["ClipsDescendants"] = false;
+    objects["Instance4"]["MaxVisibleGraphemes"] = -1;
+    objects["Instance4"]["TextStrokeColor3"] = Color3.new(0.215686, 0.215686, 0.254902);
+    objects["Instance4"]["Selectable"] = false;
 
-local Instance9 = Instance.new("ImageLabel", Instance8) --State
-Instance9.Visible = true
-Instance9.Active = false
-Instance9.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance9.ZIndex = -7
-Instance9.BorderSizePixel = 0
-Instance9.SliceCenter = Rect.new(0, 0, 0, 0)
-Instance9.Draggable = false
-Instance9.ScaleType = Enum.ScaleType.Stretch
-Instance9.BackgroundColor3 = Color3.new(1, 1, 1)
-Instance9.ImageTransparency = 0
-Instance9.AnchorPoint = Vector2.new(0.5, 0.5)
-Instance9.Image = "rbxassetid://6511490623"
-Instance9.TileSize = UDim2.new(1, 0, 1, 0)
-Instance9.ImageRectSize = Vector2.new(16, 16)
-Instance9.SelectionOrder = 0
-Instance9.Selectable = false
-Instance9.Size = UDim2.new(0.800000011920929, 0, 0.800000011920929, 0)
-Instance9.Name = "State"
-Instance9.ResampleMode = Enum.ResamplerMode.Default
-Instance9.ClipsDescendants = false
-Instance9.BorderColor3 = Color3.new(0, 0, 0)
-Instance9.ImageColor3 = Color3.new(1, 1, 1)
-Instance9.LayoutOrder = 0
-Instance9.BorderMode = Enum.BorderMode.Outline
-Instance9.Rotation = 0
-Instance9.ImageRectOffset = Vector2.new(112, 0)
-Instance9.BackgroundTransparency = 1
-Instance9.Position = UDim2.new(0.5, 0, 0.5, 0)
-Instance9.SliceScale = 1
-Instance9.AutomaticSize = Enum.AutomaticSize.None
+    objects["Instance5"]["Visible"] = true;
+    objects["Instance5"]["FontSize"] = Enum.FontSize.Size14;
+    objects["Instance5"]["TextDirection"] = Enum.TextDirection.Auto;
+    objects["Instance5"]["Active"] = true;
+    objects["Instance5"]["TextStrokeTransparency"] = 1;
+    objects["Instance5"]["TextTruncate"] = Enum.TextTruncate.None;
+    objects["Instance5"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance5"]["ZIndex"] = -8;
+    objects["Instance5"]["BorderSizePixel"] = 0;
+    objects["Instance5"]["Draggable"] = false;
+    objects["Instance5"]["RichText"] = false;
+    objects["Instance5"]["Modal"] = false;
+    objects["Instance5"]["AutoButtonColor"] = true;
+    objects["Instance5"]["Transparency"] = 0;
+    objects["Instance5"]["SelectionOrder"] = 0;
+    objects["Instance5"]["TextYAlignment"] = Enum.TextYAlignment.Center;
+    objects["Instance5"]["TextScaled"] = false;
+    objects["Instance5"]["TextWrap"] = false;
+    objects["Instance5"]["FontFace"] = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false);
+    objects["Instance5"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance5"]["Parent"] = objects["Instance3"];
+    objects["Instance5"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance5"]["Style"] = Enum.ButtonStyle.Custom;
+    objects["Instance5"]["Position"] = UDim2.new(1, -23, 0, 0);
+    objects["Instance5"]["BackgroundColor3"] = Color3.new(0.176471, 0.176471, 0.254902);
+    objects["Instance5"]["Selected"] = false;
+    objects["Instance5"]["TextSize"] = 14;
+    objects["Instance5"]["Size"] = UDim2.new(0, 23, 0, 23);
+    objects["Instance5"]["BackgroundTransparency"] = 0;
+    objects["Instance5"]["TextWrapped"] = false;
+    objects["Instance5"]["ClipsDescendants"] = false;
+    objects["Instance5"]["TextColor3"] = Color3.new(1, 1, 1);
+    objects["Instance5"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance5"]["Text"] = "X";
+    objects["Instance5"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance5"]["LayoutOrder"] = 0;
+    objects["Instance5"]["Rotation"] = 0;
+    objects["Instance5"]["LineHeight"] = 1;
+    objects["Instance5"]["Name"] = "Close";
+    objects["Instance5"]["TextXAlignment"] = Enum.TextXAlignment.Center;
+    objects["Instance5"]["Selectable"] = true;
+    objects["Instance5"]["MaxVisibleGraphemes"] = -1;
+    objects["Instance5"]["TextStrokeColor3"] = Color3.new(0, 0, 0);
+    objects["Instance5"]["TextTransparency"] = 0;
 
-local Instance10 = Instance.new("Frame", Instance5) --WindowView
-Instance10.Visible = true
-Instance10.SelectionOrder = 0
-Instance10.Name = "WindowView"
-Instance10.Active = false
-Instance10.AutomaticSize = Enum.AutomaticSize.None
-Instance10.AnchorPoint = Vector2.new(0, 0)
-Instance10.Style = Enum.FrameStyle.Custom
-Instance10.LayoutOrder = 0
-Instance10.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance10.ZIndex = -8
-Instance10.Size = UDim2.new(1, 0, 0, 227)
-Instance10.Draggable = false
-Instance10.Position = UDim2.new(0, 0, 1, 0)
-Instance10.Selectable = false
-Instance10.ClipsDescendants = false
-Instance10.BorderColor3 = Color3.new(0, 0, 0)
-Instance10.BorderSizePixel = 0
-Instance10.Rotation = 0
-Instance10.BackgroundTransparency = 0
-Instance10.BorderMode = Enum.BorderMode.Outline
-Instance10.BackgroundColor3 = Color3.new(0.137255, 0.137255, 0.196078)
+    objects["Instance6"]["Visible"] = true;
+    objects["Instance6"]["FontSize"] = Enum.FontSize.Size14;
+    objects["Instance6"]["TextDirection"] = Enum.TextDirection.Auto;
+    objects["Instance6"]["Active"] = true;
+    objects["Instance6"]["TextStrokeTransparency"] = 1;
+    objects["Instance6"]["TextTruncate"] = Enum.TextTruncate.None;
+    objects["Instance6"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance6"]["ZIndex"] = -8;
+    objects["Instance6"]["BorderSizePixel"] = 0;
+    objects["Instance6"]["Draggable"] = false;
+    objects["Instance6"]["RichText"] = false;
+    objects["Instance6"]["Modal"] = false;
+    objects["Instance6"]["AutoButtonColor"] = true;
+    objects["Instance6"]["Transparency"] = 0;
+    objects["Instance6"]["SelectionOrder"] = 0;
+    objects["Instance6"]["TextYAlignment"] = Enum.TextYAlignment.Center;
+    objects["Instance6"]["TextScaled"] = false;
+    objects["Instance6"]["TextWrap"] = false;
+    objects["Instance6"]["FontFace"] = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false);
+    objects["Instance6"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance6"]["Parent"] = objects["Instance3"];
+    objects["Instance6"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance6"]["Style"] = Enum.ButtonStyle.Custom;
+    objects["Instance6"]["Position"] = UDim2.new(1, -46, 0, 0);
+    objects["Instance6"]["BackgroundColor3"] = Color3.new(0.176471, 0.176471, 0.254902);
+    objects["Instance6"]["Selected"] = false;
+    objects["Instance6"]["TextSize"] = 14;
+    objects["Instance6"]["Size"] = UDim2.new(0, 23, 0, 23);
+    objects["Instance6"]["BackgroundTransparency"] = 0;
+    objects["Instance6"]["TextWrapped"] = false;
+    objects["Instance6"]["ClipsDescendants"] = false;
+    objects["Instance6"]["TextColor3"] = Color3.new(1, 1, 1);
+    objects["Instance6"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance6"]["Text"] = "";
+    objects["Instance6"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance6"]["LayoutOrder"] = 0;
+    objects["Instance6"]["Rotation"] = 0;
+    objects["Instance6"]["LineHeight"] = 1;
+    objects["Instance6"]["Name"] = "Toggle";
+    objects["Instance6"]["TextXAlignment"] = Enum.TextXAlignment.Center;
+    objects["Instance6"]["Selectable"] = true;
+    objects["Instance6"]["MaxVisibleGraphemes"] = -1;
+    objects["Instance6"]["TextStrokeColor3"] = Color3.new(0, 0, 0);
+    objects["Instance6"]["TextTransparency"] = 0;
 
-local Instance11 = Instance.new("Frame", Instance10) --Shadow
-Instance11.Visible = true
-Instance11.SelectionOrder = 0
-Instance11.Name = "Shadow"
-Instance11.Active = false
-Instance11.AutomaticSize = Enum.AutomaticSize.None
-Instance11.AnchorPoint = Vector2.new(0, 0)
-Instance11.Style = Enum.FrameStyle.Custom
-Instance11.LayoutOrder = 0
-Instance11.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance11.ZIndex = -7
-Instance11.Size = UDim2.new(1, 0, 0, 3)
-Instance11.Draggable = false
-Instance11.Position = UDim2.new(0, 0, 0, 0)
-Instance11.Selectable = false
-Instance11.ClipsDescendants = false
-Instance11.BorderColor3 = Color3.new(0, 0, 0)
-Instance11.BorderSizePixel = 0
-Instance11.Rotation = 0
-Instance11.BackgroundTransparency = 0
-Instance11.BorderMode = Enum.BorderMode.Outline
-Instance11.BackgroundColor3 = Color3.new(0.0941176, 0.0941176, 0.133333)
+    objects["Instance7"]["Visible"] = true;
+    objects["Instance7"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance7"]["Size"] = UDim2.new(0.800000011920929, 0, 0.800000011920929, 0);
+    objects["Instance7"]["ImageTransparency"] = 0;
+    objects["Instance7"]["Parent"] = objects["Instance6"];
+    objects["Instance7"]["Position"] = UDim2.new(0.5, 0, 0.5, 0);
+    objects["Instance7"]["BackgroundTransparency"] = 1;
+    objects["Instance7"]["ImageRectOffset"] = Vector2.new(112, 0);
+    objects["Instance7"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+    objects["Instance7"]["Image"] = "rbxassetid://6511490623";
+    objects["Instance7"]["TileSize"] = UDim2.new(1, 0, 1, 0);
+    objects["Instance7"]["ImageRectSize"] = Vector2.new(16, 16);
+    objects["Instance7"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance7"]["ZIndex"] = -7;
+    objects["Instance7"]["BorderSizePixel"] = 0;
+    objects["Instance7"]["SliceCenter"] = Rect.new(0, 0, 0, 0);
+    objects["Instance7"]["Draggable"] = false;
+    objects["Instance7"]["ScaleType"] = Enum.ScaleType.Stretch;
+    objects["Instance7"]["ResampleMode"] = Enum.ResamplerMode.Default;
+    objects["Instance7"]["ClipsDescendants"] = false;
+    objects["Instance7"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance7"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance7"]["LayoutOrder"] = 0;
+    objects["Instance7"]["ImageColor3"] = Color3.new(1, 1, 1);
+    objects["Instance7"]["Rotation"] = 0;
+    objects["Instance7"]["Transparency"] = 1;
+    objects["Instance7"]["Name"] = "State";
+    objects["Instance7"]["SelectionOrder"] = 0;
+    objects["Instance7"]["SliceScale"] = 1;
+    objects["Instance7"]["Selectable"] = false;
+    objects["Instance7"]["Active"] = false;
+    objects["Instance7"]["BackgroundColor3"] = Color3.new(1, 1, 1);
 
-local Instance12 = Instance.new("Folder", Instance10) --Stroke
-Instance12.Name = "Stroke"
+    objects["Instance8"]["LayoutOrder"] = 0;
+    objects["Instance8"]["Active"] = false;
+    objects["Instance8"]["Parent"] = objects["Instance3"];
+    objects["Instance8"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance8"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance8"]["ZIndex"] = -8;
+    objects["Instance8"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance8"]["Size"] = UDim2.new(1, 0, 0, 227);
+    objects["Instance8"]["Draggable"] = false;
+    objects["Instance8"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance8"]["ClipsDescendants"] = false;
+    objects["Instance8"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance8"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance8"]["BackgroundTransparency"] = 0;
+    objects["Instance8"]["BorderSizePixel"] = 0;
+    objects["Instance8"]["Rotation"] = 0;
+    objects["Instance8"]["Transparency"] = 0;
+    objects["Instance8"]["Name"] = "WindowView";
+    objects["Instance8"]["SelectionOrder"] = 0;
+    objects["Instance8"]["Visible"] = true;
+    objects["Instance8"]["Selectable"] = false;
+    objects["Instance8"]["Position"] = UDim2.new(0, 0, 1, 0);
+    objects["Instance8"]["BackgroundColor3"] = Color3.new(0.137255, 0.137255, 0.196078);
 
-local Instance13 = Instance.new("Frame", Instance12) --Left
-Instance13.Visible = true
-Instance13.SelectionOrder = 0
-Instance13.Name = "Left"
-Instance13.Active = false
-Instance13.AutomaticSize = Enum.AutomaticSize.None
-Instance13.AnchorPoint = Vector2.new(0, 0)
-Instance13.Style = Enum.FrameStyle.Custom
-Instance13.LayoutOrder = 0
-Instance13.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance13.ZIndex = 240
-Instance13.Size = UDim2.new(0, 2, 1, 2)
-Instance13.Draggable = false
-Instance13.Position = UDim2.new(0, -2, 0, 0)
-Instance13.Selectable = false
-Instance13.ClipsDescendants = false
-Instance13.BorderColor3 = Color3.new(0, 0, 0)
-Instance13.BorderSizePixel = 0
-Instance13.Rotation = 0
-Instance13.BackgroundTransparency = 0
-Instance13.BorderMode = Enum.BorderMode.Outline
-Instance13.BackgroundColor3 = Color3.new(0, 0, 0)
+    objects["Instance9"]["LayoutOrder"] = 0;
+    objects["Instance9"]["Active"] = false;
+    objects["Instance9"]["Parent"] = objects["Instance8"];
+    objects["Instance9"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance9"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance9"]["ZIndex"] = -7;
+    objects["Instance9"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance9"]["Size"] = UDim2.new(1, 0, 0, 3);
+    objects["Instance9"]["Draggable"] = false;
+    objects["Instance9"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance9"]["ClipsDescendants"] = false;
+    objects["Instance9"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance9"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance9"]["BackgroundTransparency"] = 0;
+    objects["Instance9"]["BorderSizePixel"] = 0;
+    objects["Instance9"]["Rotation"] = 0;
+    objects["Instance9"]["Transparency"] = 0;
+    objects["Instance9"]["Name"] = "Shadow";
+    objects["Instance9"]["SelectionOrder"] = 0;
+    objects["Instance9"]["Visible"] = true;
+    objects["Instance9"]["Selectable"] = false;
+    objects["Instance9"]["Position"] = UDim2.new(0, 0, 0, 0);
+    objects["Instance9"]["BackgroundColor3"] = Color3.new(0.0941176, 0.0941176, 0.133333);
 
-local Instance14 = Instance.new("Frame", Instance12) --Right
-Instance14.Visible = true
-Instance14.SelectionOrder = 0
-Instance14.Name = "Right"
-Instance14.Active = false
-Instance14.AutomaticSize = Enum.AutomaticSize.None
-Instance14.AnchorPoint = Vector2.new(0, 0)
-Instance14.Style = Enum.FrameStyle.Custom
-Instance14.LayoutOrder = 0
-Instance14.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance14.ZIndex = 240
-Instance14.Size = UDim2.new(0, 2, 1, 2)
-Instance14.Draggable = false
-Instance14.Position = UDim2.new(1, 0, 0, 0)
-Instance14.Selectable = false
-Instance14.ClipsDescendants = false
-Instance14.BorderColor3 = Color3.new(0, 0, 0)
-Instance14.BorderSizePixel = 0
-Instance14.Rotation = 0
-Instance14.BackgroundTransparency = 0
-Instance14.BorderMode = Enum.BorderMode.Outline
-Instance14.BackgroundColor3 = Color3.new(0, 0, 0)
+    objects["Instance10"]["Name"] = "Stroke";
+    objects["Instance10"]["Parent"] = objects["Instance8"];
 
-local Instance15 = Instance.new("Frame", Instance12) --Bottom
-Instance15.Visible = true
-Instance15.SelectionOrder = 0
-Instance15.Name = "Bottom"
-Instance15.Active = false
-Instance15.AutomaticSize = Enum.AutomaticSize.None
-Instance15.AnchorPoint = Vector2.new(0, 0)
-Instance15.Style = Enum.FrameStyle.Custom
-Instance15.LayoutOrder = 0
-Instance15.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance15.ZIndex = 240
-Instance15.Size = UDim2.new(1, 0, 0, 2)
-Instance15.Draggable = false
-Instance15.Position = UDim2.new(0, 0, 1, 0)
-Instance15.Selectable = false
-Instance15.ClipsDescendants = false
-Instance15.BorderColor3 = Color3.new(0, 0, 0)
-Instance15.BorderSizePixel = 0
-Instance15.Rotation = 0
-Instance15.BackgroundTransparency = 0
-Instance15.BorderMode = Enum.BorderMode.Outline
-Instance15.BackgroundColor3 = Color3.new(0, 0, 0)
+    objects["Instance11"]["LayoutOrder"] = 0;
+    objects["Instance11"]["Active"] = false;
+    objects["Instance11"]["Parent"] = objects["Instance10"];
+    objects["Instance11"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance11"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance11"]["ZIndex"] = 240;
+    objects["Instance11"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance11"]["Size"] = UDim2.new(0, 2, 1, 2);
+    objects["Instance11"]["Draggable"] = false;
+    objects["Instance11"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance11"]["ClipsDescendants"] = false;
+    objects["Instance11"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance11"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance11"]["BackgroundTransparency"] = 0;
+    objects["Instance11"]["BorderSizePixel"] = 0;
+    objects["Instance11"]["Rotation"] = 0;
+    objects["Instance11"]["Transparency"] = 0;
+    objects["Instance11"]["Name"] = "Left";
+    objects["Instance11"]["SelectionOrder"] = 0;
+    objects["Instance11"]["Visible"] = true;
+    objects["Instance11"]["Selectable"] = false;
+    objects["Instance11"]["Position"] = UDim2.new(0, -2, 0, 0);
+    objects["Instance11"]["BackgroundColor3"] = Color3.new(0, 0, 0);
 
-local Instance16 = Instance.new("Frame", Instance10) --Logs
-Instance16.Visible = true
-Instance16.SelectionOrder = 0
-Instance16.Name = "Logs"
-Instance16.Active = false
-Instance16.AutomaticSize = Enum.AutomaticSize.None
-Instance16.AnchorPoint = Vector2.new(0, 0)
-Instance16.Style = Enum.FrameStyle.Custom
-Instance16.LayoutOrder = 0
-Instance16.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance16.ZIndex = -7
-Instance16.Size = UDim2.new(0, 120, 1, -3)
-Instance16.Draggable = false
-Instance16.Position = UDim2.new(0, 0, 0, 3)
-Instance16.Selectable = false
-Instance16.ClipsDescendants = true
-Instance16.BorderColor3 = Color3.new(0, 0, 0)
-Instance16.BorderSizePixel = 0
-Instance16.Rotation = 0
-Instance16.BackgroundTransparency = 0
-Instance16.BorderMode = Enum.BorderMode.Outline
-Instance16.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.160784)
+    objects["Instance12"]["LayoutOrder"] = 0;
+    objects["Instance12"]["Active"] = false;
+    objects["Instance12"]["Parent"] = objects["Instance10"];
+    objects["Instance12"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance12"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance12"]["ZIndex"] = 240;
+    objects["Instance12"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance12"]["Size"] = UDim2.new(0, 2, 1, 2);
+    objects["Instance12"]["Draggable"] = false;
+    objects["Instance12"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance12"]["ClipsDescendants"] = false;
+    objects["Instance12"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance12"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance12"]["BackgroundTransparency"] = 0;
+    objects["Instance12"]["BorderSizePixel"] = 0;
+    objects["Instance12"]["Rotation"] = 0;
+    objects["Instance12"]["Transparency"] = 0;
+    objects["Instance12"]["Name"] = "Right";
+    objects["Instance12"]["SelectionOrder"] = 0;
+    objects["Instance12"]["Visible"] = true;
+    objects["Instance12"]["Selectable"] = false;
+    objects["Instance12"]["Position"] = UDim2.new(1, 0, 0, 0);
+    objects["Instance12"]["BackgroundColor3"] = Color3.new(0, 0, 0);
 
-local Instance17 = Instance.new("ScrollingFrame", Instance16) --To
-Instance17.LayoutOrder = 0
-Instance17.Active = true
-Instance17.ScrollingDirection = Enum.ScrollingDirection.Y
-Instance17.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance17.ZIndex = -5
-Instance17.CanvasSize = UDim2.new(0, 0, 0, 0)
-Instance17.Draggable = false
-Instance17.MidImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
-Instance17.CanvasPosition = Vector2.new(0, 0)
-Instance17.ElasticBehavior = Enum.ElasticBehavior.Never
-Instance17.TopImage = "rbxasset://textures/ui/Scroll/scroll-top.png"
-Instance17.HorizontalScrollBarInset = Enum.ScrollBarInset.None
-Instance17.VerticalScrollBarInset = Enum.ScrollBarInset.None
-Instance17.BorderMode = Enum.BorderMode.Outline
-Instance17.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Left
-Instance17.AutomaticCanvasSize = Enum.AutomaticSize.Y
-Instance17.Selectable = true
-Instance17.AnchorPoint = Vector2.new(0, 0)
-Instance17.Name = "To"
-Instance17.Visible = true
-Instance17.Size = UDim2.new(1, 0, 1, 0)
-Instance17.ScrollBarImageColor3 = Color3.new(0, 0, 0)
-Instance17.BorderSizePixel = 0
-Instance17.ScrollBarImageTransparency = 0
-Instance17.ClipsDescendants = true
-Instance17.BorderColor3 = Color3.new(0, 0, 0)
-Instance17.ScrollBarThickness = 3
-Instance17.SelectionOrder = 0
-Instance17.Rotation = 0
-Instance17.BackgroundTransparency = 0
-Instance17.Position = UDim2.new(-1, -3, 0, 0)
-Instance17.ScrollingEnabled = true
-Instance17.BottomImage = "rbxasset://textures/ui/Scroll/scroll-bottom.png"
-Instance17.AutomaticSize = Enum.AutomaticSize.None
-Instance17.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.160784)
+    objects["Instance13"]["LayoutOrder"] = 0;
+    objects["Instance13"]["Active"] = false;
+    objects["Instance13"]["Parent"] = objects["Instance10"];
+    objects["Instance13"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance13"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance13"]["ZIndex"] = 240;
+    objects["Instance13"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance13"]["Size"] = UDim2.new(1, 0, 0, 2);
+    objects["Instance13"]["Draggable"] = false;
+    objects["Instance13"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance13"]["ClipsDescendants"] = false;
+    objects["Instance13"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance13"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance13"]["BackgroundTransparency"] = 0;
+    objects["Instance13"]["BorderSizePixel"] = 0;
+    objects["Instance13"]["Rotation"] = 0;
+    objects["Instance13"]["Transparency"] = 0;
+    objects["Instance13"]["Name"] = "Bottom";
+    objects["Instance13"]["SelectionOrder"] = 0;
+    objects["Instance13"]["Visible"] = true;
+    objects["Instance13"]["Selectable"] = false;
+    objects["Instance13"]["Position"] = UDim2.new(0, 0, 1, 0);
+    objects["Instance13"]["BackgroundColor3"] = Color3.new(0, 0, 0);
 
-local Instance18 = Instance.new("UIListLayout", Instance17) --UIListLayout
-Instance18.FillDirection = Enum.FillDirection.Vertical
-Instance18.HorizontalAlignment = Enum.HorizontalAlignment.Left
-Instance18.HorizontalFlex = Enum.UIFlexAlignment.None
-Instance18.VerticalFlex = Enum.UIFlexAlignment.None
-Instance18.VerticalAlignment = Enum.VerticalAlignment.Top
-Instance18.SortOrder = Enum.SortOrder.LayoutOrder
-Instance18.Name = "UIListLayout"
-Instance18.Padding = UDim.new(0, 0)
-Instance18.ItemLineAlignment = Enum.ItemLineAlignment.Automatic
+    objects["Instance14"]["LayoutOrder"] = 0;
+    objects["Instance14"]["Active"] = false;
+    objects["Instance14"]["Parent"] = objects["Instance8"];
+    objects["Instance14"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance14"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance14"]["ZIndex"] = -7;
+    objects["Instance14"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance14"]["Size"] = UDim2.new(0, 120, 1, -3);
+    objects["Instance14"]["Draggable"] = false;
+    objects["Instance14"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance14"]["ClipsDescendants"] = true;
+    objects["Instance14"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance14"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance14"]["BackgroundTransparency"] = 0;
+    objects["Instance14"]["BorderSizePixel"] = 0;
+    objects["Instance14"]["Rotation"] = 0;
+    objects["Instance14"]["Transparency"] = 0;
+    objects["Instance14"]["Name"] = "Logs";
+    objects["Instance14"]["SelectionOrder"] = 0;
+    objects["Instance14"]["Visible"] = true;
+    objects["Instance14"]["Selectable"] = false;
+    objects["Instance14"]["Position"] = UDim2.new(0, 0, 0, 3);
+    objects["Instance14"]["BackgroundColor3"] = Color3.new(0.113725, 0.113725, 0.160784);
 
-local Instance19 = Instance.new("ScrollingFrame", Instance16) --From
-Instance19.LayoutOrder = 0
-Instance19.Active = true
-Instance19.ScrollingDirection = Enum.ScrollingDirection.Y
-Instance19.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance19.ZIndex = -5
-Instance19.CanvasSize = UDim2.new(0, 0, 0, 0)
-Instance19.Draggable = false
-Instance19.MidImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
-Instance19.CanvasPosition = Vector2.new(0, 0)
-Instance19.ElasticBehavior = Enum.ElasticBehavior.Never
-Instance19.TopImage = "rbxasset://textures/ui/Scroll/scroll-top.png"
-Instance19.HorizontalScrollBarInset = Enum.ScrollBarInset.None
-Instance19.VerticalScrollBarInset = Enum.ScrollBarInset.None
-Instance19.BorderMode = Enum.BorderMode.Outline
-Instance19.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Left
-Instance19.AutomaticCanvasSize = Enum.AutomaticSize.Y
-Instance19.Selectable = true
-Instance19.AnchorPoint = Vector2.new(0, 0)
-Instance19.Name = "From"
-Instance19.Visible = true
-Instance19.Size = UDim2.new(1, 0, 1, 0)
-Instance19.ScrollBarImageColor3 = Color3.new(0, 0, 0)
-Instance19.BorderSizePixel = 0
-Instance19.ScrollBarImageTransparency = 0
-Instance19.ClipsDescendants = true
-Instance19.BorderColor3 = Color3.new(0, 0, 0)
-Instance19.ScrollBarThickness = 3
-Instance19.SelectionOrder = 0
-Instance19.Rotation = 0
-Instance19.BackgroundTransparency = 0
-Instance19.Position = UDim2.new(-1, -3, 0, 0)
-Instance19.ScrollingEnabled = true
-Instance19.BottomImage = "rbxasset://textures/ui/Scroll/scroll-bottom.png"
-Instance19.AutomaticSize = Enum.AutomaticSize.None
-Instance19.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.160784)
+    objects["Instance15"]["Visible"] = true;
+    objects["Instance15"]["Active"] = true;
+    objects["Instance15"]["ScrollingDirection"] = Enum.ScrollingDirection.Y;
+    objects["Instance15"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance15"]["ZIndex"] = -5;
+    objects["Instance15"]["BorderSizePixel"] = 0;
+    objects["Instance15"]["CanvasSize"] = UDim2.new(0, 0, 0, 0);
+    objects["Instance15"]["Draggable"] = false;
+    objects["Instance15"]["MidImage"] = "rbxasset://textures/ui/Scroll/scroll-middle.png";
+    objects["Instance15"]["CanvasPosition"] = Vector2.new(0, 0);
+    objects["Instance15"]["VerticalScrollBarInset"] = Enum.ScrollBarInset.None;
+    objects["Instance15"]["Transparency"] = 0;
+    objects["Instance15"]["TopImage"] = "rbxasset://textures/ui/Scroll/scroll-top.png";
+    objects["Instance15"]["SelectionOrder"] = 0;
+    objects["Instance15"]["HorizontalScrollBarInset"] = Enum.ScrollBarInset.None;
+    objects["Instance15"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance15"]["AutomaticCanvasSize"] = Enum.AutomaticSize.Y;
+    objects["Instance15"]["VerticalScrollBarPosition"] = Enum.VerticalScrollBarPosition.Left;
+    objects["Instance15"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance15"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance15"]["Size"] = UDim2.new(1, 0, 1, 0);
+    objects["Instance15"]["ScrollBarImageColor3"] = Color3.new(0, 0, 0);
+    objects["Instance15"]["BackgroundColor3"] = Color3.new(0.113725, 0.113725, 0.160784);
+    objects["Instance15"]["Selectable"] = true;
+    objects["Instance15"]["ClipsDescendants"] = true;
+    objects["Instance15"]["ScrollBarImageTransparency"] = 0;
+    objects["Instance15"]["ScrollBarThickness"] = 3;
+    objects["Instance15"]["Parent"] = objects["Instance14"];
+    objects["Instance15"]["BackgroundTransparency"] = 0;
+    objects["Instance15"]["Rotation"] = 0;
+    objects["Instance15"]["LayoutOrder"] = 0;
+    objects["Instance15"]["Name"] = "To";
+    objects["Instance15"]["Position"] = UDim2.new(-1, -3, 0, 0);
+    objects["Instance15"]["ScrollingEnabled"] = true;
+    objects["Instance15"]["BottomImage"] = "rbxasset://textures/ui/Scroll/scroll-bottom.png";
+    objects["Instance15"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance15"]["ElasticBehavior"] = Enum.ElasticBehavior.Never;
 
-local Instance20 = Instance.new("UIListLayout", Instance19) --UIListLayout
-Instance20.FillDirection = Enum.FillDirection.Vertical
-Instance20.HorizontalAlignment = Enum.HorizontalAlignment.Left
-Instance20.HorizontalFlex = Enum.UIFlexAlignment.None
-Instance20.VerticalFlex = Enum.UIFlexAlignment.None
-Instance20.VerticalAlignment = Enum.VerticalAlignment.Top
-Instance20.SortOrder = Enum.SortOrder.LayoutOrder
-Instance20.Name = "UIListLayout"
-Instance20.Padding = UDim.new(0, 0)
-Instance20.ItemLineAlignment = Enum.ItemLineAlignment.Automatic
+    objects["Instance16"]["FillDirection"] = Enum.FillDirection.Vertical;
+    objects["Instance16"]["HorizontalAlignment"] = Enum.HorizontalAlignment.Left;
+    objects["Instance16"]["VerticalFlex"] = Enum.UIFlexAlignment.None;
+    objects["Instance16"]["Parent"] = objects["Instance15"];
+    objects["Instance16"]["VerticalAlignment"] = Enum.VerticalAlignment.Top;
+    objects["Instance16"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+    objects["Instance16"]["Name"] = "UIListLayout";
+    objects["Instance16"]["Padding"] = UDim.new(0, 0);
+    objects["Instance16"]["ItemLineAlignment"] = Enum.ItemLineAlignment.Automatic;
+    objects["Instance16"]["HorizontalFlex"] = Enum.UIFlexAlignment.None;
 
-local Instance21 = Instance.new("TextButton", Instance16) --Log
-Instance21.LayoutOrder = 0
-Instance21.TextWrapped = false
-Instance21.LineHeight = 1
-Instance21.Active = true
-Instance21.TextStrokeTransparency = 1
-Instance21.TextTruncate = Enum.TextTruncate.None
-Instance21.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance21.ZIndex = -4
-Instance21.TextWrap = false
-Instance21.Draggable = false
-Instance21.RichText = false
-Instance21.Modal = false
-Instance21.SelectionOrder = 0
-Instance21.Selectable = true
-Instance21.AutoButtonColor = true
-Instance21.TextXAlignment = Enum.TextXAlignment.Center
-Instance21.Name = "Log"
-Instance21.TextYAlignment = Enum.TextYAlignment.Center
-Instance21.TextScaled = false
-Instance21.TextDirection = Enum.TextDirection.Auto
-Instance21.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false)
-Instance21.Visible = false
-Instance21.BorderMode = Enum.BorderMode.Outline
-Instance21.TextTransparency = 0
-Instance21.FontSize = Enum.FontSize.Size14
-Instance21.TextStrokeColor3 = Color3.new(0, 0, 0)
-Instance21.BackgroundColor3 = Color3.new(1, 1, 1)
-Instance21.AnchorPoint = Vector2.new(0, 0)
-Instance21.TextSize = 14
-Instance21.TextColor3 = Color3.new(0, 0, 0)
-Instance21.Selected = false
-Instance21.AutomaticSize = Enum.AutomaticSize.None
-Instance21.Size = UDim2.new(1, 0, 0, 30)
-Instance21.ClipsDescendants = false
-Instance21.BorderColor3 = Color3.new(0, 0, 0)
-Instance21.Text = ""
-Instance21.BorderSizePixel = 0
-Instance21.Rotation = 0
-Instance21.BackgroundTransparency = 1
-Instance21.MaxVisibleGraphemes = -1
-Instance21.Position = UDim2.new(0, 0, 0, 0)
-Instance21.Style = Enum.ButtonStyle.Custom
+    objects["Instance17"]["Visible"] = true;
+    objects["Instance17"]["Active"] = true;
+    objects["Instance17"]["ScrollingDirection"] = Enum.ScrollingDirection.Y;
+    objects["Instance17"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance17"]["ZIndex"] = -5;
+    objects["Instance17"]["BorderSizePixel"] = 0;
+    objects["Instance17"]["CanvasSize"] = UDim2.new(0, 0, 0, 0);
+    objects["Instance17"]["Draggable"] = false;
+    objects["Instance17"]["MidImage"] = "rbxasset://textures/ui/Scroll/scroll-middle.png";
+    objects["Instance17"]["CanvasPosition"] = Vector2.new(0, 0);
+    objects["Instance17"]["VerticalScrollBarInset"] = Enum.ScrollBarInset.None;
+    objects["Instance17"]["Transparency"] = 0;
+    objects["Instance17"]["TopImage"] = "rbxasset://textures/ui/Scroll/scroll-top.png";
+    objects["Instance17"]["SelectionOrder"] = 0;
+    objects["Instance17"]["HorizontalScrollBarInset"] = Enum.ScrollBarInset.None;
+    objects["Instance17"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance17"]["AutomaticCanvasSize"] = Enum.AutomaticSize.Y;
+    objects["Instance17"]["VerticalScrollBarPosition"] = Enum.VerticalScrollBarPosition.Left;
+    objects["Instance17"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance17"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance17"]["Size"] = UDim2.new(1, 0, 1, 0);
+    objects["Instance17"]["ScrollBarImageColor3"] = Color3.new(0, 0, 0);
+    objects["Instance17"]["BackgroundColor3"] = Color3.new(0.113725, 0.113725, 0.160784);
+    objects["Instance17"]["Selectable"] = true;
+    objects["Instance17"]["ClipsDescendants"] = true;
+    objects["Instance17"]["ScrollBarImageTransparency"] = 0;
+    objects["Instance17"]["ScrollBarThickness"] = 3;
+    objects["Instance17"]["Parent"] = objects["Instance14"];
+    objects["Instance17"]["BackgroundTransparency"] = 0;
+    objects["Instance17"]["Rotation"] = 0;
+    objects["Instance17"]["LayoutOrder"] = 0;
+    objects["Instance17"]["Name"] = "From";
+    objects["Instance17"]["Position"] = UDim2.new(-1, -3, 0, 0);
+    objects["Instance17"]["ScrollingEnabled"] = true;
+    objects["Instance17"]["BottomImage"] = "rbxasset://textures/ui/Scroll/scroll-bottom.png";
+    objects["Instance17"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance17"]["ElasticBehavior"] = Enum.ElasticBehavior.Never;
 
-local Instance22 = Instance.new("Frame", Instance21) --Display
-Instance22.Visible = true
-Instance22.SelectionOrder = 0
-Instance22.Name = "Display"
-Instance22.Active = false
-Instance22.AutomaticSize = Enum.AutomaticSize.None
-Instance22.AnchorPoint = Vector2.new(0.5, 0)
-Instance22.Style = Enum.FrameStyle.Custom
-Instance22.LayoutOrder = 0
-Instance22.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance22.ZIndex = -3
-Instance22.Size = UDim2.new(0.8999999761581421, 0, 0.6499999761581421, 0)
-Instance22.Draggable = false
-Instance22.Position = UDim2.new(0.5, 0, 0.3499999940395355, 0)
-Instance22.Selectable = false
-Instance22.ClipsDescendants = false
-Instance22.BorderColor3 = Color3.new(0, 0, 0)
-Instance22.BorderSizePixel = 0
-Instance22.Rotation = 0
-Instance22.BackgroundTransparency = 0
-Instance22.BorderMode = Enum.BorderMode.Outline
-Instance22.BackgroundColor3 = Color3.new(0.156863, 0.156863, 0.254902)
+    objects["Instance18"]["FillDirection"] = Enum.FillDirection.Vertical;
+    objects["Instance18"]["HorizontalAlignment"] = Enum.HorizontalAlignment.Left;
+    objects["Instance18"]["VerticalFlex"] = Enum.UIFlexAlignment.None;
+    objects["Instance18"]["Parent"] = objects["Instance17"];
+    objects["Instance18"]["VerticalAlignment"] = Enum.VerticalAlignment.Top;
+    objects["Instance18"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+    objects["Instance18"]["Name"] = "UIListLayout";
+    objects["Instance18"]["Padding"] = UDim.new(0, 0);
+    objects["Instance18"]["ItemLineAlignment"] = Enum.ItemLineAlignment.Automatic;
+    objects["Instance18"]["HorizontalFlex"] = Enum.UIFlexAlignment.None;
 
-local Instance23 = Instance.new("Frame", Instance22) --Type
-Instance23.Visible = true
-Instance23.SelectionOrder = 0
-Instance23.Name = "Type"
-Instance23.Active = false
-Instance23.AutomaticSize = Enum.AutomaticSize.None
-Instance23.AnchorPoint = Vector2.new(0, 0)
-Instance23.Style = Enum.FrameStyle.Custom
-Instance23.LayoutOrder = 0
-Instance23.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance23.ZIndex = -2
-Instance23.Size = UDim2.new(0, 5, 1, 0)
-Instance23.Draggable = false
-Instance23.Position = UDim2.new(0, 0, 0, 0)
-Instance23.Selectable = false
-Instance23.ClipsDescendants = false
-Instance23.BorderColor3 = Color3.new(0, 0, 0)
-Instance23.BorderSizePixel = 0
-Instance23.Rotation = 0
-Instance23.BackgroundTransparency = 0
-Instance23.BorderMode = Enum.BorderMode.Outline
-Instance23.BackgroundColor3 = Color3.new(1, 0.666667, 0)
+    objects["Instance19"]["Visible"] = false;
+    objects["Instance19"]["FontSize"] = Enum.FontSize.Size14;
+    objects["Instance19"]["TextDirection"] = Enum.TextDirection.Auto;
+    objects["Instance19"]["Active"] = true;
+    objects["Instance19"]["TextStrokeTransparency"] = 1;
+    objects["Instance19"]["TextTruncate"] = Enum.TextTruncate.None;
+    objects["Instance19"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance19"]["ZIndex"] = -4;
+    objects["Instance19"]["BorderSizePixel"] = 0;
+    objects["Instance19"]["Draggable"] = false;
+    objects["Instance19"]["RichText"] = false;
+    objects["Instance19"]["Modal"] = false;
+    objects["Instance19"]["AutoButtonColor"] = true;
+    objects["Instance19"]["Transparency"] = 1;
+    objects["Instance19"]["SelectionOrder"] = 0;
+    objects["Instance19"]["TextYAlignment"] = Enum.TextYAlignment.Center;
+    objects["Instance19"]["TextScaled"] = false;
+    objects["Instance19"]["TextWrap"] = false;
+    objects["Instance19"]["FontFace"] = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false);
+    objects["Instance19"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance19"]["Parent"] = objects["Instance14"];
+    objects["Instance19"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance19"]["Style"] = Enum.ButtonStyle.Custom;
+    objects["Instance19"]["Position"] = UDim2.new(0, 0, 0, 0);
+    objects["Instance19"]["BackgroundColor3"] = Color3.new(1, 1, 1);
+    objects["Instance19"]["Selected"] = false;
+    objects["Instance19"]["TextSize"] = 14;
+    objects["Instance19"]["Size"] = UDim2.new(1, 0, 0, 30);
+    objects["Instance19"]["BackgroundTransparency"] = 1;
+    objects["Instance19"]["TextWrapped"] = false;
+    objects["Instance19"]["ClipsDescendants"] = false;
+    objects["Instance19"]["TextColor3"] = Color3.new(0, 0, 0);
+    objects["Instance19"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance19"]["Text"] = "";
+    objects["Instance19"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance19"]["LayoutOrder"] = 0;
+    objects["Instance19"]["Rotation"] = 0;
+    objects["Instance19"]["LineHeight"] = 1;
+    objects["Instance19"]["Name"] = "Log";
+    objects["Instance19"]["TextXAlignment"] = Enum.TextXAlignment.Center;
+    objects["Instance19"]["Selectable"] = true;
+    objects["Instance19"]["MaxVisibleGraphemes"] = -1;
+    objects["Instance19"]["TextStrokeColor3"] = Color3.new(0, 0, 0);
+    objects["Instance19"]["TextTransparency"] = 0;
 
-local Instance24 = Instance.new("UIStroke", Instance22) --UIStroke
-Instance24.Enabled = true
-Instance24.Color = Color3.new(0.294118, 0.294118, 0.352941)
-Instance24.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
-Instance24.Thickness = 1
-Instance24.Transparency = 0
-Instance24.Name = "UIStroke"
-Instance24.LineJoinMode = Enum.LineJoinMode.Miter
+    objects["Instance20"]["LayoutOrder"] = 0;
+    objects["Instance20"]["Active"] = false;
+    objects["Instance20"]["Parent"] = objects["Instance19"];
+    objects["Instance20"]["AnchorPoint"] = Vector2.new(0.5, 0);
+    objects["Instance20"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance20"]["ZIndex"] = -3;
+    objects["Instance20"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance20"]["Size"] = UDim2.new(0.8999999761581421, 0, 0.6499999761581421, 0);
+    objects["Instance20"]["Draggable"] = false;
+    objects["Instance20"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance20"]["ClipsDescendants"] = false;
+    objects["Instance20"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance20"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance20"]["BackgroundTransparency"] = 0;
+    objects["Instance20"]["BorderSizePixel"] = 0;
+    objects["Instance20"]["Rotation"] = 0;
+    objects["Instance20"]["Transparency"] = 0;
+    objects["Instance20"]["Name"] = "Display";
+    objects["Instance20"]["SelectionOrder"] = 0;
+    objects["Instance20"]["Visible"] = true;
+    objects["Instance20"]["Selectable"] = false;
+    objects["Instance20"]["Position"] = UDim2.new(0.5, 0, 0.3499999940395355, 0);
+    objects["Instance20"]["BackgroundColor3"] = Color3.new(0.156863, 0.156863, 0.254902);
 
-local Instance25 = Instance.new("TextLabel", Instance22) --RName
-Instance25.LayoutOrder = 0
-Instance25.TextWrapped = true
-Instance25.LineHeight = 1
-Instance25.Active = false
-Instance25.TextStrokeTransparency = 1
-Instance25.TextTruncate = Enum.TextTruncate.None
-Instance25.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance25.ZIndex = -2
-Instance25.BorderSizePixel = 0
-Instance25.Draggable = false
-Instance25.RichText = false
-Instance25.TextWrap = true
-Instance25.TextTransparency = 0
-Instance25.TextYAlignment = Enum.TextYAlignment.Center
-Instance25.TextScaled = true
-Instance25.TextXAlignment = Enum.TextXAlignment.Center
-Instance25.FontFace = Font.new("rbxasset://fonts/families/HighwayGothic.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false)
-Instance25.Name = "RName"
-Instance25.BorderMode = Enum.BorderMode.Outline
-Instance25.Selectable = false
-Instance25.TextDirection = Enum.TextDirection.Auto
-Instance25.Visible = true
-Instance25.FontSize = Enum.FontSize.Size14
-Instance25.AnchorPoint = Vector2.new(0, 0.5)
-Instance25.TextStrokeColor3 = Color3.new(0, 0, 0)
-Instance25.TextSize = 14
-Instance25.AutomaticSize = Enum.AutomaticSize.None
-Instance25.Size = UDim2.new(0.8999999761581421, -5, 0.6000000238418579, 0)
-Instance25.TextColor3 = Color3.new(1, 1, 1)
-Instance25.ClipsDescendants = false
-Instance25.BorderColor3 = Color3.new(0, 0, 0)
-Instance25.Text = "RemoteName"
-Instance25.SelectionOrder = 0
-Instance25.BackgroundColor3 = Color3.new(1, 1, 1)
-Instance25.Rotation = 0
-Instance25.BackgroundTransparency = 1
-Instance25.Position = UDim2.new(0.05000000074505806, 5, 0.5, 0)
-Instance25.MaxVisibleGraphemes = -1
+    objects["Instance21"]["LayoutOrder"] = 0;
+    objects["Instance21"]["Active"] = false;
+    objects["Instance21"]["Parent"] = objects["Instance20"];
+    objects["Instance21"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance21"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance21"]["ZIndex"] = -2;
+    objects["Instance21"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance21"]["Size"] = UDim2.new(0, 5, 1, 0);
+    objects["Instance21"]["Draggable"] = false;
+    objects["Instance21"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance21"]["ClipsDescendants"] = false;
+    objects["Instance21"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance21"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance21"]["BackgroundTransparency"] = 0;
+    objects["Instance21"]["BorderSizePixel"] = 0;
+    objects["Instance21"]["Rotation"] = 0;
+    objects["Instance21"]["Transparency"] = 0;
+    objects["Instance21"]["Name"] = "Type";
+    objects["Instance21"]["SelectionOrder"] = 0;
+    objects["Instance21"]["Visible"] = true;
+    objects["Instance21"]["Selectable"] = false;
+    objects["Instance21"]["Position"] = UDim2.new(0, 0, 0, 0);
+    objects["Instance21"]["BackgroundColor3"] = Color3.new(1, 0.666667, 0);
 
-local Instance26 = Instance.new("Frame", Instance22) --Selection
-Instance26.Visible = false
-Instance26.SelectionOrder = 0
-Instance26.Name = "Selection"
-Instance26.Active = false
-Instance26.AutomaticSize = Enum.AutomaticSize.None
-Instance26.AnchorPoint = Vector2.new(0, 0)
-Instance26.Style = Enum.FrameStyle.Custom
-Instance26.LayoutOrder = 0
-Instance26.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance26.ZIndex = -2
-Instance26.Size = UDim2.new(0, 5, 1, 0)
-Instance26.Draggable = false
-Instance26.Position = UDim2.new(1, -5, 0, 0)
-Instance26.Selectable = false
-Instance26.ClipsDescendants = false
-Instance26.BorderColor3 = Color3.new(0, 0, 0)
-Instance26.BorderSizePixel = 0
-Instance26.Rotation = 0
-Instance26.BackgroundTransparency = 0
-Instance26.BorderMode = Enum.BorderMode.Outline
-Instance26.BackgroundColor3 = Color3.new(0.333333, 1, 0.498039)
+    objects["Instance22"]["Enabled"] = true;
+    objects["Instance22"]["Transparency"] = 0;
+    objects["Instance22"]["Name"] = "UIStroke";
+    objects["Instance22"]["LineJoinMode"] = Enum.LineJoinMode.Miter;
+    objects["Instance22"]["Parent"] = objects["Instance20"];
+    objects["Instance22"]["Thickness"] = 1;
+    objects["Instance22"]["Color"] = Color3.new(0.294118, 0.294118, 0.352941);
+    objects["Instance22"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Contextual;
 
-local Instance27 = Instance.new("Frame", Instance22) --FromServer
-Instance27.Visible = false
-Instance27.SelectionOrder = 0
-Instance27.Name = "FromServer"
-Instance27.Active = false
-Instance27.AutomaticSize = Enum.AutomaticSize.None
-Instance27.AnchorPoint = Vector2.new(0, 0)
-Instance27.Style = Enum.FrameStyle.Custom
-Instance27.LayoutOrder = 0
-Instance27.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance27.ZIndex = -2
-Instance27.Size = UDim2.new(0, 5, 1, 0)
-Instance27.Draggable = false
-Instance27.Position = UDim2.new(0, 5, 0, 0)
-Instance27.Selectable = false
-Instance27.ClipsDescendants = false
-Instance27.BorderColor3 = Color3.new(0, 0, 0)
-Instance27.BorderSizePixel = 0
-Instance27.Rotation = 0
-Instance27.BackgroundTransparency = 0
-Instance27.BorderMode = Enum.BorderMode.Outline
-Instance27.BackgroundColor3 = Color3.new(1, 0.333333, 0.498039)
+    objects["Instance23"]["Visible"] = true;
+    objects["Instance23"]["FontSize"] = Enum.FontSize.Size14;
+    objects["Instance23"]["TextDirection"] = Enum.TextDirection.Auto;
+    objects["Instance23"]["Active"] = false;
+    objects["Instance23"]["TextStrokeTransparency"] = 1;
+    objects["Instance23"]["TextTruncate"] = Enum.TextTruncate.None;
+    objects["Instance23"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance23"]["ZIndex"] = -2;
+    objects["Instance23"]["BorderSizePixel"] = 0;
+    objects["Instance23"]["Draggable"] = false;
+    objects["Instance23"]["RichText"] = false;
+    objects["Instance23"]["Transparency"] = 1;
+    objects["Instance23"]["SelectionOrder"] = 0;
+    objects["Instance23"]["TextYAlignment"] = Enum.TextYAlignment.Center;
+    objects["Instance23"]["TextScaled"] = true;
+    objects["Instance23"]["TextWrap"] = true;
+    objects["Instance23"]["FontFace"] = Font.new("rbxasset://fonts/families/HighwayGothic.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false);
+    objects["Instance23"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance23"]["Parent"] = objects["Instance20"];
+    objects["Instance23"]["AnchorPoint"] = Vector2.new(0, 0.5);
+    objects["Instance23"]["TextSize"] = 14;
+    objects["Instance23"]["Position"] = UDim2.new(0.05000000074505806, 5, 0.5, 0);
+    objects["Instance23"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance23"]["Size"] = UDim2.new(0.8999999761581421, -5, 0.6000000238418579, 0);
+    objects["Instance23"]["BackgroundTransparency"] = 1;
+    objects["Instance23"]["LineHeight"] = 1;
+    objects["Instance23"]["BackgroundColor3"] = Color3.new(1, 1, 1);
+    objects["Instance23"]["TextColor3"] = Color3.new(1, 1, 1);
+    objects["Instance23"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance23"]["Text"] = "RemoteName";
+    objects["Instance23"]["LayoutOrder"] = 0;
+    objects["Instance23"]["TextWrapped"] = true;
+    objects["Instance23"]["Rotation"] = 0;
+    objects["Instance23"]["TextTransparency"] = 0;
+    objects["Instance23"]["Name"] = "RName";
+    objects["Instance23"]["TextXAlignment"] = Enum.TextXAlignment.Center;
+    objects["Instance23"]["ClipsDescendants"] = false;
+    objects["Instance23"]["MaxVisibleGraphemes"] = -1;
+    objects["Instance23"]["TextStrokeColor3"] = Color3.new(0, 0, 0);
+    objects["Instance23"]["Selectable"] = false;
 
-local Instance28 = Instance.new("TextButton", Instance10) --Scale
-Instance28.LayoutOrder = 0
-Instance28.TextWrapped = false
-Instance28.LineHeight = 1
-Instance28.Active = true
-Instance28.TextStrokeTransparency = 1
-Instance28.TextTruncate = Enum.TextTruncate.None
-Instance28.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance28.ZIndex = 989
-Instance28.TextWrap = false
-Instance28.Draggable = false
-Instance28.RichText = false
-Instance28.Modal = false
-Instance28.SelectionOrder = 0
-Instance28.Selectable = true
-Instance28.AutoButtonColor = true
-Instance28.TextXAlignment = Enum.TextXAlignment.Center
-Instance28.Name = "Scale"
-Instance28.TextYAlignment = Enum.TextYAlignment.Center
-Instance28.TextScaled = false
-Instance28.TextDirection = Enum.TextDirection.Auto
-Instance28.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false)
-Instance28.Visible = true
-Instance28.BorderMode = Enum.BorderMode.Outline
-Instance28.TextTransparency = 0
-Instance28.FontSize = Enum.FontSize.Size14
-Instance28.TextStrokeColor3 = Color3.new(0, 0, 0)
-Instance28.BackgroundColor3 = Color3.new(0.0941176, 0.0941176, 0.133333)
-Instance28.AnchorPoint = Vector2.new(0, 0)
-Instance28.TextSize = 14
-Instance28.TextColor3 = Color3.new(0, 0, 0)
-Instance28.Selected = false
-Instance28.AutomaticSize = Enum.AutomaticSize.None
-Instance28.Size = UDim2.new(0, 3, 1, 0)
-Instance28.ClipsDescendants = false
-Instance28.BorderColor3 = Color3.new(0, 0, 0)
-Instance28.Text = ""
-Instance28.BorderSizePixel = 0
-Instance28.Rotation = 0
-Instance28.BackgroundTransparency = 0
-Instance28.MaxVisibleGraphemes = -1
-Instance28.Position = UDim2.new(0, 120, 0, 0)
-Instance28.Style = Enum.ButtonStyle.Custom
+    objects["Instance24"]["LayoutOrder"] = 0;
+    objects["Instance24"]["Active"] = false;
+    objects["Instance24"]["Parent"] = objects["Instance20"];
+    objects["Instance24"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance24"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance24"]["ZIndex"] = -2;
+    objects["Instance24"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance24"]["Size"] = UDim2.new(0, 5, 1, 0);
+    objects["Instance24"]["Draggable"] = false;
+    objects["Instance24"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance24"]["ClipsDescendants"] = false;
+    objects["Instance24"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance24"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance24"]["BackgroundTransparency"] = 0;
+    objects["Instance24"]["BorderSizePixel"] = 0;
+    objects["Instance24"]["Rotation"] = 0;
+    objects["Instance24"]["Transparency"] = 0;
+    objects["Instance24"]["Name"] = "Selection";
+    objects["Instance24"]["SelectionOrder"] = 0;
+    objects["Instance24"]["Visible"] = false;
+    objects["Instance24"]["Selectable"] = false;
+    objects["Instance24"]["Position"] = UDim2.new(1, -5, 0, 0);
+    objects["Instance24"]["BackgroundColor3"] = Color3.new(0.333333, 1, 0.498039);
 
-local Instance29 = Instance.new("Frame", Instance10) --ContentView
-Instance29.Visible = true
-Instance29.SelectionOrder = 0
-Instance29.Name = "ContentView"
-Instance29.Active = false
-Instance29.AutomaticSize = Enum.AutomaticSize.None
-Instance29.AnchorPoint = Vector2.new(0, 0)
-Instance29.Style = Enum.FrameStyle.Custom
-Instance29.LayoutOrder = 0
-Instance29.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance29.ZIndex = -7
-Instance29.Size = UDim2.new(1, -123, 1, -3)
-Instance29.Draggable = false
-Instance29.Position = UDim2.new(0, 123, 0, 3)
-Instance29.Selectable = false
-Instance29.ClipsDescendants = false
-Instance29.BorderColor3 = Color3.new(0, 0, 0)
-Instance29.BorderSizePixel = 0
-Instance29.Rotation = 0
-Instance29.BackgroundTransparency = 0
-Instance29.BorderMode = Enum.BorderMode.Outline
-Instance29.BackgroundColor3 = Color3.new(0.0705882, 0.0705882, 0.0980392)
+    objects["Instance25"]["LayoutOrder"] = 0;
+    objects["Instance25"]["Active"] = false;
+    objects["Instance25"]["Parent"] = objects["Instance20"];
+    objects["Instance25"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance25"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance25"]["ZIndex"] = -2;
+    objects["Instance25"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance25"]["Size"] = UDim2.new(0, 5, 1, 0);
+    objects["Instance25"]["Draggable"] = false;
+    objects["Instance25"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance25"]["ClipsDescendants"] = false;
+    objects["Instance25"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance25"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance25"]["BackgroundTransparency"] = 0;
+    objects["Instance25"]["BorderSizePixel"] = 0;
+    objects["Instance25"]["Rotation"] = 0;
+    objects["Instance25"]["Transparency"] = 0;
+    objects["Instance25"]["Name"] = "FromServer";
+    objects["Instance25"]["SelectionOrder"] = 0;
+    objects["Instance25"]["Visible"] = false;
+    objects["Instance25"]["Selectable"] = false;
+    objects["Instance25"]["Position"] = UDim2.new(0, 5, 0, 0);
+    objects["Instance25"]["BackgroundColor3"] = Color3.new(1, 0.333333, 0.498039);
 
-local Instance30 = Instance.new("ScrollingFrame", Instance29) --ScrollingFrame
-Instance30.LayoutOrder = 0
-Instance30.Active = true
-Instance30.ScrollingDirection = Enum.ScrollingDirection.Y
-Instance30.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance30.ZIndex = -6
-Instance30.CanvasSize = UDim2.new(0, 0, 0, 0)
-Instance30.Draggable = false
-Instance30.MidImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
-Instance30.CanvasPosition = Vector2.new(0, 0)
-Instance30.ElasticBehavior = Enum.ElasticBehavior.Never
-Instance30.TopImage = "rbxasset://textures/ui/Scroll/scroll-top.png"
-Instance30.HorizontalScrollBarInset = Enum.ScrollBarInset.None
-Instance30.VerticalScrollBarInset = Enum.ScrollBarInset.None
-Instance30.BorderMode = Enum.BorderMode.Outline
-Instance30.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Right
-Instance30.AutomaticCanvasSize = Enum.AutomaticSize.Y
-Instance30.Selectable = true
-Instance30.AnchorPoint = Vector2.new(0, 0)
-Instance30.Name = "ScrollingFrame"
-Instance30.Visible = true
-Instance30.Size = UDim2.new(1, 0, 0, 100)
-Instance30.ScrollBarImageColor3 = Color3.new(0, 0, 0)
-Instance30.BorderSizePixel = 0
-Instance30.ScrollBarImageTransparency = 0
-Instance30.ClipsDescendants = true
-Instance30.BorderColor3 = Color3.new(0, 0, 0)
-Instance30.ScrollBarThickness = 5
-Instance30.SelectionOrder = 0
-Instance30.Rotation = 0
-Instance30.BackgroundTransparency = 0
-Instance30.Position = UDim2.new(0, 0, 1, -100)
-Instance30.ScrollingEnabled = true
-Instance30.BottomImage = "rbxasset://textures/ui/Scroll/scroll-bottom.png"
-Instance30.AutomaticSize = Enum.AutomaticSize.None
-Instance30.BackgroundColor3 = Color3.new(0.137255, 0.137255, 0.196078)
+    objects["Instance26"]["Visible"] = true;
+    objects["Instance26"]["FontSize"] = Enum.FontSize.Size14;
+    objects["Instance26"]["TextDirection"] = Enum.TextDirection.Auto;
+    objects["Instance26"]["Active"] = true;
+    objects["Instance26"]["TextStrokeTransparency"] = 1;
+    objects["Instance26"]["TextTruncate"] = Enum.TextTruncate.None;
+    objects["Instance26"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance26"]["ZIndex"] = 989;
+    objects["Instance26"]["BorderSizePixel"] = 0;
+    objects["Instance26"]["Draggable"] = false;
+    objects["Instance26"]["RichText"] = false;
+    objects["Instance26"]["Modal"] = false;
+    objects["Instance26"]["AutoButtonColor"] = true;
+    objects["Instance26"]["Transparency"] = 0;
+    objects["Instance26"]["SelectionOrder"] = 0;
+    objects["Instance26"]["TextYAlignment"] = Enum.TextYAlignment.Center;
+    objects["Instance26"]["TextScaled"] = false;
+    objects["Instance26"]["TextWrap"] = false;
+    objects["Instance26"]["FontFace"] = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false);
+    objects["Instance26"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance26"]["Parent"] = objects["Instance8"];
+    objects["Instance26"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance26"]["Style"] = Enum.ButtonStyle.Custom;
+    objects["Instance26"]["Position"] = UDim2.new(0, 120, 0, 0);
+    objects["Instance26"]["BackgroundColor3"] = Color3.new(0.0941176, 0.0941176, 0.133333);
+    objects["Instance26"]["Selected"] = false;
+    objects["Instance26"]["TextSize"] = 14;
+    objects["Instance26"]["Size"] = UDim2.new(0, 3, 1, 0);
+    objects["Instance26"]["BackgroundTransparency"] = 0;
+    objects["Instance26"]["TextWrapped"] = false;
+    objects["Instance26"]["ClipsDescendants"] = false;
+    objects["Instance26"]["TextColor3"] = Color3.new(0, 0, 0);
+    objects["Instance26"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance26"]["Text"] = "";
+    objects["Instance26"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance26"]["LayoutOrder"] = 0;
+    objects["Instance26"]["Rotation"] = 0;
+    objects["Instance26"]["LineHeight"] = 1;
+    objects["Instance26"]["Name"] = "Scale";
+    objects["Instance26"]["TextXAlignment"] = Enum.TextXAlignment.Center;
+    objects["Instance26"]["Selectable"] = true;
+    objects["Instance26"]["MaxVisibleGraphemes"] = -1;
+    objects["Instance26"]["TextStrokeColor3"] = Color3.new(0, 0, 0);
+    objects["Instance26"]["TextTransparency"] = 0;
 
-local Instance31 = Instance.new("UIGridLayout", Instance30) --UIGridLayout
-Instance31.HorizontalAlignment = Enum.HorizontalAlignment.Left
-Instance31.FillDirectionMaxCells = 0
-Instance31.FillDirection = Enum.FillDirection.Horizontal
-Instance31.CellSize = UDim2.new(0.3240000009536743, 0, 0, 30)
-Instance31.StartCorner = Enum.StartCorner.TopLeft
-Instance31.VerticalAlignment = Enum.VerticalAlignment.Top
-Instance31.SortOrder = Enum.SortOrder.LayoutOrder
-Instance31.Name = "UIGridLayout"
-Instance31.CellPadding = UDim2.new(0, 5, 0, 5)
+    objects["Instance27"]["LayoutOrder"] = 0;
+    objects["Instance27"]["Active"] = false;
+    objects["Instance27"]["Parent"] = objects["Instance8"];
+    objects["Instance27"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance27"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance27"]["ZIndex"] = -7;
+    objects["Instance27"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance27"]["Size"] = UDim2.new(1, -123, 1, -3);
+    objects["Instance27"]["Draggable"] = false;
+    objects["Instance27"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance27"]["ClipsDescendants"] = false;
+    objects["Instance27"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance27"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance27"]["BackgroundTransparency"] = 0;
+    objects["Instance27"]["BorderSizePixel"] = 0;
+    objects["Instance27"]["Rotation"] = 0;
+    objects["Instance27"]["Transparency"] = 0;
+    objects["Instance27"]["Name"] = "ContentView";
+    objects["Instance27"]["SelectionOrder"] = 0;
+    objects["Instance27"]["Visible"] = true;
+    objects["Instance27"]["Selectable"] = false;
+    objects["Instance27"]["Position"] = UDim2.new(0, 123, 0, 3);
+    objects["Instance27"]["BackgroundColor3"] = Color3.new(0.0705882, 0.0705882, 0.0980392);
 
-local Instance32 = Instance.new("Frame", Instance30) --ButtonRow
-Instance32.Visible = false
-Instance32.SelectionOrder = 0
-Instance32.Name = "ButtonRow"
-Instance32.Active = false
-Instance32.AutomaticSize = Enum.AutomaticSize.None
-Instance32.AnchorPoint = Vector2.new(0, 0)
-Instance32.Style = Enum.FrameStyle.Custom
-Instance32.LayoutOrder = 0
-Instance32.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance32.ZIndex = -5
-Instance32.Size = UDim2.new(0, 100, 0, 100)
-Instance32.Draggable = false
-Instance32.Position = UDim2.new(0, 0, 0, 0)
-Instance32.Selectable = false
-Instance32.ClipsDescendants = false
-Instance32.BorderColor3 = Color3.new(0, 0, 0)
-Instance32.BorderSizePixel = 0
-Instance32.Rotation = 0
-Instance32.BackgroundTransparency = 1
-Instance32.BorderMode = Enum.BorderMode.Outline
-Instance32.BackgroundColor3 = Color3.new(1, 1, 1)
+    objects["Instance28"]["Visible"] = true;
+    objects["Instance28"]["Active"] = true;
+    objects["Instance28"]["ScrollingDirection"] = Enum.ScrollingDirection.Y;
+    objects["Instance28"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance28"]["ZIndex"] = -6;
+    objects["Instance28"]["BorderSizePixel"] = 0;
+    objects["Instance28"]["CanvasSize"] = UDim2.new(0, 0, 0, 0);
+    objects["Instance28"]["Draggable"] = false;
+    objects["Instance28"]["MidImage"] = "rbxasset://textures/ui/Scroll/scroll-middle.png";
+    objects["Instance28"]["CanvasPosition"] = Vector2.new(0, 0);
+    objects["Instance28"]["VerticalScrollBarInset"] = Enum.ScrollBarInset.None;
+    objects["Instance28"]["Transparency"] = 0;
+    objects["Instance28"]["TopImage"] = "rbxasset://textures/ui/Scroll/scroll-top.png";
+    objects["Instance28"]["SelectionOrder"] = 0;
+    objects["Instance28"]["HorizontalScrollBarInset"] = Enum.ScrollBarInset.None;
+    objects["Instance28"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance28"]["AutomaticCanvasSize"] = Enum.AutomaticSize.Y;
+    objects["Instance28"]["VerticalScrollBarPosition"] = Enum.VerticalScrollBarPosition.Right;
+    objects["Instance28"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance28"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance28"]["Size"] = UDim2.new(1, 0, 0, 100);
+    objects["Instance28"]["ScrollBarImageColor3"] = Color3.new(0, 0, 0);
+    objects["Instance28"]["BackgroundColor3"] = Color3.new(0.137255, 0.137255, 0.196078);
+    objects["Instance28"]["Selectable"] = true;
+    objects["Instance28"]["ClipsDescendants"] = true;
+    objects["Instance28"]["ScrollBarImageTransparency"] = 0;
+    objects["Instance28"]["ScrollBarThickness"] = 5;
+    objects["Instance28"]["Parent"] = objects["Instance27"];
+    objects["Instance28"]["BackgroundTransparency"] = 0;
+    objects["Instance28"]["Rotation"] = 0;
+    objects["Instance28"]["LayoutOrder"] = 0;
+    objects["Instance28"]["Name"] = "ScrollingFrame";
+    objects["Instance28"]["Position"] = UDim2.new(0, 0, 1, -100);
+    objects["Instance28"]["ScrollingEnabled"] = true;
+    objects["Instance28"]["BottomImage"] = "rbxasset://textures/ui/Scroll/scroll-bottom.png";
+    objects["Instance28"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance28"]["ElasticBehavior"] = Enum.ElasticBehavior.Never;
 
-local Instance33 = Instance.new("Frame", Instance32) --Display
-Instance33.Visible = true
-Instance33.SelectionOrder = 0
-Instance33.Name = "Display"
-Instance33.Active = false
-Instance33.AutomaticSize = Enum.AutomaticSize.None
-Instance33.AnchorPoint = Vector2.new(0.5, 0.5)
-Instance33.Style = Enum.FrameStyle.Custom
-Instance33.LayoutOrder = 0
-Instance33.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance33.ZIndex = -4
-Instance33.Size = UDim2.new(0.8999999761581421, 0, 0.699999988079071, 0)
-Instance33.Draggable = false
-Instance33.Position = UDim2.new(0.5, 0, 0.5, 0)
-Instance33.Selectable = false
-Instance33.ClipsDescendants = false
-Instance33.BorderColor3 = Color3.new(0, 0, 0)
-Instance33.BorderSizePixel = 0
-Instance33.Rotation = 0
-Instance33.BackgroundTransparency = 0
-Instance33.BorderMode = Enum.BorderMode.Outline
-Instance33.BackgroundColor3 = Color3.new(0.156863, 0.156863, 0.254902)
+    objects["Instance29"]["FillDirectionMaxCells"] = 0;
+    objects["Instance29"]["CellPadding"] = UDim2.new(0, 5, 0, 5);
+    objects["Instance29"]["Parent"] = objects["Instance28"];
+    objects["Instance29"]["CellSize"] = UDim2.new(0.3240000009536743, 0, 0, 30);
+    objects["Instance29"]["Name"] = "UIGridLayout";
+    objects["Instance29"]["StartCorner"] = Enum.StartCorner.TopLeft;
 
-local Instance34 = Instance.new("UIStroke", Instance33) --UIStroke
-Instance34.Enabled = true
-Instance34.Color = Color3.new(0.235294, 0.235294, 0.313726)
-Instance34.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
-Instance34.Thickness = 1
-Instance34.Transparency = 0
-Instance34.Name = "UIStroke"
-Instance34.LineJoinMode = Enum.LineJoinMode.Miter
+    objects["Instance30"]["LayoutOrder"] = 0;
+    objects["Instance30"]["Active"] = false;
+    objects["Instance30"]["Parent"] = objects["Instance28"];
+    objects["Instance30"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance30"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance30"]["ZIndex"] = -5;
+    objects["Instance30"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance30"]["Size"] = UDim2.new(0, 100, 0, 100);
+    objects["Instance30"]["Draggable"] = false;
+    objects["Instance30"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance30"]["ClipsDescendants"] = false;
+    objects["Instance30"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance30"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance30"]["BackgroundTransparency"] = 1;
+    objects["Instance30"]["BorderSizePixel"] = 0;
+    objects["Instance30"]["Rotation"] = 0;
+    objects["Instance30"]["Transparency"] = 1;
+    objects["Instance30"]["Name"] = "ButtonRow";
+    objects["Instance30"]["SelectionOrder"] = 0;
+    objects["Instance30"]["Visible"] = false;
+    objects["Instance30"]["Selectable"] = false;
+    objects["Instance30"]["Position"] = UDim2.new(0, 0, 0, 0);
+    objects["Instance30"]["BackgroundColor3"] = Color3.new(1, 1, 1);
 
-local Instance35 = Instance.new("Frame", Instance33) --Type_BUTTON
-Instance35.Visible = true
-Instance35.SelectionOrder = 0
-Instance35.Name = "Type_BUTTON"
-Instance35.Active = false
-Instance35.AutomaticSize = Enum.AutomaticSize.None
-Instance35.AnchorPoint = Vector2.new(0, 0)
-Instance35.Style = Enum.FrameStyle.Custom
-Instance35.LayoutOrder = 0
-Instance35.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance35.ZIndex = -2
-Instance35.Size = UDim2.new(0, 5, 1, 0)
-Instance35.Draggable = false
-Instance35.Position = UDim2.new(0, 0, 0, 0)
-Instance35.Selectable = false
-Instance35.ClipsDescendants = false
-Instance35.BorderColor3 = Color3.new(0, 0, 0)
-Instance35.BorderSizePixel = 0
-Instance35.Rotation = 0
-Instance35.BackgroundTransparency = 0
-Instance35.BorderMode = Enum.BorderMode.Outline
-Instance35.BackgroundColor3 = Color3.new(0.666667, 0.666667, 1)
+    objects["Instance31"]["LayoutOrder"] = 0;
+    objects["Instance31"]["Active"] = false;
+    objects["Instance31"]["Parent"] = objects["Instance30"];
+    objects["Instance31"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+    objects["Instance31"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance31"]["ZIndex"] = -4;
+    objects["Instance31"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance31"]["Size"] = UDim2.new(0.8999999761581421, 0, 0.699999988079071, 0);
+    objects["Instance31"]["Draggable"] = false;
+    objects["Instance31"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance31"]["ClipsDescendants"] = false;
+    objects["Instance31"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance31"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance31"]["BackgroundTransparency"] = 0;
+    objects["Instance31"]["BorderSizePixel"] = 0;
+    objects["Instance31"]["Rotation"] = 0;
+    objects["Instance31"]["Transparency"] = 0;
+    objects["Instance31"]["Name"] = "Display";
+    objects["Instance31"]["SelectionOrder"] = 0;
+    objects["Instance31"]["Visible"] = true;
+    objects["Instance31"]["Selectable"] = false;
+    objects["Instance31"]["Position"] = UDim2.new(0.5, 0, 0.5, 0);
+    objects["Instance31"]["BackgroundColor3"] = Color3.new(0.156863, 0.156863, 0.254902);
 
-local Instance36 = Instance.new("TextLabel", Instance33) --RName
-Instance36.LayoutOrder = 0
-Instance36.TextWrapped = true
-Instance36.LineHeight = 1
-Instance36.Active = false
-Instance36.TextStrokeTransparency = 1
-Instance36.TextTruncate = Enum.TextTruncate.None
-Instance36.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance36.ZIndex = -2
-Instance36.BorderSizePixel = 0
-Instance36.Draggable = false
-Instance36.RichText = false
-Instance36.TextWrap = true
-Instance36.TextTransparency = 0
-Instance36.TextYAlignment = Enum.TextYAlignment.Center
-Instance36.TextScaled = true
-Instance36.TextXAlignment = Enum.TextXAlignment.Center
-Instance36.FontFace = Font.new("rbxasset://fonts/families/HighwayGothic.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false)
-Instance36.Name = "RName"
-Instance36.BorderMode = Enum.BorderMode.Outline
-Instance36.Selectable = false
-Instance36.TextDirection = Enum.TextDirection.Auto
-Instance36.Visible = true
-Instance36.FontSize = Enum.FontSize.Size14
-Instance36.AnchorPoint = Vector2.new(0, 0.5)
-Instance36.TextStrokeColor3 = Color3.new(0, 0, 0)
-Instance36.TextSize = 14
-Instance36.AutomaticSize = Enum.AutomaticSize.None
-Instance36.Size = UDim2.new(0.8999999761581421, -5, 0.6000000238418579, 0)
-Instance36.TextColor3 = Color3.new(1, 1, 1)
-Instance36.ClipsDescendants = false
-Instance36.BorderColor3 = Color3.new(0, 0, 0)
-Instance36.Text = "Button"
-Instance36.SelectionOrder = 0
-Instance36.BackgroundColor3 = Color3.new(1, 1, 1)
-Instance36.Rotation = 0
-Instance36.BackgroundTransparency = 1
-Instance36.Position = UDim2.new(0.05000000074505806, 5, 0.5, 0)
-Instance36.MaxVisibleGraphemes = -1
+    objects["Instance32"]["Enabled"] = true;
+    objects["Instance32"]["Transparency"] = 0;
+    objects["Instance32"]["Name"] = "UIStroke";
+    objects["Instance32"]["LineJoinMode"] = Enum.LineJoinMode.Miter;
+    objects["Instance32"]["Parent"] = objects["Instance31"];
+    objects["Instance32"]["Thickness"] = 1;
+    objects["Instance32"]["Color"] = Color3.new(0.235294, 0.235294, 0.313726);
+    objects["Instance32"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Contextual;
 
-local Instance37 = Instance.new("TextButton", Instance32) --Button
-Instance37.LayoutOrder = 0
-Instance37.TextWrapped = false
-Instance37.LineHeight = 1
-Instance37.Active = true
-Instance37.TextStrokeTransparency = 1
-Instance37.TextTruncate = Enum.TextTruncate.None
-Instance37.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance37.ZIndex = 1
-Instance37.TextWrap = false
-Instance37.Draggable = false
-Instance37.RichText = false
-Instance37.Modal = false
-Instance37.SelectionOrder = 0
-Instance37.Selectable = true
-Instance37.AutoButtonColor = true
-Instance37.TextXAlignment = Enum.TextXAlignment.Center
-Instance37.Name = "Button"
-Instance37.TextYAlignment = Enum.TextYAlignment.Center
-Instance37.TextScaled = false
-Instance37.TextDirection = Enum.TextDirection.Auto
-Instance37.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false)
-Instance37.Visible = true
-Instance37.BorderMode = Enum.BorderMode.Outline
-Instance37.TextTransparency = 0
-Instance37.FontSize = Enum.FontSize.Size14
-Instance37.TextStrokeColor3 = Color3.new(0, 0, 0)
-Instance37.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
-Instance37.AnchorPoint = Vector2.new(0, 0)
-Instance37.TextSize = 14
-Instance37.TextColor3 = Color3.new(0, 0, 0)
-Instance37.Selected = false
-Instance37.AutomaticSize = Enum.AutomaticSize.None
-Instance37.Size = UDim2.new(1, 0, 1, 0)
-Instance37.ClipsDescendants = false
-Instance37.BorderColor3 = Color3.new(0, 0, 0)
-Instance37.Text = ""
-Instance37.BorderSizePixel = 0
-Instance37.Rotation = 0
-Instance37.BackgroundTransparency = 1
-Instance37.MaxVisibleGraphemes = -1
-Instance37.Position = UDim2.new(0, 0, 0, 0)
-Instance37.Style = Enum.ButtonStyle.Custom
+    objects["Instance33"]["LayoutOrder"] = 0;
+    objects["Instance33"]["Active"] = false;
+    objects["Instance33"]["Parent"] = objects["Instance31"];
+    objects["Instance33"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance33"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance33"]["ZIndex"] = -2;
+    objects["Instance33"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance33"]["Size"] = UDim2.new(0, 5, 1, 0);
+    objects["Instance33"]["Draggable"] = false;
+    objects["Instance33"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance33"]["ClipsDescendants"] = false;
+    objects["Instance33"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance33"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance33"]["BackgroundTransparency"] = 0;
+    objects["Instance33"]["BorderSizePixel"] = 0;
+    objects["Instance33"]["Rotation"] = 0;
+    objects["Instance33"]["Transparency"] = 0;
+    objects["Instance33"]["Name"] = "Type_BUTTON";
+    objects["Instance33"]["SelectionOrder"] = 0;
+    objects["Instance33"]["Visible"] = true;
+    objects["Instance33"]["Selectable"] = false;
+    objects["Instance33"]["Position"] = UDim2.new(0, 0, 0, 0);
+    objects["Instance33"]["BackgroundColor3"] = Color3.new(0.333333, 0.333333, 1);
 
-local Instance38 = Instance.new("Frame", Instance29) --Shadow
-Instance38.Visible = true
-Instance38.SelectionOrder = 0
-Instance38.Name = "Shadow"
-Instance38.Active = false
-Instance38.AutomaticSize = Enum.AutomaticSize.None
-Instance38.AnchorPoint = Vector2.new(0, 0)
-Instance38.Style = Enum.FrameStyle.Custom
-Instance38.LayoutOrder = 0
-Instance38.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance38.ZIndex = -6
-Instance38.Size = UDim2.new(1, 0, 0, 3)
-Instance38.Draggable = false
-Instance38.Position = UDim2.new(0, 0, 1, -103)
-Instance38.Selectable = false
-Instance38.ClipsDescendants = false
-Instance38.BorderColor3 = Color3.new(0, 0, 0)
-Instance38.BorderSizePixel = 0
-Instance38.Rotation = 0
-Instance38.BackgroundTransparency = 0
-Instance38.BorderMode = Enum.BorderMode.Outline
-Instance38.BackgroundColor3 = Color3.new(0.0941176, 0.0941176, 0.133333)
+    objects["Instance34"]["Visible"] = true;
+    objects["Instance34"]["FontSize"] = Enum.FontSize.Size14;
+    objects["Instance34"]["TextDirection"] = Enum.TextDirection.Auto;
+    objects["Instance34"]["Active"] = false;
+    objects["Instance34"]["TextStrokeTransparency"] = 1;
+    objects["Instance34"]["TextTruncate"] = Enum.TextTruncate.None;
+    objects["Instance34"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance34"]["ZIndex"] = -2;
+    objects["Instance34"]["BorderSizePixel"] = 0;
+    objects["Instance34"]["Draggable"] = false;
+    objects["Instance34"]["RichText"] = false;
+    objects["Instance34"]["Transparency"] = 1;
+    objects["Instance34"]["SelectionOrder"] = 0;
+    objects["Instance34"]["TextYAlignment"] = Enum.TextYAlignment.Center;
+    objects["Instance34"]["TextScaled"] = true;
+    objects["Instance34"]["TextWrap"] = true;
+    objects["Instance34"]["FontFace"] = Font.new("rbxasset://fonts/families/HighwayGothic.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false);
+    objects["Instance34"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance34"]["Parent"] = objects["Instance31"];
+    objects["Instance34"]["AnchorPoint"] = Vector2.new(0, 0.5);
+    objects["Instance34"]["TextSize"] = 14;
+    objects["Instance34"]["Position"] = UDim2.new(0.05000000074505806, 5, 0.5, 0);
+    objects["Instance34"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance34"]["Size"] = UDim2.new(0.8999999761581421, -5, 0.6000000238418579, 0);
+    objects["Instance34"]["BackgroundTransparency"] = 1;
+    objects["Instance34"]["LineHeight"] = 1;
+    objects["Instance34"]["BackgroundColor3"] = Color3.new(1, 1, 1);
+    objects["Instance34"]["TextColor3"] = Color3.new(1, 1, 1);
+    objects["Instance34"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance34"]["Text"] = "Button";
+    objects["Instance34"]["LayoutOrder"] = 0;
+    objects["Instance34"]["TextWrapped"] = true;
+    objects["Instance34"]["Rotation"] = 0;
+    objects["Instance34"]["TextTransparency"] = 0;
+    objects["Instance34"]["Name"] = "RName";
+    objects["Instance34"]["TextXAlignment"] = Enum.TextXAlignment.Center;
+    objects["Instance34"]["ClipsDescendants"] = false;
+    objects["Instance34"]["MaxVisibleGraphemes"] = -1;
+    objects["Instance34"]["TextStrokeColor3"] = Color3.new(0, 0, 0);
+    objects["Instance34"]["Selectable"] = false;
 
-local Instance39 = Instance.new("TextBox", Instance29) --CodeBox
-Instance39.Visible = true
-Instance39.FontSize = Enum.FontSize.Size14
-Instance39.LineHeight = 1
-Instance39.Active = true
-Instance39.ClearTextOnFocus = false
-Instance39.TextStrokeTransparency = 1
-Instance39.SelectionStart = -1
-Instance39.TextTransparency = 0
-Instance39.BackgroundColor3 = Color3.new(0.0705882, 0.0705882, 0.0980392)
-Instance39.TextTruncate = Enum.TextTruncate.None
-Instance39.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance39.ZIndex = -5
-Instance39.BorderSizePixel = 0
-Instance39.TextEditable = true
-Instance39.Draggable = false
-Instance39.RichText = false
-Instance39.TextXAlignment = Enum.TextXAlignment.Left
-Instance39.Size = UDim2.new(1, 0, 1, -103)
-Instance39.AutomaticSize = Enum.AutomaticSize.None
-Instance39.SelectionOrder = 0
-Instance39.PlaceholderColor3 = Color3.new(0.7, 0.7, 0.7)
-Instance39.TextYAlignment = Enum.TextYAlignment.Top
-Instance39.TextScaled = false
-Instance39.TextWrap = true
-Instance39.TextColor3 = Color3.new(1, 1, 1)
-Instance39.Position = UDim2.new(0, 0, 0, 0)
-Instance39.BorderMode = Enum.BorderMode.Outline
-Instance39.TextStrokeColor3 = Color3.new(0, 0, 0)
-Instance39.LayoutOrder = 0
-Instance39.MultiLine = true
-Instance39.AnchorPoint = Vector2.new(0, 0)
-Instance39.TextSize = 14
-Instance39.TextDirection = Enum.TextDirection.Auto
-Instance39.CursorPosition = 1
-Instance39.PlaceholderText = ""
-Instance39.ShowNativeInput = true
-Instance39.Selectable = true
-Instance39.BackgroundTransparency = 0
-Instance39.ClipsDescendants = false
-Instance39.BorderColor3 = Color3.new(0, 0, 0)
-Instance39.Text = "   1  | local args = {}\n   2  |\n   3  | nil.RemoteEvent:FireServer(unpack(args))\n   4  |\n   5  |\n   6  |\n   7  |\n   8  |\n9\n9."
-Instance39.FontFace = Font.new("rbxasset://fonts/families/Inconsolata.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false)
-Instance39.Rotation = 0
-Instance39.Name = "CodeBox"
-Instance39.MaxVisibleGraphemes = -1
-Instance39.TextWrapped = true
+    objects["Instance35"]["Visible"] = true;
+    objects["Instance35"]["FontSize"] = Enum.FontSize.Size14;
+    objects["Instance35"]["TextDirection"] = Enum.TextDirection.Auto;
+    objects["Instance35"]["Active"] = true;
+    objects["Instance35"]["TextStrokeTransparency"] = 1;
+    objects["Instance35"]["TextTruncate"] = Enum.TextTruncate.None;
+    objects["Instance35"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance35"]["ZIndex"] = 1;
+    objects["Instance35"]["BorderSizePixel"] = 0;
+    objects["Instance35"]["Draggable"] = false;
+    objects["Instance35"]["RichText"] = false;
+    objects["Instance35"]["Modal"] = false;
+    objects["Instance35"]["AutoButtonColor"] = true;
+    objects["Instance35"]["Transparency"] = 1;
+    objects["Instance35"]["SelectionOrder"] = 0;
+    objects["Instance35"]["TextYAlignment"] = Enum.TextYAlignment.Center;
+    objects["Instance35"]["TextScaled"] = false;
+    objects["Instance35"]["TextWrap"] = false;
+    objects["Instance35"]["FontFace"] = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false);
+    objects["Instance35"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance35"]["Parent"] = objects["Instance30"];
+    objects["Instance35"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance35"]["Style"] = Enum.ButtonStyle.Custom;
+    objects["Instance35"]["Position"] = UDim2.new(0, 0, 0, 0);
+    objects["Instance35"]["BackgroundColor3"] = Color3.new(0.196078, 0.196078, 0.196078);
+    objects["Instance35"]["Selected"] = false;
+    objects["Instance35"]["TextSize"] = 14;
+    objects["Instance35"]["Size"] = UDim2.new(1, 0, 1, 0);
+    objects["Instance35"]["BackgroundTransparency"] = 1;
+    objects["Instance35"]["TextWrapped"] = false;
+    objects["Instance35"]["ClipsDescendants"] = false;
+    objects["Instance35"]["TextColor3"] = Color3.new(0, 0, 0);
+    objects["Instance35"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance35"]["Text"] = "";
+    objects["Instance35"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance35"]["LayoutOrder"] = 0;
+    objects["Instance35"]["Rotation"] = 0;
+    objects["Instance35"]["LineHeight"] = 1;
+    objects["Instance35"]["Name"] = "Button";
+    objects["Instance35"]["TextXAlignment"] = Enum.TextXAlignment.Center;
+    objects["Instance35"]["Selectable"] = true;
+    objects["Instance35"]["MaxVisibleGraphemes"] = -1;
+    objects["Instance35"]["TextStrokeColor3"] = Color3.new(0, 0, 0);
+    objects["Instance35"]["TextTransparency"] = 0;
 
-local Instance40 = Instance.new("UIStroke", Instance5) --UIStroke
-Instance40.Enabled = true
-Instance40.Color = Color3.new(0, 0, 0)
-Instance40.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-Instance40.Thickness = 2
-Instance40.Transparency = 0
-Instance40.Name = "UIStroke"
-Instance40.LineJoinMode = Enum.LineJoinMode.Miter
+    objects["Instance36"]["LayoutOrder"] = 0;
+    objects["Instance36"]["Active"] = false;
+    objects["Instance36"]["Parent"] = objects["Instance27"];
+    objects["Instance36"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance36"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance36"]["ZIndex"] = -6;
+    objects["Instance36"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance36"]["Size"] = UDim2.new(1, 0, 0, 3);
+    objects["Instance36"]["Draggable"] = false;
+    objects["Instance36"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance36"]["ClipsDescendants"] = false;
+    objects["Instance36"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance36"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance36"]["BackgroundTransparency"] = 0;
+    objects["Instance36"]["BorderSizePixel"] = 0;
+    objects["Instance36"]["Rotation"] = 0;
+    objects["Instance36"]["Transparency"] = 0;
+    objects["Instance36"]["Name"] = "Shadow";
+    objects["Instance36"]["SelectionOrder"] = 0;
+    objects["Instance36"]["Visible"] = true;
+    objects["Instance36"]["Selectable"] = false;
+    objects["Instance36"]["Position"] = UDim2.new(0, 0, 1, -103);
+    objects["Instance36"]["BackgroundColor3"] = Color3.new(0.0941176, 0.0941176, 0.133333);
 
-local Instance41 = Instance.new("TextButton", Instance5) --Toggle2
-Instance41.LayoutOrder = 0
-Instance41.TextWrapped = false
-Instance41.LineHeight = 1
-Instance41.Active = true
-Instance41.TextStrokeTransparency = 1
-Instance41.TextTruncate = Enum.TextTruncate.None
-Instance41.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance41.ZIndex = -8
-Instance41.TextWrap = false
-Instance41.Draggable = false
-Instance41.RichText = false
-Instance41.Modal = false
-Instance41.SelectionOrder = 0
-Instance41.Selectable = true
-Instance41.AutoButtonColor = true
-Instance41.TextXAlignment = Enum.TextXAlignment.Center
-Instance41.Name = "Toggle2"
-Instance41.TextYAlignment = Enum.TextYAlignment.Center
-Instance41.TextScaled = false
-Instance41.TextDirection = Enum.TextDirection.Auto
-Instance41.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false)
-Instance41.Visible = true
-Instance41.BorderMode = Enum.BorderMode.Outline
-Instance41.TextTransparency = 0
-Instance41.FontSize = Enum.FontSize.Size14
-Instance41.TextStrokeColor3 = Color3.new(0, 0, 0)
-Instance41.BackgroundColor3 = Color3.new(0.176471, 0.176471, 0.254902)
-Instance41.AnchorPoint = Vector2.new(0, 0)
-Instance41.TextSize = 14
-Instance41.TextColor3 = Color3.new(1, 1, 1)
-Instance41.Selected = false
-Instance41.AutomaticSize = Enum.AutomaticSize.None
-Instance41.Size = UDim2.new(0, 23, 0, 23)
-Instance41.ClipsDescendants = false
-Instance41.BorderColor3 = Color3.new(0, 0, 0)
-Instance41.Text = ""
-Instance41.BorderSizePixel = 0
-Instance41.Rotation = 0
-Instance41.BackgroundTransparency = 0
-Instance41.MaxVisibleGraphemes = -1
-Instance41.Position = UDim2.new(1, -69, 0, 0)
-Instance41.Style = Enum.ButtonStyle.Custom
+    objects["Instance37"]["LayoutOrder"] = 0;
+    objects["Instance37"]["FontSize"] = Enum.FontSize.Size14;
+    objects["Instance37"]["LineHeight"] = 1;
+    objects["Instance37"]["Active"] = true;
+    objects["Instance37"]["TextStrokeTransparency"] = 1;
+    objects["Instance37"]["SelectionStart"] = -1;
+    objects["Instance37"]["PlaceholderColor3"] = Color3.new(0.7, 0.7, 0.7);
+    objects["Instance37"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance37"]["ZIndex"] = -5;
+    objects["Instance37"]["BorderSizePixel"] = 0;
+    objects["Instance37"]["TextEditable"] = true;
+    objects["Instance37"]["Draggable"] = false;
+    objects["Instance37"]["RichText"] = false;
+    objects["Instance37"]["Transparency"] = 0;
+    objects["Instance37"]["SelectionOrder"] = 0;
+    objects["Instance37"]["TextYAlignment"] = Enum.TextYAlignment.Top;
+    objects["Instance37"]["TextScaled"] = false;
+    objects["Instance37"]["BackgroundColor3"] = Color3.new(0.0705882, 0.0705882, 0.0980392);
+    objects["Instance37"]["FontFace"] = Font.new("rbxasset://fonts/families/Inconsolata.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false);
+    objects["Instance37"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance37"]["Parent"] = objects["Instance27"];
+    objects["Instance37"]["TextWrapped"] = true;
+    objects["Instance37"]["MaxVisibleGraphemes"] = -1;
+    objects["Instance37"]["Name"] = "CodeBox";
+    objects["Instance37"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance37"]["TextTransparency"] = 0;
+    objects["Instance37"]["TextDirection"] = Enum.TextDirection.Auto;
+    objects["Instance37"]["CursorPosition"] = 1;
+    objects["Instance37"]["ClipsDescendants"] = false;
+    objects["Instance37"]["PlaceholderText"] = "";
+    objects["Instance37"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance37"]["Size"] = UDim2.new(1, 0, 1, -103);
+    objects["Instance37"]["TextStrokeColor3"] = Color3.new(0, 0, 0);
+    objects["Instance37"]["Selectable"] = true;
+    objects["Instance37"]["ShowNativeInput"] = true;
+    objects["Instance37"]["TextColor3"] = Color3.new(1, 1, 1);
+    objects["Instance37"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance37"]["Text"] = "   1  | local args = {}\n   2  |\n   3  | nil.RemoteEvent:FireServer(unpack(args))\n   4  |\n   5  |\n   6  |\n   7  |\n   8  |\n\n9\n9.";
+    objects["Instance37"]["TextSize"] = 14;
+    objects["Instance37"]["Visible"] = true;
+    objects["Instance37"]["Rotation"] = 0;
+    objects["Instance37"]["MultiLine"] = true;
+    objects["Instance37"]["BackgroundTransparency"] = 0;
+    objects["Instance37"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+    objects["Instance37"]["TextTruncate"] = Enum.TextTruncate.None;
+    objects["Instance37"]["ClearTextOnFocus"] = false;
+    objects["Instance37"]["Position"] = UDim2.new(0, 0, 0, 0);
+    objects["Instance37"]["TextWrap"] = true;
 
-local Instance42 = Instance.new("ImageLabel", Instance41) --Picture
-Instance42.Visible = true
-Instance42.Active = false
-Instance42.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance42.ZIndex = -7
-Instance42.BorderSizePixel = 0
-Instance42.SliceCenter = Rect.new(0, 0, 0, 0)
-Instance42.Draggable = false
-Instance42.ScaleType = Enum.ScaleType.Stretch
-Instance42.BackgroundColor3 = Color3.new(1, 1, 1)
-Instance42.ImageTransparency = 0
-Instance42.AnchorPoint = Vector2.new(0.5, 0.5)
-Instance42.Image = "rbxasset://textures/ClassImages.png"
-Instance42.TileSize = UDim2.new(1, 0, 1, 0)
-Instance42.ImageRectSize = Vector2.new(16, 16)
-Instance42.SelectionOrder = 0
-Instance42.Selectable = false
-Instance42.Size = UDim2.new(0.699999988079071, 0, 0.699999988079071, 0)
-Instance42.Name = "Picture"
-Instance42.ResampleMode = Enum.ResamplerMode.Default
-Instance42.ClipsDescendants = false
-Instance42.BorderColor3 = Color3.new(0, 0, 0)
-Instance42.ImageColor3 = Color3.new(1, 1, 1)
-Instance42.LayoutOrder = 0
-Instance42.BorderMode = Enum.BorderMode.Outline
-Instance42.Rotation = 0
-Instance42.ImageRectOffset = Vector2.new(1072, 0)
-Instance42.BackgroundTransparency = 1
-Instance42.Position = UDim2.new(0.3499999940395355, 0, 0.3499999940395355, 0)
-Instance42.SliceScale = 1
-Instance42.AutomaticSize = Enum.AutomaticSize.None
+    objects["Instance38"]["Enabled"] = true;
+    objects["Instance38"]["Transparency"] = 0;
+    objects["Instance38"]["Name"] = "UIStroke";
+    objects["Instance38"]["LineJoinMode"] = Enum.LineJoinMode.Miter;
+    objects["Instance38"]["Parent"] = objects["Instance3"];
+    objects["Instance38"]["Thickness"] = 2;
+    objects["Instance38"]["Color"] = Color3.new(0, 0, 0);
+    objects["Instance38"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
-local Instance43 = Instance.new("ImageLabel", Instance41) --State
-Instance43.Visible = true
-Instance43.Active = false
-Instance43.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance43.ZIndex = -6
-Instance43.BorderSizePixel = 0
-Instance43.SliceCenter = Rect.new(0, 0, 0, 0)
-Instance43.Draggable = false
-Instance43.ScaleType = Enum.ScaleType.Stretch
-Instance43.BackgroundColor3 = Color3.new(1, 1, 1)
-Instance43.ImageTransparency = 0.5
-Instance43.AnchorPoint = Vector2.new(0.5, 0.5)
-Instance43.Image = "rbxassetid://6511490623"
-Instance43.TileSize = UDim2.new(1, 0, 1, 0)
-Instance43.ImageRectSize = Vector2.new(16, 16)
-Instance43.SelectionOrder = 0
-Instance43.Selectable = false
-Instance43.Size = UDim2.new(0.699999988079071, 0, 0.699999988079071, 0)
-Instance43.Name = "State"
-Instance43.ResampleMode = Enum.ResamplerMode.Default
-Instance43.ClipsDescendants = false
-Instance43.BorderColor3 = Color3.new(0, 0, 0)
-Instance43.ImageColor3 = Color3.new(1, 1, 1)
-Instance43.LayoutOrder = 0
-Instance43.BorderMode = Enum.BorderMode.Outline
-Instance43.Rotation = 0
-Instance43.ImageRectOffset = Vector2.new(112, 0)
-Instance43.BackgroundTransparency = 1
-Instance43.Position = UDim2.new(0.6000000238418579, 0, 0.6000000238418579, 0)
-Instance43.SliceScale = 1
-Instance43.AutomaticSize = Enum.AutomaticSize.None
+    objects["Instance39"]["Visible"] = true;
+    objects["Instance39"]["FontSize"] = Enum.FontSize.Size14;
+    objects["Instance39"]["TextDirection"] = Enum.TextDirection.Auto;
+    objects["Instance39"]["Active"] = true;
+    objects["Instance39"]["TextStrokeTransparency"] = 1;
+    objects["Instance39"]["TextTruncate"] = Enum.TextTruncate.None;
+    objects["Instance39"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance39"]["ZIndex"] = -8;
+    objects["Instance39"]["BorderSizePixel"] = 0;
+    objects["Instance39"]["Draggable"] = false;
+    objects["Instance39"]["RichText"] = false;
+    objects["Instance39"]["Modal"] = false;
+    objects["Instance39"]["AutoButtonColor"] = true;
+    objects["Instance39"]["Transparency"] = 0;
+    objects["Instance39"]["SelectionOrder"] = 0;
+    objects["Instance39"]["TextYAlignment"] = Enum.TextYAlignment.Center;
+    objects["Instance39"]["TextScaled"] = false;
+    objects["Instance39"]["TextWrap"] = false;
+    objects["Instance39"]["FontFace"] = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false);
+    objects["Instance39"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance39"]["Parent"] = objects["Instance3"];
+    objects["Instance39"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance39"]["Style"] = Enum.ButtonStyle.Custom;
+    objects["Instance39"]["Position"] = UDim2.new(1, -69, 0, 0);
+    objects["Instance39"]["BackgroundColor3"] = Color3.new(0.176471, 0.176471, 0.254902);
+    objects["Instance39"]["Selected"] = false;
+    objects["Instance39"]["TextSize"] = 14;
+    objects["Instance39"]["Size"] = UDim2.new(0, 23, 0, 23);
+    objects["Instance39"]["BackgroundTransparency"] = 0;
+    objects["Instance39"]["TextWrapped"] = false;
+    objects["Instance39"]["ClipsDescendants"] = false;
+    objects["Instance39"]["TextColor3"] = Color3.new(1, 1, 1);
+    objects["Instance39"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance39"]["Text"] = "";
+    objects["Instance39"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance39"]["LayoutOrder"] = 0;
+    objects["Instance39"]["Rotation"] = 0;
+    objects["Instance39"]["LineHeight"] = 1;
+    objects["Instance39"]["Name"] = "Toggle2";
+    objects["Instance39"]["TextXAlignment"] = Enum.TextXAlignment.Center;
+    objects["Instance39"]["Selectable"] = true;
+    objects["Instance39"]["MaxVisibleGraphemes"] = -1;
+    objects["Instance39"]["TextStrokeColor3"] = Color3.new(0, 0, 0);
+    objects["Instance39"]["TextTransparency"] = 0;
 
-local Instance44 = Instance.new("Frame", Instance1) --Notifications
-Instance44.Visible = true
-Instance44.SelectionOrder = 0
-Instance44.Name = "Notifications"
-Instance44.Active = false
-Instance44.AutomaticSize = Enum.AutomaticSize.None
-Instance44.AnchorPoint = Vector2.new(0, 0)
-Instance44.Style = Enum.FrameStyle.Custom
-Instance44.LayoutOrder = 0
-Instance44.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance44.ZIndex = 10
-Instance44.Size = UDim2.new(0, 175, 1, 0)
-Instance44.Draggable = false
-Instance44.Position = UDim2.new(1, -175, 0, 0)
-Instance44.Selectable = false
-Instance44.ClipsDescendants = false
-Instance44.BorderColor3 = Color3.new(0, 0, 0)
-Instance44.BorderSizePixel = 0
-Instance44.Rotation = 0
-Instance44.BackgroundTransparency = 1
-Instance44.BorderMode = Enum.BorderMode.Outline
-Instance44.BackgroundColor3 = Color3.new(1, 1, 1)
+    objects["Instance40"]["Visible"] = true;
+    objects["Instance40"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance40"]["Size"] = UDim2.new(0.699999988079071, 0, 0.699999988079071, 0);
+    objects["Instance40"]["ImageTransparency"] = 0;
+    objects["Instance40"]["Parent"] = objects["Instance39"];
+    objects["Instance40"]["Position"] = UDim2.new(0.3499999940395355, 0, 0.3499999940395355, 0);
+    objects["Instance40"]["BackgroundTransparency"] = 1;
+    objects["Instance40"]["ImageRectOffset"] = Vector2.new(1072, 0);
+    objects["Instance40"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+    objects["Instance40"]["Image"] = "rbxasset://textures/ClassImages.png";
+    objects["Instance40"]["TileSize"] = UDim2.new(1, 0, 1, 0);
+    objects["Instance40"]["ImageRectSize"] = Vector2.new(16, 16);
+    objects["Instance40"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance40"]["ZIndex"] = -7;
+    objects["Instance40"]["BorderSizePixel"] = 0;
+    objects["Instance40"]["SliceCenter"] = Rect.new(0, 0, 0, 0);
+    objects["Instance40"]["Draggable"] = false;
+    objects["Instance40"]["ScaleType"] = Enum.ScaleType.Stretch;
+    objects["Instance40"]["ResampleMode"] = Enum.ResamplerMode.Default;
+    objects["Instance40"]["ClipsDescendants"] = false;
+    objects["Instance40"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance40"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance40"]["LayoutOrder"] = 0;
+    objects["Instance40"]["ImageColor3"] = Color3.new(1, 1, 1);
+    objects["Instance40"]["Rotation"] = 0;
+    objects["Instance40"]["Transparency"] = 1;
+    objects["Instance40"]["Name"] = "Picture";
+    objects["Instance40"]["SelectionOrder"] = 0;
+    objects["Instance40"]["SliceScale"] = 1;
+    objects["Instance40"]["Selectable"] = false;
+    objects["Instance40"]["Active"] = false;
+    objects["Instance40"]["BackgroundColor3"] = Color3.new(1, 1, 1);
 
-local Instance45 = Instance.new("Frame", Instance44) --NotificationBase
-Instance45.Visible = true
-Instance45.SelectionOrder = 0
-Instance45.Name = "NotificationBase"
-Instance45.Active = false
-Instance45.AutomaticSize = Enum.AutomaticSize.None
-Instance45.AnchorPoint = Vector2.new(0, 0)
-Instance45.Style = Enum.FrameStyle.Custom
-Instance45.LayoutOrder = 0
-Instance45.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance45.ZIndex = 11
-Instance45.Size = UDim2.new(1, 0, 0, 100)
-Instance45.Draggable = false
-Instance45.Position = UDim2.new(0, 0, 0, 0)
-Instance45.Selectable = false
-Instance45.ClipsDescendants = false
-Instance45.BorderColor3 = Color3.new(0, 0, 0)
-Instance45.BorderSizePixel = 0
-Instance45.Rotation = 0
-Instance45.BackgroundTransparency = 1
-Instance45.BorderMode = Enum.BorderMode.Outline
-Instance45.BackgroundColor3 = Color3.new(1, 1, 1)
+    objects["Instance41"]["Visible"] = true;
+    objects["Instance41"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance41"]["Size"] = UDim2.new(0.699999988079071, 0, 0.699999988079071, 0);
+    objects["Instance41"]["ImageTransparency"] = 0.5;
+    objects["Instance41"]["Parent"] = objects["Instance39"];
+    objects["Instance41"]["Position"] = UDim2.new(0.6000000238418579, 0, 0.6000000238418579, 0);
+    objects["Instance41"]["BackgroundTransparency"] = 1;
+    objects["Instance41"]["ImageRectOffset"] = Vector2.new(112, 0);
+    objects["Instance41"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+    objects["Instance41"]["Image"] = "rbxassetid://6511490623";
+    objects["Instance41"]["TileSize"] = UDim2.new(1, 0, 1, 0);
+    objects["Instance41"]["ImageRectSize"] = Vector2.new(16, 16);
+    objects["Instance41"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance41"]["ZIndex"] = -6;
+    objects["Instance41"]["BorderSizePixel"] = 0;
+    objects["Instance41"]["SliceCenter"] = Rect.new(0, 0, 0, 0);
+    objects["Instance41"]["Draggable"] = false;
+    objects["Instance41"]["ScaleType"] = Enum.ScaleType.Stretch;
+    objects["Instance41"]["ResampleMode"] = Enum.ResamplerMode.Default;
+    objects["Instance41"]["ClipsDescendants"] = false;
+    objects["Instance41"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance41"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance41"]["LayoutOrder"] = 0;
+    objects["Instance41"]["ImageColor3"] = Color3.new(1, 1, 1);
+    objects["Instance41"]["Rotation"] = 0;
+    objects["Instance41"]["Transparency"] = 1;
+    objects["Instance41"]["Name"] = "State";
+    objects["Instance41"]["SelectionOrder"] = 0;
+    objects["Instance41"]["SliceScale"] = 1;
+    objects["Instance41"]["Selectable"] = false;
+    objects["Instance41"]["Active"] = false;
+    objects["Instance41"]["BackgroundColor3"] = Color3.new(1, 1, 1);
 
-local Instance46 = Instance.new("Frame", Instance45) --Display
-Instance46.Visible = true
-Instance46.SelectionOrder = 0
-Instance46.Name = "Display"
-Instance46.Active = false
-Instance46.AutomaticSize = Enum.AutomaticSize.None
-Instance46.AnchorPoint = Vector2.new(0.5, 0.5)
-Instance46.Style = Enum.FrameStyle.Custom
-Instance46.LayoutOrder = 0
-Instance46.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance46.ZIndex = 12
-Instance46.Size = UDim2.new(0.8999999761581421, 0, 0.800000011920929, 0)
-Instance46.Draggable = false
-Instance46.Position = UDim2.new(0.5, 0, 0.5, 0)
-Instance46.Selectable = false
-Instance46.ClipsDescendants = false
-Instance46.BorderColor3 = Color3.new(0, 0, 0)
-Instance46.BorderSizePixel = 0
-Instance46.Rotation = 0
-Instance46.BackgroundTransparency = 0
-Instance46.BorderMode = Enum.BorderMode.Outline
-Instance46.BackgroundColor3 = Color3.new(0.137255, 0.137255, 0.196078)
+    objects["Instance42"]["Visible"] = true;
+    objects["Instance42"]["FontSize"] = Enum.FontSize.Size14;
+    objects["Instance42"]["TextDirection"] = Enum.TextDirection.Auto;
+    objects["Instance42"]["Active"] = true;
+    objects["Instance42"]["TextStrokeTransparency"] = 1;
+    objects["Instance42"]["TextTruncate"] = Enum.TextTruncate.None;
+    objects["Instance42"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance42"]["ZIndex"] = -8;
+    objects["Instance42"]["BorderSizePixel"] = 0;
+    objects["Instance42"]["Draggable"] = false;
+    objects["Instance42"]["RichText"] = false;
+    objects["Instance42"]["Modal"] = false;
+    objects["Instance42"]["AutoButtonColor"] = false;
+    objects["Instance42"]["Transparency"] = 0;
+    objects["Instance42"]["SelectionOrder"] = 0;
+    objects["Instance42"]["TextYAlignment"] = Enum.TextYAlignment.Center;
+    objects["Instance42"]["TextScaled"] = false;
+    objects["Instance42"]["TextWrap"] = false;
+    objects["Instance42"]["FontFace"] = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false);
+    objects["Instance42"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance42"]["Parent"] = objects["Instance3"];
+    objects["Instance42"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance42"]["Style"] = Enum.ButtonStyle.Custom;
+    objects["Instance42"]["Position"] = UDim2.new(1, -92, 0, 0);
+    objects["Instance42"]["BackgroundColor3"] = Color3.new(0.176471, 0.176471, 0.254902);
+    objects["Instance42"]["Selected"] = false;
+    objects["Instance42"]["TextSize"] = 14;
+    objects["Instance42"]["Size"] = UDim2.new(0, 23, 0, 23);
+    objects["Instance42"]["BackgroundTransparency"] = 0;
+    objects["Instance42"]["TextWrapped"] = false;
+    objects["Instance42"]["ClipsDescendants"] = false;
+    objects["Instance42"]["TextColor3"] = Color3.new(1, 1, 1);
+    objects["Instance42"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance42"]["Text"] = "";
+    objects["Instance42"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance42"]["LayoutOrder"] = 0;
+    objects["Instance42"]["Rotation"] = 0;
+    objects["Instance42"]["LineHeight"] = 1;
+    objects["Instance42"]["Name"] = "Help";
+    objects["Instance42"]["TextXAlignment"] = Enum.TextXAlignment.Center;
+    objects["Instance42"]["Selectable"] = true;
+    objects["Instance42"]["MaxVisibleGraphemes"] = -1;
+    objects["Instance42"]["TextStrokeColor3"] = Color3.new(0, 0, 0);
+    objects["Instance42"]["TextTransparency"] = 0;
 
-local Instance47 = Instance.new("UIStroke", Instance46) --UIStroke
-Instance47.Enabled = true
-Instance47.Color = Color3.new(0, 0, 0)
-Instance47.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
-Instance47.Thickness = 2
-Instance47.Transparency = 0
-Instance47.Name = "UIStroke"
-Instance47.LineJoinMode = Enum.LineJoinMode.Miter
+    objects["Instance43"]["Visible"] = true;
+    objects["Instance43"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance43"]["Size"] = UDim2.new(0.75, 0, 0.75, 0);
+    objects["Instance43"]["ImageTransparency"] = 0.5;
+    objects["Instance43"]["Parent"] = objects["Instance42"];
+    objects["Instance43"]["Position"] = UDim2.new(0.5, 0, 0.5, 0);
+    objects["Instance43"]["BackgroundTransparency"] = 1;
+    objects["Instance43"]["ImageRectOffset"] = Vector2.new(0, 0);
+    objects["Instance43"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+    objects["Instance43"]["Image"] = "rbxassetid://6511490623";
+    objects["Instance43"]["TileSize"] = UDim2.new(1, 0, 1, 0);
+    objects["Instance43"]["ImageRectSize"] = Vector2.new(16, 16);
+    objects["Instance43"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance43"]["ZIndex"] = -7;
+    objects["Instance43"]["BorderSizePixel"] = 0;
+    objects["Instance43"]["SliceCenter"] = Rect.new(0, 0, 0, 0);
+    objects["Instance43"]["Draggable"] = false;
+    objects["Instance43"]["ScaleType"] = Enum.ScaleType.Stretch;
+    objects["Instance43"]["ResampleMode"] = Enum.ResamplerMode.Default;
+    objects["Instance43"]["ClipsDescendants"] = false;
+    objects["Instance43"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance43"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance43"]["LayoutOrder"] = 0;
+    objects["Instance43"]["ImageColor3"] = Color3.new(1, 1, 1);
+    objects["Instance43"]["Rotation"] = 0;
+    objects["Instance43"]["Transparency"] = 1;
+    objects["Instance43"]["Name"] = "Picture";
+    objects["Instance43"]["SelectionOrder"] = 0;
+    objects["Instance43"]["SliceScale"] = 1;
+    objects["Instance43"]["Selectable"] = false;
+    objects["Instance43"]["Active"] = false;
+    objects["Instance43"]["BackgroundColor3"] = Color3.new(1, 1, 1);
 
-local Instance48 = Instance.new("Frame", Instance46) --Bar
-Instance48.Visible = true
-Instance48.SelectionOrder = 0
-Instance48.Name = "Bar"
-Instance48.Active = false
-Instance48.AutomaticSize = Enum.AutomaticSize.None
-Instance48.AnchorPoint = Vector2.new(0, 0)
-Instance48.Style = Enum.FrameStyle.Custom
-Instance48.LayoutOrder = 0
-Instance48.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance48.ZIndex = 13
-Instance48.Size = UDim2.new(1, 0, 0.05000000074505806, 0)
-Instance48.Draggable = false
-Instance48.Position = UDim2.new(0, 0, 0.949999988079071, 0)
-Instance48.Selectable = false
-Instance48.ClipsDescendants = false
-Instance48.BorderColor3 = Color3.new(0, 0, 0)
-Instance48.BorderSizePixel = 0
-Instance48.Rotation = 0
-Instance48.BackgroundTransparency = 0
-Instance48.BorderMode = Enum.BorderMode.Outline
-Instance48.BackgroundColor3 = Color3.new(0.0941176, 0.0941176, 0.133333)
+    objects["Instance44"]["LayoutOrder"] = 0;
+    objects["Instance44"]["Active"] = false;
+    objects["Instance44"]["Parent"] = objects["Instance0"];
+    objects["Instance44"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance44"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance44"]["ZIndex"] = 10;
+    objects["Instance44"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance44"]["Size"] = UDim2.new(0, 175, 1, 0);
+    objects["Instance44"]["Draggable"] = false;
+    objects["Instance44"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance44"]["ClipsDescendants"] = false;
+    objects["Instance44"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance44"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance44"]["BackgroundTransparency"] = 1;
+    objects["Instance44"]["BorderSizePixel"] = 0;
+    objects["Instance44"]["Rotation"] = 0;
+    objects["Instance44"]["Transparency"] = 1;
+    objects["Instance44"]["Name"] = "Notifications";
+    objects["Instance44"]["SelectionOrder"] = 0;
+    objects["Instance44"]["Visible"] = true;
+    objects["Instance44"]["Selectable"] = false;
+    objects["Instance44"]["Position"] = UDim2.new(1, -175, 0, 0);
+    objects["Instance44"]["BackgroundColor3"] = Color3.new(1, 1, 1);
 
-local Instance49 = Instance.new("Frame", Instance48) --Frame
-Instance49.Visible = true
-Instance49.SelectionOrder = 0
-Instance49.Name = "Frame"
-Instance49.Active = false
-Instance49.AutomaticSize = Enum.AutomaticSize.None
-Instance49.AnchorPoint = Vector2.new(0, 0)
-Instance49.Style = Enum.FrameStyle.Custom
-Instance49.LayoutOrder = 0
-Instance49.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance49.ZIndex = 14
-Instance49.Size = UDim2.new(0.5, 0, 1, 0)
-Instance49.Draggable = false
-Instance49.Position = UDim2.new(0, 0, 0, 0)
-Instance49.Selectable = false
-Instance49.ClipsDescendants = false
-Instance49.BorderColor3 = Color3.new(0, 0, 0)
-Instance49.BorderSizePixel = 0
-Instance49.Rotation = 0
-Instance49.BackgroundTransparency = 0
-Instance49.BorderMode = Enum.BorderMode.Outline
-Instance49.BackgroundColor3 = Color3.new(0.666667, 0.666667, 1)
+    objects["Instance45"]["LayoutOrder"] = 0;
+    objects["Instance45"]["Active"] = false;
+    objects["Instance45"]["Parent"] = objects["Instance44"];
+    objects["Instance45"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance45"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance45"]["ZIndex"] = 11;
+    objects["Instance45"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance45"]["Size"] = UDim2.new(1, 0, 0, 100);
+    objects["Instance45"]["Draggable"] = false;
+    objects["Instance45"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance45"]["ClipsDescendants"] = false;
+    objects["Instance45"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance45"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance45"]["BackgroundTransparency"] = 1;
+    objects["Instance45"]["BorderSizePixel"] = 0;
+    objects["Instance45"]["Rotation"] = 0;
+    objects["Instance45"]["Transparency"] = 1;
+    objects["Instance45"]["Name"] = "NotificationBase";
+    objects["Instance45"]["SelectionOrder"] = 0;
+    objects["Instance45"]["Visible"] = false;
+    objects["Instance45"]["Selectable"] = false;
+    objects["Instance45"]["Position"] = UDim2.new(0, 0, 0, 0);
+    objects["Instance45"]["BackgroundColor3"] = Color3.new(1, 1, 1);
 
-local Instance50 = Instance.new("TextLabel", Instance46) --Title
-Instance50.LayoutOrder = 0
-Instance50.TextWrapped = true
-Instance50.LineHeight = 1
-Instance50.Active = false
-Instance50.TextStrokeTransparency = 0
-Instance50.TextTruncate = Enum.TextTruncate.None
-Instance50.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance50.ZIndex = 13
-Instance50.BorderSizePixel = 0
-Instance50.Draggable = false
-Instance50.RichText = false
-Instance50.TextWrap = true
-Instance50.TextTransparency = 0
-Instance50.TextYAlignment = Enum.TextYAlignment.Center
-Instance50.TextScaled = true
-Instance50.TextXAlignment = Enum.TextXAlignment.Left
-Instance50.FontFace = Font.new("rbxasset://fonts/families/PatrickHand.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false)
-Instance50.Name = "Title"
-Instance50.BorderMode = Enum.BorderMode.Outline
-Instance50.Selectable = false
-Instance50.TextDirection = Enum.TextDirection.Auto
-Instance50.Visible = true
-Instance50.FontSize = Enum.FontSize.Size14
-Instance50.AnchorPoint = Vector2.new(0, 0)
-Instance50.TextStrokeColor3 = Color3.new(0.215686, 0.215686, 0.254902)
-Instance50.TextSize = 14
-Instance50.AutomaticSize = Enum.AutomaticSize.None
-Instance50.Size = UDim2.new(0.949999988079071, 0, 0.17499999701976776, 0)
-Instance50.TextColor3 = Color3.new(0.666667, 0.333333, 1)
-Instance50.ClipsDescendants = false
-Instance50.BorderColor3 = Color3.new(0, 0, 0)
-Instance50.Text = "Notification"
-Instance50.SelectionOrder = 0
-Instance50.BackgroundColor3 = Color3.new(1, 1, 1)
-Instance50.Rotation = 0
-Instance50.BackgroundTransparency = 1
-Instance50.Position = UDim2.new(0.02500000037252903, 0, 0.02500000037252903, 0)
-Instance50.MaxVisibleGraphemes = -1
+    objects["Instance46"]["LayoutOrder"] = 0;
+    objects["Instance46"]["Active"] = false;
+    objects["Instance46"]["Parent"] = objects["Instance45"];
+    objects["Instance46"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+    objects["Instance46"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance46"]["ZIndex"] = 12;
+    objects["Instance46"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance46"]["Size"] = UDim2.new(0.8999999761581421, 0, 0.800000011920929, 0);
+    objects["Instance46"]["Draggable"] = false;
+    objects["Instance46"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance46"]["ClipsDescendants"] = false;
+    objects["Instance46"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance46"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance46"]["BackgroundTransparency"] = 0;
+    objects["Instance46"]["BorderSizePixel"] = 0;
+    objects["Instance46"]["Rotation"] = 0;
+    objects["Instance46"]["Transparency"] = 0;
+    objects["Instance46"]["Name"] = "Display";
+    objects["Instance46"]["SelectionOrder"] = 0;
+    objects["Instance46"]["Visible"] = true;
+    objects["Instance46"]["Selectable"] = false;
+    objects["Instance46"]["Position"] = UDim2.new(0.5, 0, 0.5, 0);
+    objects["Instance46"]["BackgroundColor3"] = Color3.new(0.137255, 0.137255, 0.196078);
 
-local Instance51 = Instance.new("UIPadding", Instance50) --UIPadding
-Instance51.PaddingTop = UDim.new(0, 0)
-Instance51.PaddingRight = UDim.new(0, 0)
-Instance51.PaddingLeft = UDim.new(0.0500000007, 0)
-Instance51.Name = "UIPadding"
-Instance51.PaddingBottom = UDim.new(0, 0)
+    objects["Instance47"]["Enabled"] = true;
+    objects["Instance47"]["Transparency"] = 0;
+    objects["Instance47"]["Name"] = "UIStroke";
+    objects["Instance47"]["LineJoinMode"] = Enum.LineJoinMode.Miter;
+    objects["Instance47"]["Parent"] = objects["Instance46"];
+    objects["Instance47"]["Thickness"] = 2;
+    objects["Instance47"]["Color"] = Color3.new(0, 0, 0);
+    objects["Instance47"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Contextual;
 
-local Instance52 = Instance.new("TextLabel", Instance46) --Content
-Instance52.LayoutOrder = 0
-Instance52.TextWrapped = true
-Instance52.LineHeight = 1
-Instance52.Active = false
-Instance52.TextStrokeTransparency = 0
-Instance52.TextTruncate = Enum.TextTruncate.None
-Instance52.SizeConstraint = Enum.SizeConstraint.RelativeXY
-Instance52.ZIndex = 13
-Instance52.BorderSizePixel = 0
-Instance52.Draggable = false
-Instance52.RichText = false
-Instance52.TextWrap = true
-Instance52.TextTransparency = 0
-Instance52.TextYAlignment = Enum.TextYAlignment.Top
-Instance52.TextScaled = false
-Instance52.TextXAlignment = Enum.TextXAlignment.Left
-Instance52.FontFace = Font.new("rbxasset://fonts/families/PatrickHand.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false)
-Instance52.Name = "Content"
-Instance52.BorderMode = Enum.BorderMode.Outline
-Instance52.Selectable = false
-Instance52.TextDirection = Enum.TextDirection.Auto
-Instance52.Visible = true
-Instance52.FontSize = Enum.FontSize.Size14
-Instance52.AnchorPoint = Vector2.new(0, 0)
-Instance52.TextStrokeColor3 = Color3.new(0.215686, 0.215686, 0.254902)
-Instance52.TextSize = 13
-Instance52.AutomaticSize = Enum.AutomaticSize.None
-Instance52.Size = UDim2.new(0.949999988079071, 0, 0.699999988079071, 0)
-Instance52.TextColor3 = Color3.new(0.658824, 0.411765, 1)
-Instance52.ClipsDescendants = false
-Instance52.BorderColor3 = Color3.new(0, 0, 0)
-Instance52.Text = "Content"
-Instance52.SelectionOrder = 0
-Instance52.BackgroundColor3 = Color3.new(1, 1, 1)
-Instance52.Rotation = 0
-Instance52.BackgroundTransparency = 1
-Instance52.Position = UDim2.new(0.02500000037252903, 0, 0.20000000298023224, 0)
-Instance52.MaxVisibleGraphemes = -1
+    objects["Instance48"]["LayoutOrder"] = 0;
+    objects["Instance48"]["Active"] = false;
+    objects["Instance48"]["Parent"] = objects["Instance46"];
+    objects["Instance48"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance48"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance48"]["ZIndex"] = 13;
+    objects["Instance48"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance48"]["Size"] = UDim2.new(1, 0, 0.05000000074505806, 0);
+    objects["Instance48"]["Draggable"] = false;
+    objects["Instance48"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance48"]["ClipsDescendants"] = false;
+    objects["Instance48"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance48"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance48"]["BackgroundTransparency"] = 0;
+    objects["Instance48"]["BorderSizePixel"] = 0;
+    objects["Instance48"]["Rotation"] = 0;
+    objects["Instance48"]["Transparency"] = 0;
+    objects["Instance48"]["Name"] = "Bar";
+    objects["Instance48"]["SelectionOrder"] = 0;
+    objects["Instance48"]["Visible"] = true;
+    objects["Instance48"]["Selectable"] = false;
+    objects["Instance48"]["Position"] = UDim2.new(0, 0, 0.949999988079071, 0);
+    objects["Instance48"]["BackgroundColor3"] = Color3.new(0.0941176, 0.0941176, 0.133333);
 
-local Instance53 = Instance.new("UIListLayout", Instance44) --UIListLayout
-Instance53.FillDirection = Enum.FillDirection.Vertical
-Instance53.HorizontalAlignment = Enum.HorizontalAlignment.Left
-Instance53.HorizontalFlex = Enum.UIFlexAlignment.None
-Instance53.VerticalFlex = Enum.UIFlexAlignment.None
-Instance53.VerticalAlignment = Enum.VerticalAlignment.Bottom
-Instance53.SortOrder = Enum.SortOrder.LayoutOrder
-Instance53.Name = "UIListLayout"
-Instance53.Padding = UDim.new(0, 0)
-Instance53.ItemLineAlignment = Enum.ItemLineAlignment.Automatic
+    objects["Instance49"]["LayoutOrder"] = 0;
+    objects["Instance49"]["Active"] = false;
+    objects["Instance49"]["Parent"] = objects["Instance48"];
+    objects["Instance49"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance49"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance49"]["ZIndex"] = 14;
+    objects["Instance49"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance49"]["Size"] = UDim2.new(0.5, 0, 1, 0);
+    objects["Instance49"]["Draggable"] = false;
+    objects["Instance49"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance49"]["ClipsDescendants"] = false;
+    objects["Instance49"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance49"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance49"]["BackgroundTransparency"] = 0;
+    objects["Instance49"]["BorderSizePixel"] = 0;
+    objects["Instance49"]["Rotation"] = 0;
+    objects["Instance49"]["Transparency"] = 0;
+    objects["Instance49"]["Name"] = "Frame";
+    objects["Instance49"]["SelectionOrder"] = 0;
+    objects["Instance49"]["Visible"] = true;
+    objects["Instance49"]["Selectable"] = false;
+    objects["Instance49"]["Position"] = UDim2.new(0, 0, 0, 0);
+    objects["Instance49"]["BackgroundColor3"] = Color3.new(0.666667, 0.666667, 1);
 
+    objects["Instance50"]["Visible"] = true;
+    objects["Instance50"]["FontSize"] = Enum.FontSize.Size14;
+    objects["Instance50"]["TextDirection"] = Enum.TextDirection.Auto;
+    objects["Instance50"]["Active"] = false;
+    objects["Instance50"]["TextStrokeTransparency"] = 0;
+    objects["Instance50"]["TextTruncate"] = Enum.TextTruncate.None;
+    objects["Instance50"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance50"]["ZIndex"] = 13;
+    objects["Instance50"]["BorderSizePixel"] = 0;
+    objects["Instance50"]["Draggable"] = false;
+    objects["Instance50"]["RichText"] = false;
+    objects["Instance50"]["Transparency"] = 1;
+    objects["Instance50"]["SelectionOrder"] = 0;
+    objects["Instance50"]["TextYAlignment"] = Enum.TextYAlignment.Center;
+    objects["Instance50"]["TextScaled"] = true;
+    objects["Instance50"]["TextWrap"] = true;
+    objects["Instance50"]["FontFace"] = Font.new("rbxasset://fonts/families/PatrickHand.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false);
+    objects["Instance50"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance50"]["Parent"] = objects["Instance46"];
+    objects["Instance50"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance50"]["TextSize"] = 14;
+    objects["Instance50"]["Position"] = UDim2.new(0.02500000037252903, 0, 0.02500000037252903, 0);
+    objects["Instance50"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance50"]["Size"] = UDim2.new(0.949999988079071, 0, 0.17499999701976776, 0);
+    objects["Instance50"]["BackgroundTransparency"] = 1;
+    objects["Instance50"]["LineHeight"] = 1;
+    objects["Instance50"]["BackgroundColor3"] = Color3.new(1, 1, 1);
+    objects["Instance50"]["TextColor3"] = Color3.new(0.666667, 0.333333, 1);
+    objects["Instance50"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance50"]["Text"] = "Notification";
+    objects["Instance50"]["LayoutOrder"] = 0;
+    objects["Instance50"]["TextWrapped"] = true;
+    objects["Instance50"]["Rotation"] = 0;
+    objects["Instance50"]["TextTransparency"] = 0;
+    objects["Instance50"]["Name"] = "Title";
+    objects["Instance50"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+    objects["Instance50"]["ClipsDescendants"] = false;
+    objects["Instance50"]["MaxVisibleGraphemes"] = -1;
+    objects["Instance50"]["TextStrokeColor3"] = Color3.new(0.215686, 0.215686, 0.254902);
+    objects["Instance50"]["Selectable"] = false;
 
-----------
+    objects["Instance51"]["PaddingTop"] = UDim.new(0, 0);
+    objects["Instance51"]["Name"] = "UIPadding";
+    objects["Instance51"]["Parent"] = objects["Instance50"];
+    objects["Instance51"]["PaddingBottom"] = UDim.new(0, 0);
+    objects["Instance51"]["PaddingLeft"] = UDim.new(0.0500000007, 0);
+    objects["Instance51"]["PaddingRight"] = UDim.new(0, 0);
 
-local require; local moduleScripts = {}
+    objects["Instance52"]["Visible"] = true;
+    objects["Instance52"]["FontSize"] = Enum.FontSize.Size14;
+    objects["Instance52"]["TextDirection"] = Enum.TextDirection.Auto;
+    objects["Instance52"]["Active"] = false;
+    objects["Instance52"]["TextStrokeTransparency"] = 0;
+    objects["Instance52"]["TextTruncate"] = Enum.TextTruncate.None;
+    objects["Instance52"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance52"]["ZIndex"] = 13;
+    objects["Instance52"]["BorderSizePixel"] = 0;
+    objects["Instance52"]["Draggable"] = false;
+    objects["Instance52"]["RichText"] = false;
+    objects["Instance52"]["Transparency"] = 1;
+    objects["Instance52"]["SelectionOrder"] = 0;
+    objects["Instance52"]["TextYAlignment"] = Enum.TextYAlignment.Top;
+    objects["Instance52"]["TextScaled"] = false;
+    objects["Instance52"]["TextWrap"] = true;
+    objects["Instance52"]["FontFace"] = Font.new("rbxasset://fonts/families/PatrickHand.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false);
+    objects["Instance52"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance52"]["Parent"] = objects["Instance46"];
+    objects["Instance52"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance52"]["TextSize"] = 13;
+    objects["Instance52"]["Position"] = UDim2.new(0.02500000037252903, 0, 0.20000000298023224, 0);
+    objects["Instance52"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance52"]["Size"] = UDim2.new(0.949999988079071, 0, 0.699999988079071, 0);
+    objects["Instance52"]["BackgroundTransparency"] = 1;
+    objects["Instance52"]["LineHeight"] = 1;
+    objects["Instance52"]["BackgroundColor3"] = Color3.new(1, 1, 1);
+    objects["Instance52"]["TextColor3"] = Color3.new(0.658824, 0.411765, 1);
+    objects["Instance52"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance52"]["Text"] = "Content";
+    objects["Instance52"]["LayoutOrder"] = 0;
+    objects["Instance52"]["TextWrapped"] = true;
+    objects["Instance52"]["Rotation"] = 0;
+    objects["Instance52"]["TextTransparency"] = 0;
+    objects["Instance52"]["Name"] = "Content";
+    objects["Instance52"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+    objects["Instance52"]["ClipsDescendants"] = false;
+    objects["Instance52"]["MaxVisibleGraphemes"] = -1;
+    objects["Instance52"]["TextStrokeColor3"] = Color3.new(0.215686, 0.215686, 0.254902);
+    objects["Instance52"]["Selectable"] = false;
 
-moduleScripts[Instance3] = function()
-    local script = Instance3
-    local Lib = {}
+    objects["Instance53"]["FillDirection"] = Enum.FillDirection.Vertical;
+    objects["Instance53"]["HorizontalAlignment"] = Enum.HorizontalAlignment.Left;
+    objects["Instance53"]["VerticalFlex"] = Enum.UIFlexAlignment.None;
+    objects["Instance53"]["Parent"] = objects["Instance44"];
+    objects["Instance53"]["VerticalAlignment"] = Enum.VerticalAlignment.Bottom;
+    objects["Instance53"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+    objects["Instance53"]["Name"] = "UIListLayout";
+    objects["Instance53"]["Padding"] = UDim.new(0, 0);
+    objects["Instance53"]["ItemLineAlignment"] = Enum.ItemLineAlignment.Automatic;
+    objects["Instance53"]["HorizontalFlex"] = Enum.UIFlexAlignment.None;
+
+    objects["Instance54"]["LayoutOrder"] = 0;
+    objects["Instance54"]["Active"] = false;
+    objects["Instance54"]["Parent"] = objects["Instance0"];
+    objects["Instance54"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+    objects["Instance54"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance54"]["ZIndex"] = 1;
+    objects["Instance54"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance54"]["Size"] = UDim2.new(0, 416, 0, 234);
+    objects["Instance54"]["Draggable"] = false;
+    objects["Instance54"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance54"]["ClipsDescendants"] = false;
+    objects["Instance54"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance54"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance54"]["BackgroundTransparency"] = 0;
+    objects["Instance54"]["BorderSizePixel"] = 0;
+    objects["Instance54"]["Rotation"] = 0;
+    objects["Instance54"]["Transparency"] = 0;
+    objects["Instance54"]["Name"] = "PCNotification";
+    objects["Instance54"]["SelectionOrder"] = 0;
+    objects["Instance54"]["Visible"] = false;
+    objects["Instance54"]["Selectable"] = false;
+    objects["Instance54"]["Position"] = UDim2.new(0.5, 0, 0.5, 0);
+    objects["Instance54"]["BackgroundColor3"] = Color3.new(0.176471, 0.176471, 0.254902);
+
+    objects["Instance55"]["Enabled"] = true;
+    objects["Instance55"]["Transparency"] = 0;
+    objects["Instance55"]["Name"] = "UIStroke";
+    objects["Instance55"]["LineJoinMode"] = Enum.LineJoinMode.Miter;
+    objects["Instance55"]["Parent"] = objects["Instance54"];
+    objects["Instance55"]["Thickness"] = 2;
+    objects["Instance55"]["Color"] = Color3.new(0, 0, 0);
+    objects["Instance55"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+
+    objects["Instance56"]["Visible"] = true;
+    objects["Instance56"]["FontSize"] = Enum.FontSize.Size14;
+    objects["Instance56"]["TextDirection"] = Enum.TextDirection.Auto;
+    objects["Instance56"]["Active"] = false;
+    objects["Instance56"]["TextStrokeTransparency"] = 0;
+    objects["Instance56"]["TextTruncate"] = Enum.TextTruncate.None;
+    objects["Instance56"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance56"]["ZIndex"] = 2;
+    objects["Instance56"]["BorderSizePixel"] = 0;
+    objects["Instance56"]["Draggable"] = false;
+    objects["Instance56"]["RichText"] = false;
+    objects["Instance56"]["Transparency"] = 1;
+    objects["Instance56"]["SelectionOrder"] = 0;
+    objects["Instance56"]["TextYAlignment"] = Enum.TextYAlignment.Center;
+    objects["Instance56"]["TextScaled"] = true;
+    objects["Instance56"]["TextWrap"] = true;
+    objects["Instance56"]["FontFace"] = Font.new("rbxasset://fonts/families/PatrickHand.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false);
+    objects["Instance56"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance56"]["Parent"] = objects["Instance54"];
+    objects["Instance56"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance56"]["TextSize"] = 14;
+    objects["Instance56"]["Position"] = UDim2.new(0.019999999552965164, 0, 0.019999999552965164, 0);
+    objects["Instance56"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance56"]["Size"] = UDim2.new(0.9599999785423279, 0, 0.15000000596046448, 0);
+    objects["Instance56"]["BackgroundTransparency"] = 1;
+    objects["Instance56"]["LineHeight"] = 1;
+    objects["Instance56"]["BackgroundColor3"] = Color3.new(1, 1, 1);
+    objects["Instance56"]["TextColor3"] = Color3.new(1, 0.333333, 0.498039);
+    objects["Instance56"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance56"]["Text"] = "Warning";
+    objects["Instance56"]["LayoutOrder"] = 0;
+    objects["Instance56"]["TextWrapped"] = true;
+    objects["Instance56"]["Rotation"] = 0;
+    objects["Instance56"]["TextTransparency"] = 0;
+    objects["Instance56"]["Name"] = "Title";
+    objects["Instance56"]["TextXAlignment"] = Enum.TextXAlignment.Center;
+    objects["Instance56"]["ClipsDescendants"] = false;
+    objects["Instance56"]["MaxVisibleGraphemes"] = -1;
+    objects["Instance56"]["TextStrokeColor3"] = Color3.new(0.215686, 0.215686, 0.254902);
+    objects["Instance56"]["Selectable"] = false;
+
+    objects["Instance57"]["LayoutOrder"] = 0;
+    objects["Instance57"]["Active"] = false;
+    objects["Instance57"]["Parent"] = objects["Instance54"];
+    objects["Instance57"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance57"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance57"]["ZIndex"] = 2;
+    objects["Instance57"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance57"]["Size"] = UDim2.new(0.3330000042915344, 0, 0.17499999701976776, 0);
+    objects["Instance57"]["Draggable"] = false;
+    objects["Instance57"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance57"]["ClipsDescendants"] = false;
+    objects["Instance57"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance57"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance57"]["BackgroundTransparency"] = 1;
+    objects["Instance57"]["BorderSizePixel"] = 0;
+    objects["Instance57"]["Rotation"] = 0;
+    objects["Instance57"]["Transparency"] = 1;
+    objects["Instance57"]["Name"] = "Load";
+    objects["Instance57"]["SelectionOrder"] = 0;
+    objects["Instance57"]["Visible"] = true;
+    objects["Instance57"]["Selectable"] = false;
+    objects["Instance57"]["Position"] = UDim2.new(0, 0, 0.824999988079071, 0);
+    objects["Instance57"]["BackgroundColor3"] = Color3.new(1, 1, 1);
+
+    objects["Instance58"]["LayoutOrder"] = 0;
+    objects["Instance58"]["Active"] = false;
+    objects["Instance58"]["Parent"] = objects["Instance57"];
+    objects["Instance58"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+    objects["Instance58"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance58"]["ZIndex"] = 3;
+    objects["Instance58"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance58"]["Size"] = UDim2.new(0.8999999761581421, 0, 0.699999988079071, 0);
+    objects["Instance58"]["Draggable"] = false;
+    objects["Instance58"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance58"]["ClipsDescendants"] = false;
+    objects["Instance58"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance58"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance58"]["BackgroundTransparency"] = 0;
+    objects["Instance58"]["BorderSizePixel"] = 0;
+    objects["Instance58"]["Rotation"] = 0;
+    objects["Instance58"]["Transparency"] = 0;
+    objects["Instance58"]["Name"] = "Display";
+    objects["Instance58"]["SelectionOrder"] = 0;
+    objects["Instance58"]["Visible"] = true;
+    objects["Instance58"]["Selectable"] = false;
+    objects["Instance58"]["Position"] = UDim2.new(0.5, 0, 0.5, 0);
+    objects["Instance58"]["BackgroundColor3"] = Color3.new(0.156863, 0.156863, 0.254902);
+
+    objects["Instance59"]["Enabled"] = true;
+    objects["Instance59"]["Transparency"] = 0;
+    objects["Instance59"]["Name"] = "UIStroke";
+    objects["Instance59"]["LineJoinMode"] = Enum.LineJoinMode.Miter;
+    objects["Instance59"]["Parent"] = objects["Instance58"];
+    objects["Instance59"]["Thickness"] = 1;
+    objects["Instance59"]["Color"] = Color3.new(0.235294, 0.235294, 0.313726);
+    objects["Instance59"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Contextual;
+
+    objects["Instance60"]["LayoutOrder"] = 0;
+    objects["Instance60"]["Active"] = false;
+    objects["Instance60"]["Parent"] = objects["Instance58"];
+    objects["Instance60"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance60"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance60"]["ZIndex"] = 4;
+    objects["Instance60"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance60"]["Size"] = UDim2.new(0, 5, 1, 0);
+    objects["Instance60"]["Draggable"] = false;
+    objects["Instance60"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance60"]["ClipsDescendants"] = false;
+    objects["Instance60"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance60"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance60"]["BackgroundTransparency"] = 0;
+    objects["Instance60"]["BorderSizePixel"] = 0;
+    objects["Instance60"]["Rotation"] = 0;
+    objects["Instance60"]["Transparency"] = 0;
+    objects["Instance60"]["Name"] = "Type_BUTTON";
+    objects["Instance60"]["SelectionOrder"] = 0;
+    objects["Instance60"]["Visible"] = true;
+    objects["Instance60"]["Selectable"] = false;
+    objects["Instance60"]["Position"] = UDim2.new(0, 0, 0, 0);
+    objects["Instance60"]["BackgroundColor3"] = Color3.new(1, 0, 0.498039);
+
+    objects["Instance61"]["Visible"] = true;
+    objects["Instance61"]["FontSize"] = Enum.FontSize.Size14;
+    objects["Instance61"]["TextDirection"] = Enum.TextDirection.Auto;
+    objects["Instance61"]["Active"] = false;
+    objects["Instance61"]["TextStrokeTransparency"] = 1;
+    objects["Instance61"]["TextTruncate"] = Enum.TextTruncate.None;
+    objects["Instance61"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance61"]["ZIndex"] = 4;
+    objects["Instance61"]["BorderSizePixel"] = 0;
+    objects["Instance61"]["Draggable"] = false;
+    objects["Instance61"]["RichText"] = false;
+    objects["Instance61"]["Transparency"] = 1;
+    objects["Instance61"]["SelectionOrder"] = 0;
+    objects["Instance61"]["TextYAlignment"] = Enum.TextYAlignment.Center;
+    objects["Instance61"]["TextScaled"] = true;
+    objects["Instance61"]["TextWrap"] = true;
+    objects["Instance61"]["FontFace"] = Font.new("rbxasset://fonts/families/HighwayGothic.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false);
+    objects["Instance61"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance61"]["Parent"] = objects["Instance58"];
+    objects["Instance61"]["AnchorPoint"] = Vector2.new(0, 0.5);
+    objects["Instance61"]["TextSize"] = 14;
+    objects["Instance61"]["Position"] = UDim2.new(0.05000000074505806, 5, 0.5, 0);
+    objects["Instance61"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance61"]["Size"] = UDim2.new(0.8999999761581421, -5, 0.6000000238418579, 0);
+    objects["Instance61"]["BackgroundTransparency"] = 1;
+    objects["Instance61"]["LineHeight"] = 1;
+    objects["Instance61"]["BackgroundColor3"] = Color3.new(1, 1, 1);
+    objects["Instance61"]["TextColor3"] = Color3.new(1, 1, 1);
+    objects["Instance61"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance61"]["Text"] = "Load anyway";
+    objects["Instance61"]["LayoutOrder"] = 0;
+    objects["Instance61"]["TextWrapped"] = true;
+    objects["Instance61"]["Rotation"] = 0;
+    objects["Instance61"]["TextTransparency"] = 0;
+    objects["Instance61"]["Name"] = "RName";
+    objects["Instance61"]["TextXAlignment"] = Enum.TextXAlignment.Center;
+    objects["Instance61"]["ClipsDescendants"] = false;
+    objects["Instance61"]["MaxVisibleGraphemes"] = -1;
+    objects["Instance61"]["TextStrokeColor3"] = Color3.new(0, 0, 0);
+    objects["Instance61"]["Selectable"] = false;
+
+    objects["Instance62"]["Visible"] = true;
+    objects["Instance62"]["FontSize"] = Enum.FontSize.Size14;
+    objects["Instance62"]["TextDirection"] = Enum.TextDirection.Auto;
+    objects["Instance62"]["Active"] = true;
+    objects["Instance62"]["TextStrokeTransparency"] = 1;
+    objects["Instance62"]["TextTruncate"] = Enum.TextTruncate.None;
+    objects["Instance62"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance62"]["ZIndex"] = 3;
+    objects["Instance62"]["BorderSizePixel"] = 0;
+    objects["Instance62"]["Draggable"] = false;
+    objects["Instance62"]["RichText"] = false;
+    objects["Instance62"]["Modal"] = false;
+    objects["Instance62"]["AutoButtonColor"] = true;
+    objects["Instance62"]["Transparency"] = 1;
+    objects["Instance62"]["SelectionOrder"] = 0;
+    objects["Instance62"]["TextYAlignment"] = Enum.TextYAlignment.Center;
+    objects["Instance62"]["TextScaled"] = false;
+    objects["Instance62"]["TextWrap"] = false;
+    objects["Instance62"]["FontFace"] = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false);
+    objects["Instance62"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance62"]["Parent"] = objects["Instance57"];
+    objects["Instance62"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance62"]["Style"] = Enum.ButtonStyle.Custom;
+    objects["Instance62"]["Position"] = UDim2.new(0, 0, 0, 0);
+    objects["Instance62"]["BackgroundColor3"] = Color3.new(0.196078, 0.196078, 0.196078);
+    objects["Instance62"]["Selected"] = false;
+    objects["Instance62"]["TextSize"] = 14;
+    objects["Instance62"]["Size"] = UDim2.new(1, 0, 1, 0);
+    objects["Instance62"]["BackgroundTransparency"] = 1;
+    objects["Instance62"]["TextWrapped"] = false;
+    objects["Instance62"]["ClipsDescendants"] = false;
+    objects["Instance62"]["TextColor3"] = Color3.new(0, 0, 0);
+    objects["Instance62"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance62"]["Text"] = "";
+    objects["Instance62"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance62"]["LayoutOrder"] = 0;
+    objects["Instance62"]["Rotation"] = 0;
+    objects["Instance62"]["LineHeight"] = 1;
+    objects["Instance62"]["Name"] = "Button";
+    objects["Instance62"]["TextXAlignment"] = Enum.TextXAlignment.Center;
+    objects["Instance62"]["Selectable"] = true;
+    objects["Instance62"]["MaxVisibleGraphemes"] = -1;
+    objects["Instance62"]["TextStrokeColor3"] = Color3.new(0, 0, 0);
+    objects["Instance62"]["TextTransparency"] = 0;
+
+    objects["Instance63"]["LayoutOrder"] = 0;
+    objects["Instance63"]["Active"] = false;
+    objects["Instance63"]["Parent"] = objects["Instance54"];
+    objects["Instance63"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance63"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance63"]["ZIndex"] = 2;
+    objects["Instance63"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance63"]["Size"] = UDim2.new(0.3330000042915344, 0, 0.17499999701976776, 0);
+    objects["Instance63"]["Draggable"] = false;
+    objects["Instance63"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance63"]["ClipsDescendants"] = false;
+    objects["Instance63"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance63"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance63"]["BackgroundTransparency"] = 1;
+    objects["Instance63"]["BorderSizePixel"] = 0;
+    objects["Instance63"]["Rotation"] = 0;
+    objects["Instance63"]["Transparency"] = 1;
+    objects["Instance63"]["Name"] = "Exit";
+    objects["Instance63"]["SelectionOrder"] = 0;
+    objects["Instance63"]["Visible"] = true;
+    objects["Instance63"]["Selectable"] = false;
+    objects["Instance63"]["Position"] = UDim2.new(0.6660000085830688, 0, 0.824999988079071, 0);
+    objects["Instance63"]["BackgroundColor3"] = Color3.new(1, 1, 1);
+
+    objects["Instance64"]["LayoutOrder"] = 0;
+    objects["Instance64"]["Active"] = false;
+    objects["Instance64"]["Parent"] = objects["Instance63"];
+    objects["Instance64"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+    objects["Instance64"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance64"]["ZIndex"] = 3;
+    objects["Instance64"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance64"]["Size"] = UDim2.new(0.8999999761581421, 0, 0.699999988079071, 0);
+    objects["Instance64"]["Draggable"] = false;
+    objects["Instance64"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance64"]["ClipsDescendants"] = false;
+    objects["Instance64"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance64"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance64"]["BackgroundTransparency"] = 0;
+    objects["Instance64"]["BorderSizePixel"] = 0;
+    objects["Instance64"]["Rotation"] = 0;
+    objects["Instance64"]["Transparency"] = 0;
+    objects["Instance64"]["Name"] = "Display";
+    objects["Instance64"]["SelectionOrder"] = 0;
+    objects["Instance64"]["Visible"] = true;
+    objects["Instance64"]["Selectable"] = false;
+    objects["Instance64"]["Position"] = UDim2.new(0.5, 0, 0.5, 0);
+    objects["Instance64"]["BackgroundColor3"] = Color3.new(0.156863, 0.156863, 0.254902);
+
+    objects["Instance65"]["Enabled"] = true;
+    objects["Instance65"]["Transparency"] = 0;
+    objects["Instance65"]["Name"] = "UIStroke";
+    objects["Instance65"]["LineJoinMode"] = Enum.LineJoinMode.Miter;
+    objects["Instance65"]["Parent"] = objects["Instance64"];
+    objects["Instance65"]["Thickness"] = 1;
+    objects["Instance65"]["Color"] = Color3.new(0.235294, 0.235294, 0.313726);
+    objects["Instance65"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Contextual;
+
+    objects["Instance66"]["LayoutOrder"] = 0;
+    objects["Instance66"]["Active"] = false;
+    objects["Instance66"]["Parent"] = objects["Instance64"];
+    objects["Instance66"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance66"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance66"]["ZIndex"] = 4;
+    objects["Instance66"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance66"]["Size"] = UDim2.new(0, 5, 1, 0);
+    objects["Instance66"]["Draggable"] = false;
+    objects["Instance66"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance66"]["ClipsDescendants"] = false;
+    objects["Instance66"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance66"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance66"]["BackgroundTransparency"] = 0;
+    objects["Instance66"]["BorderSizePixel"] = 0;
+    objects["Instance66"]["Rotation"] = 0;
+    objects["Instance66"]["Transparency"] = 0;
+    objects["Instance66"]["Name"] = "Type_BUTTON";
+    objects["Instance66"]["SelectionOrder"] = 0;
+    objects["Instance66"]["Visible"] = true;
+    objects["Instance66"]["Selectable"] = false;
+    objects["Instance66"]["Position"] = UDim2.new(0, 0, 0, 0);
+    objects["Instance66"]["BackgroundColor3"] = Color3.new(0.333333, 1, 0.498039);
+
+    objects["Instance67"]["Visible"] = true;
+    objects["Instance67"]["FontSize"] = Enum.FontSize.Size14;
+    objects["Instance67"]["TextDirection"] = Enum.TextDirection.Auto;
+    objects["Instance67"]["Active"] = false;
+    objects["Instance67"]["TextStrokeTransparency"] = 1;
+    objects["Instance67"]["TextTruncate"] = Enum.TextTruncate.None;
+    objects["Instance67"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance67"]["ZIndex"] = 4;
+    objects["Instance67"]["BorderSizePixel"] = 0;
+    objects["Instance67"]["Draggable"] = false;
+    objects["Instance67"]["RichText"] = false;
+    objects["Instance67"]["Transparency"] = 1;
+    objects["Instance67"]["SelectionOrder"] = 0;
+    objects["Instance67"]["TextYAlignment"] = Enum.TextYAlignment.Center;
+    objects["Instance67"]["TextScaled"] = true;
+    objects["Instance67"]["TextWrap"] = true;
+    objects["Instance67"]["FontFace"] = Font.new("rbxasset://fonts/families/HighwayGothic.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false);
+    objects["Instance67"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance67"]["Parent"] = objects["Instance64"];
+    objects["Instance67"]["AnchorPoint"] = Vector2.new(0, 0.5);
+    objects["Instance67"]["TextSize"] = 14;
+    objects["Instance67"]["Position"] = UDim2.new(0.05000000074505806, 5, 0.5, 0);
+    objects["Instance67"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance67"]["Size"] = UDim2.new(0.8999999761581421, -5, 0.6000000238418579, 0);
+    objects["Instance67"]["BackgroundTransparency"] = 1;
+    objects["Instance67"]["LineHeight"] = 1;
+    objects["Instance67"]["BackgroundColor3"] = Color3.new(1, 1, 1);
+    objects["Instance67"]["TextColor3"] = Color3.new(1, 1, 1);
+    objects["Instance67"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance67"]["Text"] = "Exit";
+    objects["Instance67"]["LayoutOrder"] = 0;
+    objects["Instance67"]["TextWrapped"] = true;
+    objects["Instance67"]["Rotation"] = 0;
+    objects["Instance67"]["TextTransparency"] = 0;
+    objects["Instance67"]["Name"] = "RName";
+    objects["Instance67"]["TextXAlignment"] = Enum.TextXAlignment.Center;
+    objects["Instance67"]["ClipsDescendants"] = false;
+    objects["Instance67"]["MaxVisibleGraphemes"] = -1;
+    objects["Instance67"]["TextStrokeColor3"] = Color3.new(0, 0, 0);
+    objects["Instance67"]["Selectable"] = false;
+
+    objects["Instance68"]["Visible"] = true;
+    objects["Instance68"]["FontSize"] = Enum.FontSize.Size14;
+    objects["Instance68"]["TextDirection"] = Enum.TextDirection.Auto;
+    objects["Instance68"]["Active"] = true;
+    objects["Instance68"]["TextStrokeTransparency"] = 1;
+    objects["Instance68"]["TextTruncate"] = Enum.TextTruncate.None;
+    objects["Instance68"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance68"]["ZIndex"] = 3;
+    objects["Instance68"]["BorderSizePixel"] = 0;
+    objects["Instance68"]["Draggable"] = false;
+    objects["Instance68"]["RichText"] = false;
+    objects["Instance68"]["Modal"] = false;
+    objects["Instance68"]["AutoButtonColor"] = true;
+    objects["Instance68"]["Transparency"] = 1;
+    objects["Instance68"]["SelectionOrder"] = 0;
+    objects["Instance68"]["TextYAlignment"] = Enum.TextYAlignment.Center;
+    objects["Instance68"]["TextScaled"] = false;
+    objects["Instance68"]["TextWrap"] = false;
+    objects["Instance68"]["FontFace"] = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false);
+    objects["Instance68"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance68"]["Parent"] = objects["Instance63"];
+    objects["Instance68"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance68"]["Style"] = Enum.ButtonStyle.Custom;
+    objects["Instance68"]["Position"] = UDim2.new(0, 0, 0, 0);
+    objects["Instance68"]["BackgroundColor3"] = Color3.new(0.196078, 0.196078, 0.196078);
+    objects["Instance68"]["Selected"] = false;
+    objects["Instance68"]["TextSize"] = 14;
+    objects["Instance68"]["Size"] = UDim2.new(1, 0, 1, 0);
+    objects["Instance68"]["BackgroundTransparency"] = 1;
+    objects["Instance68"]["TextWrapped"] = false;
+    objects["Instance68"]["ClipsDescendants"] = false;
+    objects["Instance68"]["TextColor3"] = Color3.new(0, 0, 0);
+    objects["Instance68"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance68"]["Text"] = "";
+    objects["Instance68"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance68"]["LayoutOrder"] = 0;
+    objects["Instance68"]["Rotation"] = 0;
+    objects["Instance68"]["LineHeight"] = 1;
+    objects["Instance68"]["Name"] = "Button";
+    objects["Instance68"]["TextXAlignment"] = Enum.TextXAlignment.Center;
+    objects["Instance68"]["Selectable"] = true;
+    objects["Instance68"]["MaxVisibleGraphemes"] = -1;
+    objects["Instance68"]["TextStrokeColor3"] = Color3.new(0, 0, 0);
+    objects["Instance68"]["TextTransparency"] = 0;
+
+    objects["Instance69"]["Visible"] = true;
+    objects["Instance69"]["FontSize"] = Enum.FontSize.Size18;
+    objects["Instance69"]["TextDirection"] = Enum.TextDirection.Auto;
+    objects["Instance69"]["Active"] = false;
+    objects["Instance69"]["TextStrokeTransparency"] = 0;
+    objects["Instance69"]["TextTruncate"] = Enum.TextTruncate.None;
+    objects["Instance69"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance69"]["ZIndex"] = 2;
+    objects["Instance69"]["BorderSizePixel"] = 0;
+    objects["Instance69"]["Draggable"] = false;
+    objects["Instance69"]["RichText"] = false;
+    objects["Instance69"]["Transparency"] = 1;
+    objects["Instance69"]["SelectionOrder"] = 0;
+    objects["Instance69"]["TextYAlignment"] = Enum.TextYAlignment.Center;
+    objects["Instance69"]["TextScaled"] = false;
+    objects["Instance69"]["TextWrap"] = true;
+    objects["Instance69"]["FontFace"] = Font.new("rbxasset://fonts/families/HighwayGothic.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false);
+    objects["Instance69"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance69"]["Parent"] = objects["Instance54"];
+    objects["Instance69"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance69"]["TextSize"] = 16;
+    objects["Instance69"]["Position"] = UDim2.new(0.019999999552965164, 0, 0.20000000298023224, 0);
+    objects["Instance69"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance69"]["Size"] = UDim2.new(0.9599999785423279, 0, 0.5899999737739563, 0);
+    objects["Instance69"]["BackgroundTransparency"] = 1;
+    objects["Instance69"]["LineHeight"] = 1;
+    objects["Instance69"]["BackgroundColor3"] = Color3.new(1, 1, 1);
+    objects["Instance69"]["TextColor3"] = Color3.new(1, 1, 1);
+    objects["Instance69"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance69"]["Text"] = "PC exploits have become extremely unstable these days; Octo~Spy is a very powerful tool that logs EVERYTHING that happens - meaning that your executor may crash when you click \"Load anyway\"\n\nI recommend that you do not use your main account for exploiting, as you may get banned. Use this script at your own risk";
+    objects["Instance69"]["LayoutOrder"] = 0;
+    objects["Instance69"]["TextWrapped"] = true;
+    objects["Instance69"]["Rotation"] = 0;
+    objects["Instance69"]["TextTransparency"] = 0;
+    objects["Instance69"]["Name"] = "Text";
+    objects["Instance69"]["TextXAlignment"] = Enum.TextXAlignment.Center;
+    objects["Instance69"]["ClipsDescendants"] = false;
+    objects["Instance69"]["MaxVisibleGraphemes"] = -1;
+    objects["Instance69"]["TextStrokeColor3"] = Color3.new(0.215686, 0.215686, 0.254902);
+    objects["Instance69"]["Selectable"] = false;
+
+    objects["Instance70"]["LayoutOrder"] = 0;
+    objects["Instance70"]["Active"] = false;
+    objects["Instance70"]["Parent"] = objects["Instance54"];
+    objects["Instance70"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance70"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance70"]["ZIndex"] = 2;
+    objects["Instance70"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance70"]["Size"] = UDim2.new(0.3330000042915344, 0, 0.17499999701976776, 0);
+    objects["Instance70"]["Draggable"] = false;
+    objects["Instance70"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance70"]["ClipsDescendants"] = false;
+    objects["Instance70"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance70"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance70"]["BackgroundTransparency"] = 1;
+    objects["Instance70"]["BorderSizePixel"] = 0;
+    objects["Instance70"]["Rotation"] = 0;
+    objects["Instance70"]["Transparency"] = 1;
+    objects["Instance70"]["Name"] = "LoadSoft";
+    objects["Instance70"]["SelectionOrder"] = 0;
+    objects["Instance70"]["Visible"] = true;
+    objects["Instance70"]["Selectable"] = false;
+    objects["Instance70"]["Position"] = UDim2.new(0.3330000042915344, 0, 0.824999988079071, 0);
+    objects["Instance70"]["BackgroundColor3"] = Color3.new(1, 1, 1);
+
+    objects["Instance71"]["LayoutOrder"] = 0;
+    objects["Instance71"]["Active"] = false;
+    objects["Instance71"]["Parent"] = objects["Instance70"];
+    objects["Instance71"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+    objects["Instance71"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance71"]["ZIndex"] = 3;
+    objects["Instance71"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance71"]["Size"] = UDim2.new(0.8999999761581421, 0, 0.699999988079071, 0);
+    objects["Instance71"]["Draggable"] = false;
+    objects["Instance71"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance71"]["ClipsDescendants"] = false;
+    objects["Instance71"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance71"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance71"]["BackgroundTransparency"] = 0;
+    objects["Instance71"]["BorderSizePixel"] = 0;
+    objects["Instance71"]["Rotation"] = 0;
+    objects["Instance71"]["Transparency"] = 0;
+    objects["Instance71"]["Name"] = "Display";
+    objects["Instance71"]["SelectionOrder"] = 0;
+    objects["Instance71"]["Visible"] = true;
+    objects["Instance71"]["Selectable"] = false;
+    objects["Instance71"]["Position"] = UDim2.new(0.5, 0, 0.5, 0);
+    objects["Instance71"]["BackgroundColor3"] = Color3.new(0.156863, 0.156863, 0.254902);
+
+    objects["Instance72"]["Enabled"] = true;
+    objects["Instance72"]["Transparency"] = 0;
+    objects["Instance72"]["Name"] = "UIStroke";
+    objects["Instance72"]["LineJoinMode"] = Enum.LineJoinMode.Miter;
+    objects["Instance72"]["Parent"] = objects["Instance71"];
+    objects["Instance72"]["Thickness"] = 1;
+    objects["Instance72"]["Color"] = Color3.new(0.235294, 0.235294, 0.313726);
+    objects["Instance72"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Contextual;
+
+    objects["Instance73"]["LayoutOrder"] = 0;
+    objects["Instance73"]["Active"] = false;
+    objects["Instance73"]["Parent"] = objects["Instance71"];
+    objects["Instance73"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance73"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance73"]["ZIndex"] = 4;
+    objects["Instance73"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance73"]["Size"] = UDim2.new(0, 5, 1, 0);
+    objects["Instance73"]["Draggable"] = false;
+    objects["Instance73"]["Style"] = Enum.FrameStyle.Custom;
+    objects["Instance73"]["ClipsDescendants"] = false;
+    objects["Instance73"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance73"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance73"]["BackgroundTransparency"] = 0;
+    objects["Instance73"]["BorderSizePixel"] = 0;
+    objects["Instance73"]["Rotation"] = 0;
+    objects["Instance73"]["Transparency"] = 0;
+    objects["Instance73"]["Name"] = "Type_BUTTON";
+    objects["Instance73"]["SelectionOrder"] = 0;
+    objects["Instance73"]["Visible"] = true;
+    objects["Instance73"]["Selectable"] = false;
+    objects["Instance73"]["Position"] = UDim2.new(0, 0, 0, 0);
+    objects["Instance73"]["BackgroundColor3"] = Color3.new(1, 0.666667, 0.498039);
+
+    objects["Instance74"]["Visible"] = true;
+    objects["Instance74"]["FontSize"] = Enum.FontSize.Size14;
+    objects["Instance74"]["TextDirection"] = Enum.TextDirection.Auto;
+    objects["Instance74"]["Active"] = false;
+    objects["Instance74"]["TextStrokeTransparency"] = 1;
+    objects["Instance74"]["TextTruncate"] = Enum.TextTruncate.None;
+    objects["Instance74"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance74"]["ZIndex"] = 4;
+    objects["Instance74"]["BorderSizePixel"] = 0;
+    objects["Instance74"]["Draggable"] = false;
+    objects["Instance74"]["RichText"] = false;
+    objects["Instance74"]["Transparency"] = 1;
+    objects["Instance74"]["SelectionOrder"] = 0;
+    objects["Instance74"]["TextYAlignment"] = Enum.TextYAlignment.Center;
+    objects["Instance74"]["TextScaled"] = true;
+    objects["Instance74"]["TextWrap"] = true;
+    objects["Instance74"]["FontFace"] = Font.new("rbxasset://fonts/families/HighwayGothic.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false);
+    objects["Instance74"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance74"]["Parent"] = objects["Instance71"];
+    objects["Instance74"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance74"]["TextSize"] = 14;
+    objects["Instance74"]["Position"] = UDim2.new(0.05000000074505806, 5, 0, 0);
+    objects["Instance74"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance74"]["Size"] = UDim2.new(0.8999999761581421, -5, 0.6000000238418579, 0);
+    objects["Instance74"]["BackgroundTransparency"] = 1;
+    objects["Instance74"]["LineHeight"] = 1;
+    objects["Instance74"]["BackgroundColor3"] = Color3.new(1, 1, 1);
+    objects["Instance74"]["TextColor3"] = Color3.new(1, 1, 1);
+    objects["Instance74"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance74"]["Text"] = "Load safely";
+    objects["Instance74"]["LayoutOrder"] = 0;
+    objects["Instance74"]["TextWrapped"] = true;
+    objects["Instance74"]["Rotation"] = 0;
+    objects["Instance74"]["TextTransparency"] = 0;
+    objects["Instance74"]["Name"] = "RName";
+    objects["Instance74"]["TextXAlignment"] = Enum.TextXAlignment.Center;
+    objects["Instance74"]["ClipsDescendants"] = false;
+    objects["Instance74"]["MaxVisibleGraphemes"] = -1;
+    objects["Instance74"]["TextStrokeColor3"] = Color3.new(0, 0, 0);
+    objects["Instance74"]["Selectable"] = false;
+
+    objects["Instance75"]["Visible"] = true;
+    objects["Instance75"]["FontSize"] = Enum.FontSize.Size14;
+    objects["Instance75"]["TextDirection"] = Enum.TextDirection.Auto;
+    objects["Instance75"]["Active"] = false;
+    objects["Instance75"]["TextStrokeTransparency"] = 1;
+    objects["Instance75"]["TextTruncate"] = Enum.TextTruncate.None;
+    objects["Instance75"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance75"]["ZIndex"] = 4;
+    objects["Instance75"]["BorderSizePixel"] = 0;
+    objects["Instance75"]["Draggable"] = false;
+    objects["Instance75"]["RichText"] = false;
+    objects["Instance75"]["Transparency"] = 1;
+    objects["Instance75"]["SelectionOrder"] = 0;
+    objects["Instance75"]["TextYAlignment"] = Enum.TextYAlignment.Center;
+    objects["Instance75"]["TextScaled"] = true;
+    objects["Instance75"]["TextWrap"] = true;
+    objects["Instance75"]["FontFace"] = Font.new("rbxasset://fonts/families/HighwayGothic.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false);
+    objects["Instance75"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance75"]["Parent"] = objects["Instance71"];
+    objects["Instance75"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance75"]["TextSize"] = 14;
+    objects["Instance75"]["Position"] = UDim2.new(0, 5, 0.4000000059604645, 0);
+    objects["Instance75"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance75"]["Size"] = UDim2.new(1, -5, 0.6000000238418579, 0);
+    objects["Instance75"]["BackgroundTransparency"] = 1;
+    objects["Instance75"]["LineHeight"] = 1;
+    objects["Instance75"]["BackgroundColor3"] = Color3.new(1, 1, 1);
+    objects["Instance75"]["TextColor3"] = Color3.new(1, 1, 1);
+    objects["Instance75"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance75"]["Text"] = "(no Remote & Bindable Functions)";
+    objects["Instance75"]["LayoutOrder"] = 0;
+    objects["Instance75"]["TextWrapped"] = true;
+    objects["Instance75"]["Rotation"] = 0;
+    objects["Instance75"]["TextTransparency"] = 0;
+    objects["Instance75"]["Name"] = "Description";
+    objects["Instance75"]["TextXAlignment"] = Enum.TextXAlignment.Center;
+    objects["Instance75"]["ClipsDescendants"] = false;
+    objects["Instance75"]["MaxVisibleGraphemes"] = -1;
+    objects["Instance75"]["TextStrokeColor3"] = Color3.new(0, 0, 0);
+    objects["Instance75"]["Selectable"] = false;
+
+    objects["Instance76"]["Visible"] = true;
+    objects["Instance76"]["FontSize"] = Enum.FontSize.Size14;
+    objects["Instance76"]["TextDirection"] = Enum.TextDirection.Auto;
+    objects["Instance76"]["Active"] = true;
+    objects["Instance76"]["TextStrokeTransparency"] = 1;
+    objects["Instance76"]["TextTruncate"] = Enum.TextTruncate.None;
+    objects["Instance76"]["SizeConstraint"] = Enum.SizeConstraint.RelativeXY;
+    objects["Instance76"]["ZIndex"] = 3;
+    objects["Instance76"]["BorderSizePixel"] = 0;
+    objects["Instance76"]["Draggable"] = false;
+    objects["Instance76"]["RichText"] = false;
+    objects["Instance76"]["Modal"] = false;
+    objects["Instance76"]["AutoButtonColor"] = true;
+    objects["Instance76"]["Transparency"] = 1;
+    objects["Instance76"]["SelectionOrder"] = 0;
+    objects["Instance76"]["TextYAlignment"] = Enum.TextYAlignment.Center;
+    objects["Instance76"]["TextScaled"] = false;
+    objects["Instance76"]["TextWrap"] = false;
+    objects["Instance76"]["FontFace"] = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal, false);
+    objects["Instance76"]["BorderMode"] = Enum.BorderMode.Outline;
+    objects["Instance76"]["Parent"] = objects["Instance70"];
+    objects["Instance76"]["AnchorPoint"] = Vector2.new(0, 0);
+    objects["Instance76"]["Style"] = Enum.ButtonStyle.Custom;
+    objects["Instance76"]["Position"] = UDim2.new(0, 0, 0, 0);
+    objects["Instance76"]["BackgroundColor3"] = Color3.new(0.196078, 0.196078, 0.196078);
+    objects["Instance76"]["Selected"] = false;
+    objects["Instance76"]["TextSize"] = 14;
+    objects["Instance76"]["Size"] = UDim2.new(1, 0, 1, 0);
+    objects["Instance76"]["BackgroundTransparency"] = 1;
+    objects["Instance76"]["TextWrapped"] = false;
+    objects["Instance76"]["ClipsDescendants"] = false;
+    objects["Instance76"]["TextColor3"] = Color3.new(0, 0, 0);
+    objects["Instance76"]["BorderColor3"] = Color3.new(0, 0, 0);
+    objects["Instance76"]["Text"] = "";
+    objects["Instance76"]["AutomaticSize"] = Enum.AutomaticSize.None;
+    objects["Instance76"]["LayoutOrder"] = 0;
+    objects["Instance76"]["Rotation"] = 0;
+    objects["Instance76"]["LineHeight"] = 1;
+    objects["Instance76"]["Name"] = "Button";
+    objects["Instance76"]["TextXAlignment"] = Enum.TextXAlignment.Center;
+    objects["Instance76"]["Selectable"] = true;
+    objects["Instance76"]["MaxVisibleGraphemes"] = -1;
+    objects["Instance76"]["TextStrokeColor3"] = Color3.new(0, 0, 0);
+    objects["Instance76"]["TextTransparency"] = 0;
+end;
+
+-- Set modules
+local o_require = require; local require;
+local modules do
+    modules = {};
+    require = function(object)
+        if modules[object] then
+            return modules[object]();
+        end
+        return o_require(object);
+    end;
+
+    getfenv().require = require;
+
+    modules[objects["Instance2"]] = function()
+        local script = objects["Instance2"];
+local Lib = {}
 local function getFunc(name)
     return getfenv()[name]
 end
@@ -1446,7 +2310,7 @@ local ENV = {
     error=error,
 }
 local Main = {}
-local plr = game.Players.LocalPlayer
+local plr = game:GetService("Players").LocalPlayer
 Main.Mouse = plr and plr:GetMouse()
 local service = setmetatable({},{
     __index = function(self,name)
@@ -3342,11 +4206,32 @@ return function(textbox,env)
         end,
     })
 end
-end
+    end;
+end;
 
-moduleScripts[Instance4] = function()
-    local script = Instance4
-    local function normalize(str)
+-- Set scripts
+do
+    task.spawn(function() -- Instance1
+if not game:GetService("RunService"):IsClient() then return end
+local script = objects["Instance1"];
+local UI = script.Parent
+
+local topbar = UI.Window
+local notifs = UI.Notifications
+local notif = UI.PCNotification
+
+local view = topbar.WindowView
+local viewScale = view.Scale
+
+local logs = view.Logs
+local content = view.ContentView
+local codeBox = content.CodeBox
+local code
+
+local log = logs.Log
+log.Parent = nil
+
+local function normalize(str)
     return str:gsub("\n", "\\n"):gsub("\t", "\\t"):gsub("\r", "\\r"):gsub("\"", "\\\"")..""
 end
 
@@ -3354,7 +4239,7 @@ local childrenExist = {false, "a"}
 local function getPath(obj)
     if not obj then
         return "nil"
-    elseif obj == workspace.Parent or obj == game then --[[it is different in some exploits :pray: :sob:]]
+    elseif obj == workspace.Parent or obj == game then --[[it is different in some exploits :pray: :sob:, that's why i also use workspace.Parent]]
         return "game"
     elseif obj and not obj.Parent then
         local name = getfenv().getnilinstances and "getnilinstances" or getfenv().getnils and "getnils"
@@ -3362,21 +4247,21 @@ local function getPath(obj)
             return "(function() local function getNil(objType, objName)\n    for i,v in "..name.."() do\n        if v.ClassName == objClass and v.Name == objName then\n            "
                 .."return v\n        end\n    end\nend return getNil(\""..obj.ClassName.."\", \""..normalize(obj.Name).."\") end)()"
         else
-            return "nil[\""..normalize(obj.Name).."\"] --[[object is parented to nil; getnilinstances does not exist]]"
+            return "nil[\""..normalize(obj.Name).."\"] --[[ Object is parented to nil; getnilinstances does not exist in that exploit ]]"
         end
     end
-    
+
     local path = ""
     while true do
-        if obj.Parent == workspace.Parent then
+        if obj.Parent == game or obj.Parent == workspace.Parent then
             path = ":GetService(\""..obj.ClassName:gsub(" ", "").."\")"..path
         elseif not obj.Parent then
             path = "game"..path
-            return path
+            return path:gsub("game%:GetService%(%\"Workspace%\"%)", "workspace") .. ""
         else
             childrenExist[1] = false
             childrenExist[2] = "a"
-            
+
             for i,v in obj.Parent:GetChildren() do
                 if v and v ~= obj and v.Name == obj.Name then
                     childrenExist[1] = true
@@ -3394,15 +4279,15 @@ local function getPath(obj)
                 path = ":WaitForChild(\""..normalize(obj.Name).."\", 9e9)"..path
             end
         end
-        
+
         obj = obj.Parent
     end
 end
 
-local TableToString
+local tostr
 local ArgToString; ArgToString = function(arg)
     local type = typeof(arg)
-    
+
     if type == "Instance" then
         return getPath(arg)
     elseif type == "number" or type == "boolean" or type == "nil" or type == "EnumItem" then
@@ -3417,7 +4302,7 @@ local ArgToString; ArgToString = function(arg)
             return "function(...) return ... end --[[Unknown function: "..(not s and n or "Custom function").."]]"
         end
     elseif type == "table" then
-        return TableToString(arg)
+        return tostr(arg)
     elseif type == "CFrame" or type == "Vector2" or type == "Vector3" or type == "Color3" or type == "UDim" or type == "UDim2" then
         return type..".new("..tostring(arg):gsub("{", ""):gsub("}", "")..")"
     elseif type == "Color3" then
@@ -3425,9 +4310,9 @@ local ArgToString; ArgToString = function(arg)
     elseif type == "BrickColor" then
         return "BrickColor.new(\""..arg.Name.."\")"
     elseif type == "Font" then
-        return "Font.new(\""..arg.Family.."\", "..tostring(arg.Weight)..", "..tostring(arg.Style)..", "..tostring(arg.Bold).." --[[i'm not sure if \"Bold\" argument exist]])"
+        return "Font.new(\""..arg.Family.."\", "..tostring(arg.Weight)..", "..tostring(arg.Style)..")"
     elseif type == "ColorSequence" or type == "NumberSequence" then
-        return type..".new("..TableToString(arg.Keypoints)..")"
+        return type..".new("..tostr(arg.Keypoints)..")"
     elseif type == "ColorSequenceKeypoint" or type == "NumberSequenceKeypoint" then
         return type..".new("..arg.Time..", "..ArgToString(arg.Value)..(type == "NumberSequenceKeypoint" and ", "..arg.Envelope or "")..")"
     elseif type == "NumberRange" then
@@ -3437,61 +4322,29 @@ local ArgToString; ArgToString = function(arg)
     elseif type == "Enums" then
         return "Enum"
     else
-        return "--[[Unknown type: \""..type.."\"]] "..type..".new("..tostring(arg)..")"
+        return "--[[ Unknown type for ArgToString: \""..type.."\" ; Trying the awful method: type.new(tostring(arg)) ]] "..type..".new("..tostring(arg)..")"
     end
 end
 
-TableToString = function(tbl, ind)
+tostr = function(tbl, ind)
     if typeof(tbl) == "table" then
         ind = ind or 1
-        
+
         local gen = "{\n"
         for i,v in tbl do
-            gen = gen..string.rep("    ", ind).."["..TableToString(i, ind + 1).."] = "..TableToString(v, ind + 1)..";\n"
+            gen = gen..string.rep("    ", ind).."["..tostr(i, ind + 1).."] = "..tostr(v, ind + 1)..";\n"
         end
         if gen == "{\n" then
             gen = "{}"
         else
             gen = gen..string.rep("    ", ind - 1).."}"
         end
-        
+
         return gen
     else
         return ArgToString(tbl)
     end
 end
-
-return ArgToString
-end
-
-local oldRequire = getfenv().require
-getfenv().require = function(scr)
-    if typeof(scr) ~= "Instance" or (not scr:IsA("ModuleScript") and not moduleScripts[scr]) then return oldRequire(scr) end
-    if moduleScripts[scr] then
-        return moduleScripts[scr]()
-    else
-        return oldRequire(scr)
-    end
-end
-
-require = getfenv().require
-
-local thread; local func = function() --Instance2
-    local script = Instance2
-    local UI = script.Parent
-
-local topbar = UI.Window
-local notifs = UI.Notifications
-
-local view = topbar.WindowView
-
-local logs = view.Logs
-local content = view.ContentView
-
-local log = logs.Log
-
-local code = require(script.CodeBox)(content.CodeBox)
-local tostr = require(script.ArgToString)
 
 local tSize = topbar.Size
 local vSize = view.Size
@@ -3505,12 +4358,49 @@ local hooks = {}
 local ignore = {}
 local block = {}
 
-log.Parent = game.TextChatService
+log.Parent = nil
 topbar.Size = UDim2.fromScale(0,0)
 view.Size = UDim2.fromScale(1,0)
 topbar.Visible = false
-topbar["Draggable"] = true -- "..." cuz orange in studio
 notifs.NotificationBase.Visible = false
+
+local delta, dragInput
+local function makeDraggable(gui, xOnly, minX, maxX)
+    minX = tonumber(minX) or -math.huge
+    maxX = tonumber(maxX) or  math.huge
+
+    local dragging, dragStart, startPos, delta
+
+    cons[#cons+1] = gui.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging = true
+            dragStart = input.Position
+            startPos = gui.Position
+
+            cons[#cons+1] = input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragging = false
+                end
+            end)
+        end
+    end)
+
+    cons[#cons+1] = gui.InputChanged:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+            dragInput = input
+        end
+    end)
+
+    cons[#cons+1] = game:GetService("UserInputService").InputChanged:Connect(function(input)
+        if input == dragInput and dragging then
+            delta = input.Position - dragStart
+            gui:TweenPosition(UDim2.new(startPos.X.Scale, math.clamp(startPos.X.Offset + delta.X, minX, maxX), not xOnly and startPos.Y.Scale or 0, not xOnly and startPos.Y.Offset + delta.Y or 0), nil, nil, 0.3, true)
+            delta = nil
+        end
+    end)
+end
+
+makeDraggable(topbar)
 
 if not pcall(function()
         UI.Parent = game.CoreGui
@@ -3548,6 +4438,71 @@ local function colorButton(btn, hover, hoverCol, downCol)
     end)
 end
 
+colorButton(notif.Load.Display, notif.Load.Button, nil, Color3.new(0.6, 0.6, 0.8))
+colorButton(notif.Exit.Display, notif.Exit.Button, nil, Color3.new(0.6, 0.6, 0.8))
+colorButton(notif.LoadSoft.Display, notif.LoadSoft.Button, nil, Color3.new(0.6, 0.6, 0.8))
+
+local function close()
+    spyActive = false
+    logBindables = false
+    for i,v in cons do
+        v:Disconnect()
+    end
+    for i,v in hooks do
+        task.spawn(v)
+    end
+
+    notifs:TweenPosition(UDim2.fromScale(1,1), Enum.EasingDirection.In, Enum.EasingStyle.Sine, 1, true)
+    view:TweenSize(UDim2.fromScale(1,0), Enum.EasingDirection.In, Enum.EasingStyle.Sine, 0.4, true)
+    topbar:TweenSize(UDim2.fromScale(0,0), Enum.EasingDirection.In, Enum.EasingStyle.Sine, 0.4, true)
+    task.wait(0.245)
+    topbar.Parent:Destroy()
+    task.wait(1)
+    UI:Destroy()
+end
+
+local soft = false
+if not game:GetService("UserInputService").TouchEnabled and game:GetService("UserInputService").KeyboardEnabled and (getfenv().hookmetamethod and getfenv().getnamecallmethod or getfenv().getcallbackvalue or getfenv().hookfunction) then
+    notif.Visible = true
+    local done = false
+    local exit = false
+
+    notif.Load.Button.MouseButton1Click:Connect(function()
+        done = true
+
+        notif.Visible = false
+    end)
+    notif.LoadSoft.Button.MouseButton1Click:Connect(function()
+        done = true
+        soft = true
+
+        notif.Visible = false
+    end)
+    notif.Exit.Button.MouseButton1Click:Connect(function()
+        notif.Visible = false
+        
+        close()
+        UI:Destroy()
+        
+        done = true
+        exit = true
+    end)
+    
+    repeat task.wait() until done
+    if exit then
+        return
+    end
+end
+
+local newc = getfenv().newcclosure or function(a)
+    return a
+end
+local newl = function(a)
+    return function(...)
+        return a(...)
+    end
+end
+
 local selected
 local function addButton(text)
     local btn = content.ScrollingFrame.ButtonRow:Clone()
@@ -3581,18 +4536,14 @@ local function notification(text, title)
     notif:Destroy()
 end
 
-local titleTween1 = game.TweenService:Create(topbar.Title, TweenInfo.new(0.35), {TextColor3 = Color3.new(0.66, 1, 0.5)})
-local titleTween2 = game.TweenService:Create(topbar.Title, TweenInfo.new(0.35), {TextColor3 = topbar.Title.TextColor3 })
+local titleTween1 = game:GetService("TweenService"):Create(topbar.Title, TweenInfo.new(0.35), {TextColor3 = Color3.new(0.66, 1, 0.5)})
+local titleTween2 = game:GetService("TweenService"):Create(topbar.Title, TweenInfo.new(0.35), {TextColor3 = topbar.Title.TextColor3 })
 local hf = false
 if getfenv().hookfunction then
     local func = function()
         return "skibidi"
     end
-    getfenv().hookfunction(func, function()
-        return "toilet"
-    end)
-
-    if func() == "toilet" then
+    if getfenv().hookfunction(func, function() return "toilet" end)() == "skibidi" and func() == "toilet" then
         hf = true
     end
 end
@@ -3614,32 +4565,91 @@ if getfenv().firesignal then
     end
 end
 
+local cps = 0
+local activated = false
+local cd = false
+local times = 0
+local easterMessages = {
+    "Cool, you found an easter egg",
+    "Why did you click that again?",
+    "Again?",
+    "Stop, it hurts!",
+    "Please!!",
+    "AW!",
+    "Why you keep clicking???",
+    "You know what?",
+    "Uhh..",
+    "Idk",
+    "JUST STOP CLICKING ME!!!",
+    "STOP!",
+    "I SWEAR, IT IS PAINFUL",
+    "AND RUDE!",
+    "1 MORE TIME",
+    "AND I WILL NEVER RESPOND TO YOU",
+    "RAH",
+    "Alright, what do you need?",
+    "Oh yea, I forgot that you can't talk",
+    "Well",
+    "I beg",
+    "Please",
+    "Stop it",
+    "#########",
+    "I'm tired",
+    "Stop",
+    "You got it.",
+    "",
+    "",
+    ".",
+    "..",
+    "...",
+    "STOP IT!!!!!!!",
+    "|:",
+    "):",
+    "):<",
+    "D:<",
+    "Fuck you."
+}
+
 cons[#cons+1] = topbar.MouseEnter:Connect(function()
     titleTween1:Play()
 end)
 cons[#cons+1] = topbar.MouseLeave:Connect(function()
     titleTween2:Play()
 end)
+cons[#cons+1] = topbar.MouseButton1Click:Connect(function()
+    cps += 1
+
+    if cps > 3 and not cd then
+        cd = true
+        times += 1
+        cps = 0
+
+        task.spawn(notification, easterMessages[times] or easterMessages[#easterMessages], "Easter egg")
+
+        if not activated then
+            activated = true
+
+            titleTween1 = game:GetService("TweenService"):Create(topbar.Title, TweenInfo.new(0.35), {TextColor3 = Color3.new(0.75, 0.5, 0.75)})
+            titleTween2 = game:GetService("TweenService"):Create(topbar.Title, TweenInfo.new(0.35), {TextColor3 = Color3.new(0.25, 0.75, 0.5)})
+
+            titleTween1:Play()
+        end
+
+        repeat task.wait() until cps == 0
+        task.wait(0.5)
+
+        cd = false
+    end
+end)
+
+task.spawn(function()
+    while task.wait(1) and UI.Parent do
+        cps = 0
+    end
+end)
 
 colorButton(topbar.Close, nil, Color3.new(1, 0.25, 0.25))
-cons[#cons+1] = topbar.Close.MouseButton1Click:Connect(function()
-    spyActive = false
-    logBindables = false
-    for i,v in cons do
-        v:Disconnect()
-    end
-    for i,v in hooks do
-        task.spawn(v)
-    end
-
-    notifs:TweenPosition(UDim2.fromScale(1,1), Enum.EasingDirection.In, Enum.EasingStyle.Sine, 1, true)
-    view:TweenSize(UDim2.fromScale(1,0), Enum.EasingDirection.In, Enum.EasingStyle.Sine, 0.4, true)
-    topbar:TweenSize(UDim2.fromScale(0,0), Enum.EasingDirection.In, Enum.EasingStyle.Sine, 0.4, true)
-    task.wait(0.245)
-    topbar.Parent:Destroy()
-    task.wait(1)
-    UI:Destroy()
-end)
+cons[#cons+1] = topbar.Close.MouseButton1Click:Connect(close)
 local function updState1()
     local x = topbar.Toggle.State.ImageRectOffset.X == 32 and 48 or topbar.Toggle.State.ImageRectOffset.X == 48 and 112 or topbar.Toggle.State.ImageRectOffset.X == 112 and 32
 
@@ -3664,22 +4674,25 @@ local function updState2()
     logBindables = x == 208
     -- same here
 end
+
+if getfenv().hookmetamethod and getfenv().getnamecallmethod and getfenv().getnilinstances and getfenv().getinstances and hf and getfenv().getcallbackvalue and getfenv().firesignal then
+    task.spawn(notification, "That executor fully supports Octo~Spy (and possibly simple spy)", "Supported")
+else
+    task.spawn(notification, "That does not fully support Octo~Spy (simple spy probably wont work)", "Unsupported")
+end
+
 cons[#cons+1] = topbar.Toggle.MouseButton1Click:Connect(updState1)
 cons[#cons+1] = topbar.Toggle2.MouseButton1Click:Connect(updState2)
+cons[#cons+1] = topbar.Help.MouseButton1Click:Connect(function()
+    notification("Help button is coming soon!", "Coming soon")
+end)
 
 updState1()
 updState2()
 
 local offsetSize = logs.Size.X.Offset
-view.Scale["Draggable"] = true -- same
-cons[#cons+1] = view.Scale.Changed:Connect(function()
-    view.Scale.Position = UDim2.new(0, math.clamp(view.Scale.Position.X.Offset, 80, 350), 0, 0)
-    logs.Size = UDim2.new(0, view.Scale.Position.X.Offset, 1, -3)
-    offsetSize = logs.Size.X.Offset
 
-    content.Size = UDim2.new(1, -offsetSize - 3, 1, -3)
-    content.Position = UDim2.new(0, offsetSize + 3, 0, 3)
-end)
+makeDraggable(viewScale, true, 80, 350)
 
 local sizeDiv = 6
 
@@ -3698,7 +4711,7 @@ local function func(v, old, ...)
     log.Display.RName.TextColor3 = not block[v.Name] and not block[v] and Color3.new(1,1,1) or Color3.new(1, 0.5, 0.5)
     local msg
     if v.ClassName == "RemoteFunction" then
-        msg = "local args = "..args.."\n\ngetcallbackvalue("..tostr(v)..", \"OnClientInvoke\", unpack(args)) -- OnClientInvoke"
+        msg = "local args = "..args.."\n\ngetcallbackvalue("..tostr(v)..", \"OnClientInvoke\")(unpack(args)) -- OnClientInvoke"
     else
         msg = "local args = "..args.."\n\n"..tostr(v)..":Invoke(unpack(args)) -- OnInvoke"
     end
@@ -3713,22 +4726,6 @@ local function func(v, old, ...)
         return unpack(res)
     end
 end
-local function rf(v)
-    local cbval = getfenv().getcallbackvalue(v, v.ClassName == "RemoteFunction" and "OnClientInvoke" or "OnInvoke")
-    if cbval then
-        local old; old = getfenv().hookfunction(cbval, function(...)
-            if (v.ClassName == "BindableFunction" and logBindables or v.ClassName ~= "BindableFunction") and spyActive and not ignore[v.Name] and not ignore[v] then
-                return func(v, old, ...)
-            end
-
-            if block[v.Name] or block[v] then return end
-            return old(...)
-        end)
-        hooks[#hooks+1] = function()
-            getfenv().hookfunction(cbval, old)
-        end
-    end
-end
 
 local function remoteEvent(v, ...)
     if spyActive and not ignore[v.Name] and not ignore[v] then
@@ -3740,7 +4737,7 @@ local function remoteEvent(v, ...)
 
         local log = log:Clone()
         log.Visible = true
-        log.Display.Type.BackgroundColor3 = v:IsA("UnreliableRemoteEvent") and Color3.new(1, 0.66, 0) or Color3.new(1, 0.88, 0)
+        log.Display.Type.BackgroundColor3 = v.ClassName == "UnreliableRemoteEvent" and Color3.new(1, 0.66, 0) or Color3.new(1, 0.88, 0)
         log.Display.RName.Text = n
         log.Display.RName.TextColor3 = not block[v.Name] and not block[v] and Color3.new(1,1,1) or Color3.new(1, 0.5, 0.5)
 
@@ -3771,23 +4768,70 @@ local function bindableEvent(v, ...)
         table.insert(insertionQueue, {log, "From", "local args = "..args.."\n\n"..tostr(v)..":Fire(unpack(args)) -- Event", nil, v})
     end
 end
+
+local function rf(v)
+    local name = v.ClassName == "RemoteFunction" and "OnClientInvoke" or "OnInvoke"
+    local cbval = getfenv().getcallbackvalue(v, name)
+    if cbval then
+        local old; old = getfenv().hookfunction(cbval, newl(newc(function(...)
+            if (v.ClassName == "BindableFunction" and logBindables or v.ClassName ~= "BindableFunction") and spyActive and not ignore[v.Name] and not ignore[v] then
+                return func(v, old, ...)
+            end
+
+            if block[v.Name] or block[v] then return end
+            return old(...)
+        end)))
+        hooks[#hooks+1] = function()
+            getfenv().hookfunction(cbval, old)
+        end
+    end
+end
 local function main(v:Instance)
     if typeof(v) == "Instance" then
-        if v.ClassName == "RemoteEvent" or v:IsA("UnreliableRemoteEvent") then
+        if v.ClassName == "RemoteEvent" or v.ClassName == "UnreliableRemoteEvent" then
             cons[#cons+1] = v.OnClientEvent:Connect(function(...)
                 remoteEvent(v, ...)
             end)
-        elseif v.ClassName == "BindableEvent" then
-            cons[#cons+1] = v.Event:Connect(function(...)
-                bindableEvent(v, ...)
-            end)
-        elseif v.ClassName == "RemoteFunction" or v.ClassName == "BindableFunction" then
-            if getfenv().getcallbackvalue and hf then
-                pcall(rf, v)
+        elseif getfenv().getcallbackvalue and hf and v.ClassName == "RemoteFunction" and not soft then
+            local s,e = pcall(rf, v)
+            if not s then
+                --warn(e)
+            end
+        elseif not getfenv().hookmetamethod or not getfenv().hookfunction or not getfenv().getnamecallmethod then
+            if v.ClassName == "BindableEvent" then
+                cons[#cons+1] = v.Event:Connect(function(...)
+                    bindableEvent(v, ...)
+                end)
+            elseif getfenv().getcallbackvalue and hf and v.ClassName == "BindableFunction" and not soft then
+                local s,e = pcall(rf, v)
+                if not s then
+                    --warn(e)
+                end
             end
         end
     end
 end
+
+local enums = 0
+local enumCalls = 0
+
+local function enumerate(list)
+    enumCalls += 1
+    
+    for i,v in list do
+        task.spawn(main, v)
+        if i % 750 == 0 then
+            game:GetService("RunService").RenderStepped:Wait()
+        end
+    end
+    enums += 1
+end
+
+--task.spawn(enumerate, game:GetDescendants())
+task.spawn(enumerate, getfenv().getinstances and getfenv().getinstances() or game:GetDescendants())
+task.spawn(enumerate, getfenv().getnilinstances and getfenv().getnilinstances() or {})
+
+cons[#cons+1] = game.DescendantAdded:Connect(main)
 
 local obj = Instance.new("RemoteEvent")
 local fireServer = obj.FireServer
@@ -3806,17 +4850,17 @@ local invoke = obj.Invoke
 obj:Destroy()
 
 if hf then
-    local old; old = getfenv().hookfunction(fireServer, function(self, ...)
-        if typeof(self) ~= "Instance" or self.ClassName ~= "RemoteEvent" then
-            return old(self, ...)
+    local old; old = getfenv().hookfunction(fireServer, newc(function(...)
+        if typeof((...)) ~= "Instance" or (...).ClassName ~= "RemoteEvent" then
+            return old(...)
         end
         if not spyActive then
-            return not block[self] and not block[self.Name] and old(self, ...)
+            return not block[(...)] and not block[(...).Name] and old(...)
         end
 
-        if not ignore[self] and not ignore[self.Name] then
+        if not ignore[(...)] and not ignore[(...).Name] then
             local args = tostr{...}
-            local n = self.Name
+            local n = (...).Name
             if #n >= math.floor(offsetSize/sizeDiv) then
                 n = n:sub(0, math.floor(offsetSize/sizeDiv)).."..."
             end
@@ -3825,28 +4869,28 @@ if hf then
             log.Visible = true
             log.Display.Type.BackgroundColor3 = Color3.new(1, 0.66, 0)
             log.Display.RName.Text = n
-            log.Display.RName.TextColor3 = not block[self.Name] and not block[self] and Color3.new(1,1,1) or Color3.new(1, 0.5, 0.5)
+            log.Display.RName.TextColor3 = not block[(...).Name] and not block[(...)] and Color3.new(1,1,1) or Color3.new(1, 0.5, 0.5)
 
-            table.insert(insertionQueue, {log, "To", "local args = "..args.."\n\n"..tostr(self)..":FireServer(unpack(args))", nil, self})
+            table.insert(insertionQueue, {log, "To", "local args = "..args.."\n\n"..tostr((...))..":FireServer(unpack(args))", nil, (...)})
         end
 
-        if block[self.Name] or block[self] then return end
-        return old(self, ...)
-    end)
+        if block[(...).Name] or block[(...)] then return end
+        return old(...)
+    end))
     hooks[#hooks+1] = function()
         getfenv().hookfunction(fireServer, old)
     end
-    local old; old = getfenv().hookfunction(fireServer2, function(self, ...)
-        if typeof(self) ~= "Instance" or self.ClassName ~= "UnreliableRemoteEvent" then
-            return old(self, ...)
+    local old; old = getfenv().hookfunction(fireServer2, newc(function(...)
+        if typeof((...)) ~= "Instance" or (...).ClassName ~= "UnreliableRemoteEvent" then
+            return old(...)
         end
         if not spyActive then
-            return not block[self] and not block[self.Name] and old(self, ...)
+            return not block[(...)] and not block[(...).Name] and old(...)
         end
 
-        if not ignore[self] and not ignore[self.Name] then
+        if not ignore[(...)] and not ignore[(...).Name] then
             local args = tostr{...}
-            local n = self.Name
+            local n = (...).Name
             if #n >= math.floor(offsetSize/sizeDiv) then
                 n = n:sub(0, math.floor(offsetSize/sizeDiv)).."..."
             end
@@ -3855,28 +4899,28 @@ if hf then
             log.Visible = true
             log.Display.Type.BackgroundColor3 = Color3.new(1, 0.44, 0.22)
             log.Display.RName.Text = n
-            log.Display.RName.TextColor3 = not block[self.Name] and not block[self] and Color3.new(1,1,1) or Color3.new(1, 0.5, 0.5)
+            log.Display.RName.TextColor3 = not block[(...).Name] and not block[(...)] and Color3.new(1,1,1) or Color3.new(1, 0.5, 0.5)
 
-            table.insert(insertionQueue, {log, "To", "local args = "..args.."\n\n"..tostr(self)..":FireServer(unpack(args)) -- Unreliable FireServer", nil, self})
+            table.insert(insertionQueue, {log, "To", "local args = "..args.."\n\n"..tostr((...))..":FireServer(unpack(args)) -- Unreliable FireServer", nil, (...)})
         end
 
-        if block[self.Name] or block[self] then return end
-        return old(self, ...)
-    end)
+        if block[(...).Name] or block[(...)] then return end
+        return old(...)
+    end))
     hooks[#hooks+1] = function()
         getfenv().hookfunction(fireServer2, old)
     end
-    local old; old = getfenv().hookfunction(invokeServer, function(self, ...)
-        if typeof(self) ~= "Instance" or self.ClassName ~= "RemoteFunction" then
-            return old(self, ...)
+    local old; old = getfenv().hookfunction(invokeServer, newc(function(...)
+        if typeof((...)) ~= "Instance" or (...).ClassName ~= "RemoteFunction" then
+            return old(...)
         end
         if not spyActive then
-            return not block[self] and not block[self.Name] and old(self, ...)
+            return not block[(...)] and not block[(...).Name] and old(...)
         end
 
-        if not ignore[self] and not ignore[self.Name] then
+        if not ignore[(...)] and not ignore[(...).Name] then
             local args = tostr{...}
-            local n = self.Name
+            local n = (...).Name
             if #n >= math.floor(offsetSize/sizeDiv) then
                 n = n:sub(0, math.floor(offsetSize/sizeDiv)).."..."
             end
@@ -3885,42 +4929,42 @@ if hf then
             log.Visible = true
             log.Display.Type.BackgroundColor3 = Color3.new(0.77, 0.33, 1)
             log.Display.RName.Text = n
-            log.Display.RName.TextColor3 = not block[self.Name] and not block[self] and Color3.new(1,1,1) or Color3.new(1, 0.5, 0.5)
+            log.Display.RName.TextColor3 = not block[(...).Name] and not block[(...)] and Color3.new(1,1,1) or Color3.new(1, 0.5, 0.5)
 
-            local t = {log, "To", "local args = "..args.."\n\n"..tostr(self)..":InvokeServer(unpack(args))", nil, self}
+            local t = {log, "To", "local args = "..args.."\n\n"..tostr((...))..":InvokeServer(unpack(args))", nil, (...)}
             table.insert(insertionQueue, t)
 
-            if block[self.Name] or block[self] then return end
-            local res = {old(self, ...)}
+            if block[(...).Name] or block[(...)] then return end
+            local res = {old(...)}
             t[4] = res
 
             return unpack(res)
         end
 
-        if block[self.Name] or block[self] then return end
-        return old(self, ...)
-    end)
+        if block[(...).Name] or block[(...)] then return end
+        return old(...)
+    end))
     hooks[#hooks+1] = function()
         getfenv().hookfunction(invokeServer, old)
     end
     if getfenv().hookmetamethod and getfenv().getnamecallmethod then
-        local old; old = getfenv().hookfunction(fire, function(self, ...)
-            if typeof(self) ~= "Instance" or self.ClassName ~= "BindableEvent" then
-                return old(self, ...)
+        local old; old = getfenv().hookfunction(fire, newc(function(...)
+            if typeof((...)) ~= "Instance" or (...).ClassName ~= "BindableEvent" then
+                return old(...)
             end
-            bindableEvent(self, ...)
-            if block[self.Name] or block[self] then return end
-            return old(self, ...)
-        end)
+            bindableEvent(...)
+            if block[(...).Name] or block[(...)] then return end
+            return old(...)
+        end))
         hooks[#hooks+1] = function()
             getfenv().hookfunction(fire, old)
         end
-        local old; old = getfenv().hookfunction(invoke, function(self, ...)
-            if typeof(self) ~= "Instance" or self.ClassName ~= "BindableFunction" then
-                return old(self, ...)
+        local old; old = getfenv().hookfunction(invoke, newc(function(...)
+            if typeof((...)) ~= "Instance" or (...).ClassName ~= "BindableFunction" then
+                return old(...)
             end
-            return func(self, old, ...)
-        end)
+            return func(old, ...)
+        end))
         hooks[#hooks+1] = function()
             getfenv().hookfunction(invoke, old)
         end
@@ -3930,62 +4974,43 @@ end
 if getfenv().hookmetamethod and getfenv().getnamecallmethod and hf then
     local getnamecallmethod = getfenv().getnamecallmethod
 
-    local newcclosure = getfenv().newcclosure or function(...)
-        return ...
-    end
-    local old; old = getfenv().hookmetamethod(game, "__namecall", function(self, ...)
-        if typeof(self) ~= "Instance" then
-            return old(self, ...)
+    local old; old = getfenv().hookmetamethod(game, "__namecall", newc(function(...)
+        if typeof((...)) ~= "Instance" then
+            return old(...)
         end
 
         local method = getnamecallmethod()
-        if (method == "FireServer" or method == "fireServer") and self.ClassName == "RemoteEvent" then
-            return fireServer(self, ...)
-        elseif (method == "FireServer" or method == "fireServer") and self.ClassName == "UnreliableRemoteEvent" then
-            return fireServer2(self, ...)
-        elseif (method == "invokeServer" or method == "InvokeServer") and self.ClassName == "RemoteFunction" then
-            return invokeServer(self, ...)
-        elseif (method == "fire" or method == "Fire") and self.ClassName == "BindableEvent" then
-            return fire(self, ...)
-        elseif (method == "invoke" or method == "Invoke") and self.ClassName == "BindableFunction" then
-            return invoke(self, ...)
+        method = method:sub(1, 1):lower() .. method:sub(2)
+        
+        if method == "fireServer" and (...).ClassName == "RemoteEvent" then
+            return fireServer(...)
+        elseif method == "fireServer" and (...).ClassName == "UnreliableRemoteEvent" then
+            return fireServer2(...)
+        elseif method == "invokeServer" and (...).ClassName == "RemoteFunction" then
+            return invokeServer(...)
+        elseif method == "fire" and (...).ClassName == "BindableEvent" then
+            return fire(...)
+        elseif method == "invoke" and (...).ClassName == "BindableFunction" then
+            return invoke(...)
         end
 
-        return old(self, ...)
-    end)
+        return old(...)
+    end))
     hooks[#hooks+1] = function()
         getfenv().hookmetamethod(game, "__namecall", old)
     end
 end
 
-if not getfenv().hookmetamethod or not getfenv().hookfunction or not getfenv().getnamecallmethod then
-local GetDsc
-local function onIterate(c,v) -- doing a separate function to use less memory
-    v.Name = v.Name
-    c[#c+1] = v
-    GetDsc(v, c)
-end
-function GetDsc(obj, ct)
-    local c = ct or {}
-    for i,v in obj:GetChildren() do
-        pcall(onIterate,c,v)
-    end
-    return c
-end
-
-local function GetDescendants(obj)
-    local s,e = pcall(GetDsc, obj or game) -- same as on line 8
-    return s and e or {}
-end
-
-for i,v in GetDescendants() do
-    main(v)
-end
-end
 local id = 0
 
-cons[#cons+1] = game.DescendantAdded:Connect(main)
-cons[#cons+1] = game["Run Service"].RenderStepped:Connect(function()
+cons[#cons+1] = game:GetService("RunService").RenderStepped:Connect(function()
+    viewScale.Position = UDim2.fromOffset(math.clamp(viewScale.Position.X.Offset, 80, 350), 0)
+    logs.Size = UDim2.new(0, viewScale.Position.X.Offset, 1, -3)
+    offsetSize = logs.Size.X.Offset
+
+    content.Size = UDim2.new(1, -offsetSize - 3, 1, -3)
+    content.Position = UDim2.new(0, offsetSize + 3, 0, 3)
+
     while #insertionQueue > 0 do
         local obj = table.remove(insertionQueue)
         local log, part, content = obj[1], obj[2], obj[3]
@@ -4155,24 +5180,13 @@ task.spawn(function()
     topbar:TweenSize(tSize, Enum.EasingDirection.Out, Enum.EasingStyle.Sine, 0.4, true)
     task.wait(0.1)
     topbar.Visible = true
+
+    repeat task.wait() until enums == enumCalls
+
+    notification("Octo~Spy fully loaded!\nShould log everything now.", "Fully loaded")
 end)
 
+code = require(script:FindFirstChildOfClass("ModuleScript"))(content.CodeBox)
 code.Text = "Welcome to the OctoSpy!"
-end
-local function toggleState(enabled)
-    if enabled then
-        thread = coroutine.create(function() pcall(func) end)
-        coroutine.resume(thread)
-    else
-        if thread and coroutine.status(thread) ~= "dead" then
-            coroutine.close(thread)
-            thread = nil
-        end
-    end
-end
-toggleState(Instance2.Enabled); Instance2:GetPropertyChangedSignal("Disabled"):Connect(function()
-    toggleState(Instance2.Enabled)
-end)
--- Your code down below --
-
-local screenGui = Instance1
+    end);
+end;
