@@ -181,7 +181,7 @@ do -- Set properties
 	objects["Instance4"]["BackgroundColor3"] = Color3.new(1, 1, 1);
 	objects["Instance4"]["TextColor3"] = Color3.new(1, 0.333333, 0.498039);
 	objects["Instance4"]["BorderColor3"] = Color3.new(0, 0, 0);
-	objects["Instance4"]["Text"] = "Octo~Spy | v1.0.2a";
+	objects["Instance4"]["Text"] = "Octo~Spy | v1.0.2c";
 	objects["Instance4"]["LayoutOrder"] = 0;
 	objects["Instance4"]["TextWrapped"] = true;
 	objects["Instance4"]["Rotation"] = 0;
@@ -4348,6 +4348,7 @@ do
 		if not game:GetService("RunService"):IsClient() then return end
 		local script = objects["Instance1"];
 		local UI = script.Parent
+		UI.Name = game:GetService("HttpService"):GenerateGUID(false):gsub("-", ""):sub(math.random(1, 16))
 
 		local topbar = UI.Window
 		local notifs = UI.Notifications
@@ -4631,24 +4632,43 @@ do
 				},
 				{
 					"Load [Soft]",
-					Color3.fromRGB(255, 170, 127),
+					Color3.fromRGB(255, 85, 127),
 					function()
 						soft = true
 					end,
 					function()
 						notification("Soft mode provides more stable experience, but it won't log RemoteFunction.OnClientInvoke" .. ((not getfenv().hookmetamethod or not getfenv().getnamecallmethod) and " and BindableFunction.OnInvoke (because hookmetamethod not" .. (getfenv().hookmetamethod and " fully" or "") .. " supported)" or ""), "Mode")
-					end,
+					end
 				},
 				{
 					"Load [Legacy]",
-					Color3.fromRGB(85, 255, 127),
+					Color3.fromRGB(255, 170, 127),
 					function()
 						legacy = true
+						print("legacy")
 					end,
 					function()
 						notification("Legacy mode provides very stable experience, but won't log stuff, that came from server to client (.OnClientEvent is an example)", "Mode")
-					end,
-				}
+					end
+				},
+                {
+                    "Load Simple Spy",
+                    Color3.new(1, 1, 1),
+                    function()
+    				    notif.Visible = false
+
+				        close()
+				        UI:Destroy()
+
+				        done = true
+				        exit = true
+    
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/SimpleSpyV3/main.lua"))()
+                    end,
+					function()
+						notification("Will unload OctoSpy and load SimpleSpy", "Mode")
+					end
+                }
 			}
 
 			local currentMode = 1
@@ -4659,6 +4679,8 @@ do
 					modes[currentMode][4]()
 				end
 			end
+
+			setMode()
 
 			notif.Load.Button.MouseButton1Click:Connect(function()
 				done = true
@@ -4868,8 +4890,12 @@ do
 			topbar.Help.Position = topbar.Toggle2.Position
 		end
 
-		if getfenv().hookmetamethod and getfenv().getnamecallmethod and getfenv().getnilinstances and getfenv().getinstances and hf and getfenv().getcallbackvalue and getfenv().firesignal then
-			task.spawn(notification, "That executor fully supports Octo~Spy (and possibly simple spy)", "Supported")
+		if getfenv().hookmetamethod and getfenv().getnamecallmethod and hf then
+			if getfenv().getnilinstances and getfenv().getinstances and getfenv().firesignal and getfenv().getcallbackvalue then
+				task.spawn(notification, "That executor fully supports Octo~Spy (and simple spy)", "Supported")
+			else
+				task.spawn(notification, "That executor not fully supports Octo~Spy (but possibly supports simple spy)", "Supported")
+			end
 		else
 			task.spawn(notification, "That does not fully support Octo~Spy (simple spy probably wont work)", "Unsupported")
 		end
@@ -5006,7 +5032,10 @@ do
 		end
 
 		local enums = 0
+		local enumCalls = 0
 		local function enumerate(list)
+			enumCalls += 1
+
 			for i,v in list do
 				main(v)
 				if i % 750 == 0 then
@@ -5015,6 +5044,7 @@ do
 					task.wait()
 				end
 			end
+
 			enums += 1
 		end
 
@@ -5045,18 +5075,19 @@ do
 		local invoke = obj.Invoke
 		obj:Destroy()
 
-		if hf then
+		if hf and getfenv().hookmetamethod and getfenv().getnamecallmethod then
 			local old; old = getfenv().hookfunction(fireServer, newc(function(...)
-				if typeof((...)) ~= "Instance" or (...).ClassName ~= "RemoteEvent" then
+				local self = ...
+				if typeof(self) ~= "Instance" or self.ClassName ~= "RemoteEvent" then
 					return old(...)
 				end
 				if not spyActive then
-					return not block[(...)] and not block[(...).Name] and old(...)
+					return not block[self] and not block[self.Name] and old(...)
 				end
 
-				if not ignore[(...)] and not ignore[(...).Name] then
+				if not ignore[self] and not ignore[self.Name] then
 					local args = tostr{...}
-					local n = (...).Name
+					local n = self.Name
 					if #n >= math.floor(offsetSize/sizeDiv) then
 						n = n:sub(0, math.floor(offsetSize/sizeDiv)).."..."
 					end
@@ -5065,28 +5096,29 @@ do
 					log.Visible = true
 					log.Display.Type.BackgroundColor3 = Color3.new(1, 0.66, 0)
 					log.Display.RName.Text = n
-					log.Display.RName.TextColor3 = not block[(...).Name] and not block[(...)] and Color3.new(1,1,1) or Color3.new(1, 0.5, 0.5)
+					log.Display.RName.TextColor3 = not block[self.Name] and not block[self] and Color3.new(1,1,1) or Color3.new(1, 0.5, 0.5)
 
-					table.insert(insertionQueue, {log, "To", "local args = "..args.."\n\n"..tostr((...))..":FireServer(unpack(args))", nil, (...)})
+					table.insert(insertionQueue, {log, "To", "local args = "..args.."\n\n"..tostr(self)..":FireServer(unpack(args))", nil, self})
 				end
 
-				if block[(...).Name] or block[(...)] then return end
+				if block[self.Name] or block[self] then return end
 				return old(...)
 			end))
 			hooks[#hooks+1] = function()
 				getfenv().hookfunction(fireServer, old)
 			end
 			local old; old = getfenv().hookfunction(fireServer2, newc(function(...)
-				if typeof((...)) ~= "Instance" or (...).ClassName ~= "UnreliableRemoteEvent" then
+				local self = ...
+				if typeof(self) ~= "Instance" or self.ClassName ~= "UnreliableRemoteEvent" then
 					return old(...)
 				end
 				if not spyActive then
-					return not block[(...)] and not block[(...).Name] and old(...)
+					return not block[self] and not block[self.Name] and old(...)
 				end
 
-				if not ignore[(...)] and not ignore[(...).Name] then
+				if not ignore[self] and not ignore[self.Name] then
 					local args = tostr{...}
-					local n = (...).Name
+					local n = self.Name
 					if #n >= math.floor(offsetSize/sizeDiv) then
 						n = n:sub(0, math.floor(offsetSize/sizeDiv)).."..."
 					end
@@ -5095,28 +5127,29 @@ do
 					log.Visible = true
 					log.Display.Type.BackgroundColor3 = Color3.new(1, 0.44, 0.22)
 					log.Display.RName.Text = n
-					log.Display.RName.TextColor3 = not block[(...).Name] and not block[(...)] and Color3.new(1,1,1) or Color3.new(1, 0.5, 0.5)
+					log.Display.RName.TextColor3 = not block[self.Name] and not block[self] and Color3.new(1,1,1) or Color3.new(1, 0.5, 0.5)
 
-					table.insert(insertionQueue, {log, "To", "local args = "..args.."\n\n"..tostr((...))..":FireServer(unpack(args)) -- Unreliable FireServer", nil, (...)})
+					table.insert(insertionQueue, {log, "To", "local args = "..args.."\n\n"..tostr(self)..":FireServer(unpack(args)) -- Unreliable FireServer", nil, self})
 				end
 
-				if block[(...).Name] or block[(...)] then return end
+				if block[self.Name] or block[self] then return end
 				return old(...)
 			end))
 			hooks[#hooks+1] = function()
 				getfenv().hookfunction(fireServer2, old)
 			end
 			local old; old = getfenv().hookfunction(invokeServer, newc(function(...)
-				if typeof((...)) ~= "Instance" or (...).ClassName ~= "RemoteFunction" then
+				local self = ...
+				if typeof(self) ~= "Instance" or self.ClassName ~= "RemoteFunction" then
 					return old(...)
 				end
 				if not spyActive then
-					return not block[(...)] and not block[(...).Name] and old(...)
+					return not block[self] and not block[self.Name] and old(...)
 				end
 
-				if not ignore[(...)] and not ignore[(...).Name] then
+				if not ignore[self] and not ignore[self.Name] then
 					local args = tostr{...}
-					local n = (...).Name
+					local n = self.Name
 					if #n >= math.floor(offsetSize/sizeDiv) then
 						n = n:sub(0, math.floor(offsetSize/sizeDiv)).."..."
 					end
@@ -5125,45 +5158,45 @@ do
 					log.Visible = true
 					log.Display.Type.BackgroundColor3 = Color3.new(0.77, 0.33, 1)
 					log.Display.RName.Text = n
-					log.Display.RName.TextColor3 = not block[(...).Name] and not block[(...)] and Color3.new(1,1,1) or Color3.new(1, 0.5, 0.5)
+					log.Display.RName.TextColor3 = not block[self.Name] and not block[self] and Color3.new(1,1,1) or Color3.new(1, 0.5, 0.5)
 
-					local t = {log, "To", "local args = "..args.."\n\n"..tostr((...))..":InvokeServer(unpack(args))", nil, (...)}
+					local t = {log, "To", "local args = "..args.."\n\n"..tostr(self)..":InvokeServer(unpack(args))", nil, self}
 					table.insert(insertionQueue, t)
 
-					if block[(...).Name] or block[(...)] then return end
+					if block[self.Name] or block[self] then return end
 					local res = {old(...)}
 					t[4] = res
 
 					return unpack(res)
 				end
 
-				if block[(...).Name] or block[(...)] then return end
+				if block[self.Name] or block[self] then return end
 				return old(...)
 			end))
 			hooks[#hooks+1] = function()
 				getfenv().hookfunction(invokeServer, old)
 			end
-			if getfenv().hookmetamethod and getfenv().getnamecallmethod then
-				local old; old = getfenv().hookfunction(fire, newc(function(...)
-					if typeof((...)) ~= "Instance" or (...).ClassName ~= "BindableEvent" then
-						return old(...)
-					end
-					bindableEvent(...)
-					if block[(...).Name] or block[(...)] then return end
+			local old; old = getfenv().hookfunction(fire, newc(function(...)
+				local self = ...
+				if typeof(self) ~= "Instance" or self.ClassName ~= "BindableEvent" then
 					return old(...)
-				end))
-				hooks[#hooks+1] = function()
-					getfenv().hookfunction(fire, old)
 				end
-				local old; old = getfenv().hookfunction(invoke, newc(function(...)
-					if typeof((...)) ~= "Instance" or (...).ClassName ~= "BindableFunction" then
-						return old(...)
-					end
-					return func(old, ...)
-				end))
-				hooks[#hooks+1] = function()
-					getfenv().hookfunction(invoke, old)
+				bindableEvent(...)
+				if block[self.Name] or block[self] then return end
+				return old(...)
+			end))
+			hooks[#hooks+1] = function()
+				getfenv().hookfunction(fire, old)
+			end
+			local old; old = getfenv().hookfunction(invoke, newc(function(...)
+				local self = ...
+				if typeof(self) ~= "Instance" or self.ClassName ~= "BindableFunction" then
+					return old(...)
 				end
+				return func(old, ...)
+			end))
+			hooks[#hooks+1] = function()
+				getfenv().hookfunction(invoke, old)
 			end
 		end
 
@@ -5171,22 +5204,23 @@ do
 			local getnamecallmethod = getfenv().getnamecallmethod
 
 			local old; old = getfenv().hookmetamethod(game, "__namecall", newc(function(...)
-				if typeof((...)) ~= "Instance" then
+				local self = ...
+				if typeof(self) ~= "Instance" then
 					return old(...)
 				end
 
 				local method = getnamecallmethod()
 				method = method:sub(1, 1):lower() .. method:sub(2)
 
-				if method == "fireServer" and (...).ClassName == "RemoteEvent" then
+				if method == "fireServer" and self.ClassName == "RemoteEvent" then
 					return fireServer(...)
-				elseif method == "fireServer" and (...).ClassName == "UnreliableRemoteEvent" then
+				elseif method == "fireServer" and self.ClassName == "UnreliableRemoteEvent" then
 					return fireServer2(...)
-				elseif method == "invokeServer" and (...).ClassName == "RemoteFunction" then
+				elseif method == "invokeServer" and self.ClassName == "RemoteFunction" then
 					return invokeServer(...)
-				elseif method == "fire" and (...).ClassName == "BindableEvent" then
+				elseif method == "fire" and self.ClassName == "BindableEvent" then
 					return fire(...)
-				elseif method == "invoke" and (...).ClassName == "BindableFunction" then
+				elseif method == "invoke" and self.ClassName == "BindableFunction" then
 					return invoke(...)
 				end
 
@@ -5377,7 +5411,7 @@ do
 			task.wait(0.1)
 			topbar.Visible = true
 
-			repeat task.wait() until enums == 3
+			repeat task.wait() until enums == enumCalls
 
 			notification("Octo~Spy fully loaded!\nShould log everything now.", "Fully loaded")
 		end)
