@@ -181,7 +181,7 @@ do -- Set properties
 	objects["Instance4"]["BackgroundColor3"] = Color3.new(1, 1, 1);
 	objects["Instance4"]["TextColor3"] = Color3.new(1, 0.333333, 0.498039);
 	objects["Instance4"]["BorderColor3"] = Color3.new(0, 0, 0);
-	objects["Instance4"]["Text"] = "Octo~Spy | v1.0.2c";
+	objects["Instance4"]["Text"] = "Octo~Spy | v1.0.3e";
 	objects["Instance4"]["LayoutOrder"] = 0;
 	objects["Instance4"]["TextWrapped"] = true;
 	objects["Instance4"]["Rotation"] = 0;
@@ -4619,6 +4619,7 @@ do
 
 		local soft = false
 		local legacy = false
+		local eventListener = false
 
 		if not game:GetService("UserInputService").TouchEnabled and game:GetService("UserInputService").KeyboardEnabled and (getfenv().hookmetamethod and getfenv().getnamecallmethod or getfenv().getcallbackvalue or getfenv().hookfunction) then
 			notif.Visible = true
@@ -4638,37 +4639,36 @@ do
 					end,
 					function()
 						notification("Soft mode provides more stable experience, but it won't log RemoteFunction.OnClientInvoke" .. ((not getfenv().hookmetamethod or not getfenv().getnamecallmethod) and " and BindableFunction.OnInvoke (because hookmetamethod not" .. (getfenv().hookmetamethod and " fully" or "") .. " supported)" or ""), "Mode")
-					end
+					end,
 				},
 				{
 					"Load [Legacy]",
 					Color3.fromRGB(255, 170, 127),
 					function()
 						legacy = true
-						print("legacy")
 					end,
 					function()
 						notification("Legacy mode provides very stable experience, but won't log stuff, that came from server to client (.OnClientEvent is an example)", "Mode")
-					end
+					end,
 				},
-                {
-                    "Load Simple Spy",
-                    Color3.new(1, 1, 1),
-                    function()
-    				    notif.Visible = false
+				{
+					"Load SimpleSpy",
+					Color3.new(1, 1, 1),
+					function()
+						notif.Visible = false
 
-				        close()
-				        UI:Destroy()
+						close()
+						UI:Destroy()
 
-				        done = true
-				        exit = true
-    
-                        loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/SimpleSpyV3/main.lua"))()
-                    end,
+						done = true
+						exit = true
+
+						loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/SimpleSpyV3/main.lua"))()
+					end,
 					function()
 						notification("Will unload OctoSpy and load SimpleSpy", "Mode")
 					end
-                }
+				}
 			}
 
 			local currentMode = 1
@@ -4948,7 +4948,10 @@ do
 
 		local function remoteEvent(v, ...)
 			if spyActive and not ignore[v.Name] and not ignore[v] then
-				local args = tostr{...}
+				local args = { ... }
+				table.remove(args, 1) -- remove first argument, because it is "self"
+
+				args = tostr(args)
 				local n = v.Name
 				if #n >= math.floor(offsetSize/sizeDiv) then
 					n = n:sub(0, math.floor(offsetSize/sizeDiv)).."..."
@@ -4971,7 +4974,10 @@ do
 		end
 		local function bindableEvent(v, ...)
 			if spyActive and logBindables and not ignore[v.Name] and not ignore[v] then
-				local args = tostr{...}
+				local args = { ... }
+				table.remove(args, 1) -- remove first argument, because it is "self"
+
+				args = tostr(args)
 				local n = v.Name
 				if #n >= math.floor(offsetSize/sizeDiv) then
 					n = n:sub(0, math.floor(offsetSize/sizeDiv)).."..."
@@ -5086,7 +5092,10 @@ do
 				end
 
 				if not ignore[self] and not ignore[self.Name] then
-					local args = tostr{...}
+					local args = { ... }
+					table.remove(args, 1) -- remove first argument, because it is "self"
+
+					args = tostr(args)
 					local n = self.Name
 					if #n >= math.floor(offsetSize/sizeDiv) then
 						n = n:sub(0, math.floor(offsetSize/sizeDiv)).."..."
@@ -5117,7 +5126,10 @@ do
 				end
 
 				if not ignore[self] and not ignore[self.Name] then
-					local args = tostr{...}
+					local args = { ... }
+					table.remove(args, 1) -- remove first argument, because it is "self"
+
+					args = tostr(args)
 					local n = self.Name
 					if #n >= math.floor(offsetSize/sizeDiv) then
 						n = n:sub(0, math.floor(offsetSize/sizeDiv)).."..."
@@ -5148,7 +5160,10 @@ do
 				end
 
 				if not ignore[self] and not ignore[self.Name] then
-					local args = tostr{...}
+					local args = { ... }
+					table.remove(args, 1) -- remove first argument, because it is "self"
+
+					args = tostr(args)
 					local n = self.Name
 					if #n >= math.floor(offsetSize/sizeDiv) then
 						n = n:sub(0, math.floor(offsetSize/sizeDiv)).."..."
