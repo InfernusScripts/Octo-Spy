@@ -181,7 +181,7 @@ do -- Set properties
 	objects["Instance4"]["BackgroundColor3"] = Color3.new(1, 1, 1);
 	objects["Instance4"]["TextColor3"] = Color3.new(1, 0.333333, 0.498039);
 	objects["Instance4"]["BorderColor3"] = Color3.new(0, 0, 0);
-	objects["Instance4"]["Text"] = "Octo~Spy | v1.0.3e";
+	objects["Instance4"]["Text"] = "Octo~Spy | v1.0.5";
 	objects["Instance4"]["LayoutOrder"] = 0;
 	objects["Instance4"]["TextWrapped"] = true;
 	objects["Instance4"]["Rotation"] = 0;
@@ -2550,7 +2550,7 @@ local modules do
 		end
 		Lib.CheckMouseInGui = function(gui)
 			if gui == nil then return false end
-			Main.Mouse = plr and plr:GetMouse()
+			Main.Mouse = Main.Mouse or plr and plr:GetMouse()
 			local mouse = Main.Mouse
 			local guiPosition = gui.AbsolutePosition
 			local guiSize = gui.AbsoluteSize    
@@ -2663,7 +2663,7 @@ local modules do
 		Lib.ScrollBar = (function()
 			local funcs = {}
 			local user = service.UserInputService
-			local mouse = plr and plr:GetMouse()
+			local mouse = Main.Mouse or plr and plr:GetMouse()
 			local checkMouseInGui = Lib.CheckMouseInGui
 			local createArrow = Lib.CreateArrow
 
@@ -2783,14 +2783,14 @@ local modules do
 				--local thumbSelectColor = Color3.new(140/255,140/255,140/255)
 				button1.InputBegan:Connect(function(input)
 					if input.UserInputType == Enum.UserInputType.MouseMovement and not buttonPress and self:CanScrollUp() then button1.BackgroundTransparency = 0.8 end
-					if input.UserInputType ~= Enum.UserInputType.MouseButton1 or not self:CanScrollUp() then return end
+					if input.UserInputType ~= Enum.UserInputType.MouseButton1 and input.UserInputType ~= Enum.UserInputType.Touch or not self:CanScrollUp() then return end
 					buttonPress = true
 					button1.BackgroundTransparency = 0.5
 					if self:CanScrollUp() then self:ScrollUp() self.Scrolled:Fire() end
 					local buttonTick = tick()
 					local releaseEvent
 					releaseEvent = user.InputEnded:Connect(function(input)
-						if input.UserInputType ~= Enum.UserInputType.MouseButton1 then return end
+						if input.UserInputType ~= Enum.UserInputType.MouseButton1 and input.UserInputType ~= Enum.UserInputType.Touch then return end
 						releaseEvent:Disconnect()
 						if checkMouseInGui(button1) and self:CanScrollUp() then button1.BackgroundTransparency = 0.8 else button1.BackgroundTransparency = 1 end
 						buttonPress = false
@@ -2808,14 +2808,14 @@ local modules do
 				end)
 				button2.InputBegan:Connect(function(input)
 					if input.UserInputType == Enum.UserInputType.MouseMovement and not buttonPress and self:CanScrollDown() then button2.BackgroundTransparency = 0.8 end
-					if input.UserInputType ~= Enum.UserInputType.MouseButton1 or not self:CanScrollDown() then return end
+					if input.UserInputType ~= Enum.UserInputType.MouseButton1 and input.UserInputType ~= Enum.UserInputType.Touch or not self:CanScrollDown() then return end
 					buttonPress = true
 					button2.BackgroundTransparency = 0.5
 					if self:CanScrollDown() then self:ScrollDown() self.Scrolled:Fire() end
 					local buttonTick = tick()
 					local releaseEvent
 					releaseEvent = user.InputEnded:Connect(function(input)
-						if input.UserInputType ~= Enum.UserInputType.MouseButton1 then return end
+						if input.UserInputType ~= Enum.UserInputType.MouseButton1 and input.UserInputType ~= Enum.UserInputType.Touch then return end
 						releaseEvent:Disconnect()
 						if checkMouseInGui(button2) and self:CanScrollDown() then button2.BackgroundTransparency = 0.8 else button2.BackgroundTransparency = 1 end
 						buttonPress = false
@@ -2834,7 +2834,7 @@ local modules do
 
 				scrollThumb.InputBegan:Connect(function(input)
 					if input.UserInputType == Enum.UserInputType.MouseMovement and not thumbPress then scrollThumb.BackgroundTransparency = 0.2 scrollThumb.BackgroundColor3 = self.ThumbSelectColor end
-					if input.UserInputType ~= Enum.UserInputType.MouseButton1 then return end
+					if input.UserInputType ~= Enum.UserInputType.MouseButton1 and input.UserInputType ~= Enum.UserInputType.Touch then return end
 
 					local dir = self.Horizontal and "X" or "Y"
 					local lastThumbPos = nil
@@ -2848,7 +2848,7 @@ local modules do
 					local releaseEvent
 					local mouseEvent
 					releaseEvent = user.InputEnded:Connect(function(input)
-						if input.UserInputType ~= Enum.UserInputType.MouseButton1 then return end
+						if input.UserInputType ~= Enum.UserInputType.MouseButton1 and input.UserInputType ~= Enum.UserInputType.Touch then return end
 						releaseEvent:Disconnect()
 						if mouseEvent then mouseEvent:Disconnect() end
 						if checkMouseInGui(scrollThumb) then scrollThumb.BackgroundTransparency = 0.2 else scrollThumb.BackgroundTransparency = 0 scrollThumb.BackgroundColor3 = self.ThumbColor end
@@ -2877,7 +2877,7 @@ local modules do
 					if input.UserInputType == Enum.UserInputType.MouseMovement and not thumbPress then scrollThumb.BackgroundTransparency = 0 scrollThumb.BackgroundColor3 = self.ThumbColor end
 				end)
 				scrollThumbFrame.InputBegan:Connect(function(input)
-					if input.UserInputType ~= Enum.UserInputType.MouseButton1 or checkMouseInGui(scrollThumb) then return end
+					if input.UserInputType ~= Enum.UserInputType.MouseButton1 and input.UserInputType ~= Enum.UserInputType.Touch or checkMouseInGui(scrollThumb) then return end
 
 					local dir = self.Horizontal and "X" or "Y"
 					local scrollDir = 0
@@ -2900,7 +2900,7 @@ local modules do
 					local thumbFrameTick = tick()
 					local releaseEvent
 					releaseEvent = user.InputEnded:Connect(function(input)
-						if input.UserInputType ~= Enum.UserInputType.MouseButton1 then return end
+						if input.UserInputType ~= Enum.UserInputType.MouseButton1 and input.UserInputType ~= Enum.UserInputType.Touch then return end
 						releaseEvent:Disconnect()
 						thumbFramePress = false
 					end)
@@ -4620,6 +4620,7 @@ do
 		local soft = false
 		local legacy = false
 		local eventListener = false
+		local weakHooks = 0
 
 		if not game:GetService("UserInputService").TouchEnabled and game:GetService("UserInputService").KeyboardEnabled and (getfenv().hookmetamethod and getfenv().getnamecallmethod or getfenv().getcallbackvalue or getfenv().hookfunction) then
 			notif.Visible = true
@@ -4642,6 +4643,37 @@ do
 					end,
 				},
 				{
+					"Load [Weak hooks]",
+					Color3.fromRGB(85, 170, 127),
+					function()
+						weakHooks = 1
+					end,
+					function()
+						notification("Weak hooks mode will use WAY LESS hookfunction", "Mode")
+					end,
+				},
+				{
+					"Load [Weaker hooks]",
+					Color3.fromRGB(0, 170, 127),
+					function()
+						weakHooks = 2
+					end,
+					function()
+						notification("Weaker hooks mode won't use hookfunction at all", "Mode")
+					end,
+				},
+				{
+					"Load [Soft + Weaker hooks]",
+					Color3.fromRGB(85, 170, 0),
+					function()
+						soft = true
+						weakHooks = 2
+					end,
+					function()
+						notification("This one shouldn't crash", "Mode")
+					end,
+				},
+				{
 					"Load [Legacy]",
 					Color3.fromRGB(255, 170, 127),
 					function()
@@ -4649,6 +4681,29 @@ do
 					end,
 					function()
 						notification("Legacy mode provides very stable experience, but won't log stuff, that came from server to client (.OnClientEvent is an example)", "Mode")
+					end,
+				},
+				{
+					"Load [Legacy + Weaker hooks]",
+					Color3.fromRGB(0, 85, 0),
+					function()
+						weakHooks = 2
+						legacy = true
+					end,
+					function()
+						notification("A spy with ultra weak hooks", "Mode")
+					end,
+				},
+				{
+					"Load [Weakest]",
+					Color3.fromRGB(0, 0, 0),
+					function()
+						weakHooks = 2
+						legacy = true
+						soft = true
+					end,
+					function()
+						notification("Theres no way it can crash", "Mode")
 					end,
 				},
 				{
@@ -4660,7 +4715,6 @@ do
 						close()
 						UI:Destroy()
 
-						done = true
 						exit = true
 
 						loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/SimpleSpyV3/main.lua"))()
@@ -4746,7 +4800,7 @@ do
 		local titleTween1 = game:GetService("TweenService"):Create(topbar.Title, TweenInfo.new(0.35), {TextColor3 = Color3.new(0.66, 1, 0.5)})
 		local titleTween2 = game:GetService("TweenService"):Create(topbar.Title, TweenInfo.new(0.35), {TextColor3 = topbar.Title.TextColor3 })
 		local hf = false
-		if getfenv().hookfunction then
+		if getfenv().hookfunction then -- just for notificatin "your executor is supported"
 			local func = function()
 				return "skibidi"
 			end
@@ -4814,7 +4868,11 @@ do
 			"):",
 			"):<",
 			"D:<",
-			"Fuck you."
+			"Fuck you.",
+			"Really, stop it.",
+			"Please",
+			"Fine, keep clicking me, I won't say anything.",
+			"..."
 		}
 
 		cons[#cons+1] = topbar.MouseEnter:Connect(function()
@@ -4860,15 +4918,14 @@ do
 		local function updState1()
 			local x = topbar.Toggle.State.ImageRectOffset.X == 32 and 48 or topbar.Toggle.State.ImageRectOffset.X == 48 and 112 or topbar.Toggle.State.ImageRectOffset.X == 112 and 32
 
-			if x == 32 and (not getfenv().hookmetamethod or not getfenv().getnamecallmethod or not hf) then
+			if x == 32 and legacy then
 				x = 48
 			end
-			if x == 48 and legacy then
+			if x == 48 and (not getfenv().hookmetamethod or not getfenv().getnamecallmethod or not hf) then
 				x = 112
 			end
 
-			local y = x == 112 and 0 or 16
-			topbar.Toggle.State.ImageRectOffset = Vector2.new(x, y)
+			topbar.Toggle.State.ImageRectOffset = Vector2.new(x, x == 112 and 0 or 16)
 
 			logs.From:TweenPosition(UDim2.new(x == 48 and 0 or -1, 0, 0, -3), Enum.EasingDirection.InOut, Enum.EasingStyle.Sine, 0.4, true)
 			logs.To:TweenPosition(UDim2.new(x == 32 and 0 or -1, 0, 0, -3), Enum.EasingDirection.InOut, Enum.EasingStyle.Sine, 0.4, true)
@@ -4877,9 +4934,8 @@ do
 		end
 		local function updState2()
 			local x = topbar.Toggle2.State.ImageRectOffset.X == 112 and 208 or 112
-			local y = 0
 
-			topbar.Toggle2.State.ImageRectOffset = Vector2.new(x, y)
+			topbar.Toggle2.State.ImageRectOffset = Vector2.new(x, 0)
 
 			logBindables = x == 208
 			-- same here
@@ -4916,7 +4972,8 @@ do
 		local sizeDiv = 6
 
 		local function func(v, old, ...)
-			local args = tostr{...}
+			local args = { ... }
+			local args = tostr(args)
 			local n:string = v.Name
 			if #n >= math.floor(offsetSize/sizeDiv) then
 				n = n:sub(0, math.floor(offsetSize/sizeDiv)).."..."
@@ -4935,7 +4992,7 @@ do
 				msg = "local args = "..args.."\n\n"..tostr(v)..":Invoke(unpack(args)) -- OnInvoke"
 			end
 
-			local t = {log, "From", msg, nil, v}
+			local t = {log, "From", msg, nil, v, args, "Invoke"}
 			table.insert(insertionQueue, t)
 
 			if not block[v.Name] and not block[v] then
@@ -4969,7 +5026,7 @@ do
 				else
 					txt = txt.."-- "..tostr(v)
 				end
-				table.insert(insertionQueue, {log, "From", txt.." -- OnClientEvent", nil, v})
+				table.insert(insertionQueue, {log, "From", txt.." -- OnClientEvent", nil, v, args, "Run"})
 			end
 		end
 		local function bindableEvent(v, ...)
@@ -4990,14 +5047,14 @@ do
 				log.Display.FromServer.Visible = true
 				log.Display.RName.TextColor3 = not block[v.Name] and not block[v] and Color3.new(1,1,1) or Color3.new(1, 0.5, 0.5)
 
-				table.insert(insertionQueue, {log, "From", "local args = "..args.."\n\n"..tostr(v)..":Fire(unpack(args)) -- Event", nil, v})
+				table.insert(insertionQueue, {log, "From", "local args = "..args.."\n\n"..tostr(v)..":Fire(unpack(args)) -- Event", nil, v, args, "Fire"})
 			end
 		end
 
 		local function rf(v)
 			local name = v.ClassName == "RemoteFunction" and "OnClientInvoke" or "OnInvoke"
 			local cbval = getfenv().getcallbackvalue(v, name)
-			if cbval then
+			if cbval and weakHooks ~= 2 then
 				local old; old = getfenv().hookfunction(cbval, newl(newc(function(...) -- i'm doing newlclosure(newclosure(luaClose)) because for some reason it crashed without that
 					if (v.ClassName == "BindableFunction" and logBindables or v.ClassName ~= "BindableFunction") and spyActive and not ignore[v.Name] and not ignore[v] then
 						return func(v, old, ...)
@@ -5022,7 +5079,7 @@ do
 					if not s then
 						--warn(e)
 					end
-				elseif not getfenv().hookmetamethod or not getfenv().hookfunction or not getfenv().getnamecallmethod then
+				elseif not getfenv().hookmetamethod or not hf or not getfenv().getnamecallmethod then
 					if v.ClassName == "BindableEvent" then
 						cons[#cons+1] = v.Event:Connect(function(...)
 							bindableEvent(v, ...)
@@ -5081,137 +5138,140 @@ do
 		local invoke = obj.Invoke
 		obj:Destroy()
 
-		if hf and getfenv().hookmetamethod and getfenv().getnamecallmethod then
-			local old; old = getfenv().hookfunction(fireServer, newc(function(...)
-				local self = ...
-				if typeof(self) ~= "Instance" or self.ClassName ~= "RemoteEvent" then
-					return old(...)
+		local old1, old2, old3, old4, old5 = fireServer, fireServer2, invokeServer, fire, invoke
+		local fireServerHook, fireServer2Hook, invokeServerHook, fireHook, invokeHook = (newc(function(...)
+			local self = ...
+			if typeof(self) ~= "Instance" or self.ClassName ~= "RemoteEvent" then
+				return old1(...)
+			end
+			if not spyActive then
+				return not block[self] and not block[self.Name] and old1(...)
+			end
+
+			if not ignore[self] and not ignore[self.Name] then
+				local args = { ... }
+				table.remove(args, 1) -- remove first argument, because it is "self"
+
+				args = tostr(args)
+				local n = self.Name
+				if #n >= math.floor(offsetSize/sizeDiv) then
+					n = n:sub(0, math.floor(offsetSize/sizeDiv)).."..."
 				end
-				if not spyActive then
-					return not block[self] and not block[self.Name] and old(...)
+
+				local log = log:Clone()
+				log.Visible = true
+				log.Display.Type.BackgroundColor3 = Color3.new(1, 0.66, 0)
+				log.Display.RName.Text = n
+				log.Display.RName.TextColor3 = not block[self.Name] and not block[self] and Color3.new(1,1,1) or Color3.new(1, 0.5, 0.5)
+
+				table.insert(insertionQueue, {log, "To", "local args = "..args.."\n\n"..tostr(self)..":FireServer(unpack(args))", nil, self, args, "FireServer"})
+			end
+
+			if block[self.Name] or block[self] then return end
+			return old1(...)
+		end)), (newc(function(...)
+			local self = ...
+			if typeof(self) ~= "Instance" or self.ClassName ~= "UnreliableRemoteEvent" then
+				return old2(...)
+			end
+			if not spyActive then
+				return not block[self] and not block[self.Name] and old2(...)
+			end
+
+			if not ignore[self] and not ignore[self.Name] then
+				local args = { ... }
+				table.remove(args, 1) -- remove first argument, because it is "self"
+
+				args = tostr(args)
+				local n = self.Name
+				if #n >= math.floor(offsetSize/sizeDiv) then
+					n = n:sub(0, math.floor(offsetSize/sizeDiv)).."..."
 				end
 
-				if not ignore[self] and not ignore[self.Name] then
-					local args = { ... }
-					table.remove(args, 1) -- remove first argument, because it is "self"
+				local log = log:Clone()
+				log.Visible = true
+				log.Display.Type.BackgroundColor3 = Color3.new(1, 0.44, 0.22)
+				log.Display.RName.Text = n
+				log.Display.RName.TextColor3 = not block[self.Name] and not block[self] and Color3.new(1,1,1) or Color3.new(1, 0.5, 0.5)
 
-					args = tostr(args)
-					local n = self.Name
-					if #n >= math.floor(offsetSize/sizeDiv) then
-						n = n:sub(0, math.floor(offsetSize/sizeDiv)).."..."
-					end
+				table.insert(insertionQueue, {log, "To", "local args = "..args.."\n\n"..tostr(self)..":FireServer(unpack(args)) -- Unreliable FireServer", nil, self, args, "FireServer"})
+			end
 
-					local log = log:Clone()
-					log.Visible = true
-					log.Display.Type.BackgroundColor3 = Color3.new(1, 0.66, 0)
-					log.Display.RName.Text = n
-					log.Display.RName.TextColor3 = not block[self.Name] and not block[self] and Color3.new(1,1,1) or Color3.new(1, 0.5, 0.5)
+			if block[self.Name] or block[self] then return end
+			return old2(...)
+		end)), (newc(function(...)
+			local self = ...
+			if typeof(self) ~= "Instance" or self.ClassName ~= "RemoteFunction" then
+				return old3(...)
+			end
+			if not spyActive then
+				return not block[self] and not block[self.Name] and old3(...)
+			end
 
-					table.insert(insertionQueue, {log, "To", "local args = "..args.."\n\n"..tostr(self)..":FireServer(unpack(args))", nil, self})
+			if not ignore[self] and not ignore[self.Name] then
+				local args = { ... }
+				table.remove(args, 1) -- remove first argument, because it is "self"
+
+				args = tostr(args)
+				local n = self.Name
+				if #n >= math.floor(offsetSize/sizeDiv) then
+					n = n:sub(0, math.floor(offsetSize/sizeDiv)).."..."
 				end
+
+				local log = log:Clone()
+				log.Visible = true
+				log.Display.Type.BackgroundColor3 = Color3.new(0.77, 0.33, 1)
+				log.Display.RName.Text = n
+				log.Display.RName.TextColor3 = not block[self.Name] and not block[self] and Color3.new(1,1,1) or Color3.new(1, 0.5, 0.5)
+
+				local t = {log, "To", "local args = "..args.."\n\n"..tostr(self)..":InvokeServer(unpack(args))", nil, self, args, "InvokeServer"}
+				table.insert(insertionQueue, t)
 
 				if block[self.Name] or block[self] then return end
-				return old(...)
-			end))
-			hooks[#hooks+1] = function()
-				getfenv().hookfunction(fireServer, old)
+				local res = {old3(...)}
+				t[4] = res
+
+				return unpack(res)
 			end
-			local old; old = getfenv().hookfunction(fireServer2, newc(function(...)
-				local self = ...
-				if typeof(self) ~= "Instance" or self.ClassName ~= "UnreliableRemoteEvent" then
-					return old(...)
-				end
-				if not spyActive then
-					return not block[self] and not block[self.Name] and old(...)
-				end
 
-				if not ignore[self] and not ignore[self.Name] then
-					local args = { ... }
-					table.remove(args, 1) -- remove first argument, because it is "self"
-
-					args = tostr(args)
-					local n = self.Name
-					if #n >= math.floor(offsetSize/sizeDiv) then
-						n = n:sub(0, math.floor(offsetSize/sizeDiv)).."..."
-					end
-
-					local log = log:Clone()
-					log.Visible = true
-					log.Display.Type.BackgroundColor3 = Color3.new(1, 0.44, 0.22)
-					log.Display.RName.Text = n
-					log.Display.RName.TextColor3 = not block[self.Name] and not block[self] and Color3.new(1,1,1) or Color3.new(1, 0.5, 0.5)
-
-					table.insert(insertionQueue, {log, "To", "local args = "..args.."\n\n"..tostr(self)..":FireServer(unpack(args)) -- Unreliable FireServer", nil, self})
-				end
-
-				if block[self.Name] or block[self] then return end
-				return old(...)
-			end))
-			hooks[#hooks+1] = function()
-				getfenv().hookfunction(fireServer2, old)
+			if block[self.Name] or block[self] then return end
+			return old3(...)
+		end)), (newc(function(...)
+			local self = ...
+			if typeof(self) ~= "Instance" or self.ClassName ~= "BindableEvent" then
+				return old4(...)
 			end
-			local old; old = getfenv().hookfunction(invokeServer, newc(function(...)
-				local self = ...
-				if typeof(self) ~= "Instance" or self.ClassName ~= "RemoteFunction" then
-					return old(...)
-				end
-				if not spyActive then
-					return not block[self] and not block[self.Name] and old(...)
-				end
-
-				if not ignore[self] and not ignore[self.Name] then
-					local args = { ... }
-					table.remove(args, 1) -- remove first argument, because it is "self"
-
-					args = tostr(args)
-					local n = self.Name
-					if #n >= math.floor(offsetSize/sizeDiv) then
-						n = n:sub(0, math.floor(offsetSize/sizeDiv)).."..."
-					end
-
-					local log = log:Clone()
-					log.Visible = true
-					log.Display.Type.BackgroundColor3 = Color3.new(0.77, 0.33, 1)
-					log.Display.RName.Text = n
-					log.Display.RName.TextColor3 = not block[self.Name] and not block[self] and Color3.new(1,1,1) or Color3.new(1, 0.5, 0.5)
-
-					local t = {log, "To", "local args = "..args.."\n\n"..tostr(self)..":InvokeServer(unpack(args))", nil, self}
-					table.insert(insertionQueue, t)
-
-					if block[self.Name] or block[self] then return end
-					local res = {old(...)}
-					t[4] = res
-
-					return unpack(res)
-				end
-
-				if block[self.Name] or block[self] then return end
-				return old(...)
-			end))
-			hooks[#hooks+1] = function()
-				getfenv().hookfunction(invokeServer, old)
+			bindableEvent(...)
+			if block[self.Name] or block[self] then return end
+			return old4(...)
+		end)), (newc(function(...)
+			local self = ...
+			if typeof(self) ~= "Instance" or self.ClassName ~= "BindableFunction" then
+				return old5(...)
 			end
-			local old; old = getfenv().hookfunction(fire, newc(function(...)
-				local self = ...
-				if typeof(self) ~= "Instance" or self.ClassName ~= "BindableEvent" then
-					return old(...)
-				end
-				bindableEvent(...)
-				if block[self.Name] or block[self] then return end
-				return old(...)
-			end))
+			return func(old5, ...)
+		end))
+
+		if hf and getfenv().hookmetamethod and getfenv().getnamecallmethod and weakHooks < 2 then
+			old1 = getfenv().hookfunction(fireServer, fireServerHook)
 			hooks[#hooks+1] = function()
-				getfenv().hookfunction(fire, old)
+				getfenv().hookfunction(fireServer, old1)
 			end
-			local old; old = getfenv().hookfunction(invoke, newc(function(...)
-				local self = ...
-				if typeof(self) ~= "Instance" or self.ClassName ~= "BindableFunction" then
-					return old(...)
-				end
-				return func(old, ...)
-			end))
+			old2 = getfenv().hookfunction(fireServer2, fireServer2Hook)
 			hooks[#hooks+1] = function()
-				getfenv().hookfunction(invoke, old)
+				getfenv().hookfunction(fireServer2, old2)
+			end
+			old3 = getfenv().hookfunction(invokeServer, invokeServerHook)
+			hooks[#hooks+1] = function()
+				getfenv().hookfunction(invokeServer, old3)
+			end
+			old4 = getfenv().hookfunction(fire, fireHook)
+			hooks[#hooks+1] = function()
+				getfenv().hookfunction(fire, old4)
+			end
+			old5 = getfenv().hookfunction(invoke, invokeHook)
+			hooks[#hooks+1] = function()
+				getfenv().hookfunction(invoke, old5)
 			end
 		end
 
@@ -5228,15 +5288,15 @@ do
 				method = method:sub(1, 1):lower() .. method:sub(2)
 
 				if method == "fireServer" and self.ClassName == "RemoteEvent" then
-					return fireServer(...)
+					return fireServerHook(...)
 				elseif method == "fireServer" and self.ClassName == "UnreliableRemoteEvent" then
-					return fireServer2(...)
+					return fireServer2Hook(...)
 				elseif method == "invokeServer" and self.ClassName == "RemoteFunction" then
-					return invokeServer(...)
+					return invokeServerHook(...)
 				elseif method == "fire" and self.ClassName == "BindableEvent" then
-					return fire(...)
+					return fireHook(...)
 				elseif method == "invoke" and self.ClassName == "BindableFunction" then
-					return invoke(...)
+					return invokeHook(...)
 				end
 
 				return old(...)
@@ -5312,12 +5372,21 @@ do
 				return notification("Please, select a remote first!")
 			end
 
-			local s,e = loadstring(selected[3])
-			if s then
-				s()
-				notification("Ran the code!")
+			if selected[7] == "Run" then
+				local s,e = loadstring(selected[3])
+				if s then
+					s()
+					notification("Ran the code!")
+				else
+					notification(e, "Error")
+				end
 			else
-				notification(e, "Error")
+				local s,e = pcall(selected[5][selected[7]], selected[5], unpack(selected[6]))
+				if s then
+					notification("Ran the code!")
+				else
+					notification(e, "Error")
+				end
 			end
 		end)
 		cons[#cons+1] = addButton("Get result").MouseButton1Click:Connect(function()
@@ -5357,7 +5426,7 @@ do
 				return notification("Please, select a remote first!")
 			end
 
-			if (selected[3]:IsA("BindableEvent") or selected[3]:IsA("BindableFunction")) and (not getfenv().hookfunction or not getfenv().hookmetamethod or not getfenv().getnamecallmethod) then
+			if (selected[3]:IsA("BindableEvent") or selected[3]:IsA("BindableFunction")) and (not hf or not getfenv().hookmetamethod or not getfenv().getnamecallmethod) then
 				return notification("Unable to hook the bindable: missing hookfunction / hookmetamethod / getnamecallmethod")
 			end
 			block[selected[5]] = true
